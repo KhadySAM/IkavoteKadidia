@@ -1,0 +1,96 @@
+.container{
+    text-align: center;
+    margin-top: 10%;
+
+}
+
+/* .mescard{
+    background-color: white;
+    wi
+} */
+.right{
+    border-radius: 15px;
+    background-color: white;
+    padding: 1%;
+    
+}
+
+.searchBar{
+    display: flex;
+    justify-content: center;
+}
+.InputSearch{
+    margin-top: 10px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 30% 65%;
+    background-color: #D9D9D9;
+    
+}
+.InputSearch >svg{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 30%;
+}
+
+.InputSearch > input{
+    border: 0;
+    font-size: 20px;
+    font-family: cursive;
+    background-color: #D9D9D9;
+}
+
+.InputSearch >input:focus {
+    border: 0;
+}
+
+table{
+    margin-top: 15px;
+   
+   
+  }
+  
+  td{
+    font-family: myfon2;
+  }
+  th{
+    font-family: myfon2;
+    color: #ffff !important;
+      font-weight: 600;
+  }
+  thead{
+    background-color: #495579;
+  }
+
+  @media screen and (max-width: 900px) {
+    th{
+      font-size: medium;
+  
+    }
+    td{
+      font-size: small;
+    }
+  
+    
+  }
+  @media screen and (max-width: 450px) {
+    .buttonColor{
+      font-size: small;
+    }
+    .hideColonne{
+      display: none;
+    }
+    th{
+      font-size: medium;
+    }
+    td{
+      font-size: small;
+    }
+  
+  }

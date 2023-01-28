@@ -1,0 +1,58 @@
+.ad {
+    margin-top: 5px;
+    text-align: center;
+    background-color: #495579;
+
+    margin-top: 5px;
+    width: 180px;
+ 
+    color: black;
+}
+.sidebar li a:hover {
+    background-color: blue;
+
+   
+}
+.ad .name {
+    text-align: center;
+}
+
+div#sidebar {
+    background-color: #495579;
+    border: #495579;
+    border-style: solid;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  
+   
+}
+
+a {
+    margin-bottom: 62px;
+}
+
+.name {
+    color: #f6f9f7;
+}
+
+span.text.nav-text {
+    color: #f6f9f7;
+}
+
+
+.sidebar .li a {
+
+    background-color: white;
+}
+
+.image-text {
+    margin-bottom: 30px;
+}
+
+i {
+    color: white;
+}
+
+
