@@ -1,9 +1,12 @@
 .container{
     text-align: center;
-    margin-top: 4%;
+    margin-top: 15%;
 
 }
 
+.mescard{
+    background-color: #D9D9D9;
+}
 
 .right{
     border-radius: 15px;
