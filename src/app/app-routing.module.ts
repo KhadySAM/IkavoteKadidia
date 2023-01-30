@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ConnexionComponent } from './Pages/connexion/connexion.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { EvenementComponent } from './Pages/evenement/evenement.component';
 import { JuryComponent } from './Pages/jury/jury.component';
@@ -28,113 +29,128 @@ import { PopupUpdateProjetsComponent } from './Popup/PopupUpdate/popup-update-pr
 
 const routes: Routes = [
 
+  {path: 'connexion', component: ConnexionComponent},
+  {
+    path: '',
+    redirectTo: 'connexion',
+    pathMatch: 'full'
+  },
 
-  {
-    path:'dashboard',
+  {path: 'personnels', component: PersonnelsComponent},
+  
+
+  { 
+    path: "dashboard",
     component: DashboardComponent,
-  },
-  {
-    path:'personnel',
-    component: PersonnelsComponent
-  },
-  {
-    path:'pays',
-    component: PaysComponent
-  },
-  {
-    path:'typeauth',
-    component: TypeauthComponent
-  },
-  {
-    path:'projets',
-    component: ProjetsComponent
-  },
-  {
-    path:'evenement',
-    component: EvenementComponent
-  },
-  {
-    path:'jury',
-    component: JuryComponent
-  },
-  //1
-  {
-    path:'addauthentification',
-    component: PopupAddAuthentificationComponent
-  },
-  {
-    path:'updateauthentification',
-    component: PopupUpdateAuthentificationComponent
-  },
-  {
-    path:'deleteauthentification',
-    component: PopupDeleteAuthentificationComponent
-  },
-//2
-  {
-    path:'addpays',
-    component: PopupAddPaysComponent
-  },
-  {
-    path:'updatepays',
-    component: PopupUpdatePaysComponent
-  },
-  {
-    path:'deletepays',
-    component: PopupDeletePaysComponent
-  },
-//3
-  {
-    path:'addevenement',
-    component: PopupAddEvenementComponent
-  },
-  {
-    path:'updateevenement',
-    component: PopupUpdateEvenementComponent
-  },
-  {
-    path:'deleteevenement',
-    component: PopupDeleteEvenementComponent
-  },
-//4
-  {
-    path:'addapersonnels',
-    component: PopupAddPersonnelsComponent
-  },
-  {
-    path:'updatepersonnels',
-    component: PopupUpdatePersonnelsComponent
-  },
-  {
-    path:'deletepersonnels',
-    component:  PopupDeletePersonnelsComponent
-  },
-//5
-  {
-    path:'addajury',
-    component: PopupAddJuryComponent
-  },
-  {
-    path:'updatjury',
-    component: PopupUpdateJuryComponent
-  },
-  {
-    path:'deletejury',
-    component: PopupDeleteJuryComponent
-  },
-  //6
-  {
-    path:'addprojets',
-    component: PopupAddProjetsComponent
-  },
-  {
-    path:'updateprojets',
-    component: PopupUpdateProjetsComponent
-  },
-  {
-    path:'deleteprojets',
-    component: PopupDeleteProjetsComponent
-  },
+    children: [
+      {path: 'personnels', component: PersonnelsComponent},
+      {path: 'pays', component: PaysComponent},
+      {path: 'typeauth', component: TypeauthComponent}
+      
+      
+    ]
+  }, 
+
+  // {
+  //   path:'connexion',
+  //   component: ConnexionComponent
+  // },
+
+  // {
+  //   path:'dashboard',
+  //   component: DashboardComponent,
+  // },
+  
+  // {
+  //   path:'projets',
+  //   component: ProjetsComponent
+  // },
+  // {
+  //   path:'evenement',
+  //   component: EvenementComponent
+  // },
+  // {
+  //   path:'jury',
+  //   component: JuryComponent
+  // },
+  
+  // {
+  //   path:'addauthentification',
+  //   component: PopupAddAuthentificationComponent
+  // },
+  // {
+  //   path:'updateauthentification',
+  //   component: PopupUpdateAuthentificationComponent
+  // },
+  // {
+  //   path:'deleteauthentification',
+  //   component: PopupDeleteAuthentificationComponent
+  // },
+
+  // {
+  //   path:'addpays',
+  //   component: PopupAddPaysComponent
+  // },
+  // {
+  //   path:'updatepays',
+  //   component: PopupUpdatePaysComponent
+  // },
+  // {
+  //   path:'deletepays',
+  //   component: PopupDeletePaysComponent
+  // },
+
+  // {
+  //   path:'addevenement',
+  //   component: PopupAddEvenementComponent
+  // },
+  // {
+  //   path:'updateevenement',
+  //   component: PopupUpdateEvenementComponent
+  // },
+  // {
+  //   path:'deleteevenement',
+  //   component: PopupDeleteEvenementComponent
+  // },
+
+  // {
+  //   path:'addapersonnels',
+  //   component: PopupAddPersonnelsComponent
+  // },
+  // {
+  //   path:'updatepersonnels',
+  //   component: PopupUpdatePersonnelsComponent
+  // },
+  // {
+  //   path:'deletepersonnels',
+  //   component:  PopupDeletePersonnelsComponent
+  // },
+
+  // {
+  //   path:'addajury',
+  //   component: PopupAddJuryComponent
+  // },
+  // {
+  //   path:'updatjury',
+  //   component: PopupUpdateJuryComponent
+  // },
+  // {
+  //   path:'deletejury',
+  //   component: PopupDeleteJuryComponent
+  // },
+
+  // {
+  //   path:'addprojets',
+  //   component: PopupAddProjetsComponent
+  // },
+  // {
+  //   path:'updateprojets',
+  //   component: PopupUpdateProjetsComponent
+  // },
+  // {
+  //   path:'deleteprojets',
+  //   component: PopupDeleteProjetsComponent
+  // },
 ];
 
 @NgModule({

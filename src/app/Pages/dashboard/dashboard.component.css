@@ -1,7 +1,7 @@
 .ad {
     margin-top: 5px;
     text-align: center;
-    background-color: rebeccapurple;
+    /* background-color: rebeccapurple; */
 
   
     width: 180px;
@@ -9,7 +9,7 @@
     color: black;
 }
 .sidebar li a:hover {
-    background-color: blue;
+    background-color: #F58220;;
 
    
 }
@@ -18,8 +18,8 @@
 }
 
 div#sidebar {
-    background-color: #495579;
-    border: #495579;
+    background-color: #7F71B3;
+    border: #7F71B3;
     border-style: solid;
     position: fixed;
     top: 0;
@@ -56,3 +56,13 @@ i {
 }
 
 
+.sidebar{
+    
+    width: 14%;
+}
+
+.main-content{
+   
+    width: 86%;
+    margin-left: 14%;
+}

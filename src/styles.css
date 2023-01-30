@@ -256,10 +256,10 @@ body.dark .sidebar header .toggle {
     color: var(--sidebar-color);
 }
 
- /* .sidebar li a.active {
-     background-color: #30c420;
+ .sidebar li a.active {
+     background-color: #F58220;;
     color: white;
-}  */
+} 
 
 /* .sidebar .li a {
     background-color: #707070;

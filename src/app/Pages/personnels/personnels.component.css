@@ -4,6 +4,21 @@
 
 }
 
+button{
+  background-color: #F58220;
+  color: white;
+  width: 50%;
+  border: none;
+  height: 100%;
+  border-radius: 5px;
+}
+
+button:hover{
+
+  background-color:  white;
+  color: #F58220;
+  border: 2px solid #F58220;
+}
 
 .right{
     border-radius: 15px;
@@ -62,7 +77,7 @@ table{
       font-weight: 600;
   }
   thead{
-    background-color: #495579;
+    background-color: #7F71B3;
   }
 
   @media screen and (max-width: 900px) {

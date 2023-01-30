@@ -1,0 +1,31 @@
+
+.mybt{
+    background-color: #F58220;
+    color: white;
+    width: 50%;
+    border: none;
+    height: 100%;
+    border-radius: 5px;
+  }
+  
+.mybt:hover{
+  
+    background-color: #aa540af7;
+
+  }
+.btfn1{
+    background-color: rgb(236, 84, 84);
+    color: white;
+    width: auto;
+    border: none;
+    height: 100%;
+    border-radius: 5px;
+}
+.btfn2{
+  
+    color: white;
+    width: auto;
+    border: none;
+    height: 100%;
+    border-radius: 5px;
+}

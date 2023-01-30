@@ -6,7 +6,7 @@
                     <div class="image-text">
                         <span class="image"></span>
                         <div class="text logo-text ">
-                            <img src="../../assets/.png" alt="" style="width: 120px; height: 120px; margin-left: -35px;margin-top: 10%;">
+                            <img src="../../../assets/image/mylogo.png" alt="" style="width: 120px; height: 120px; margin-left: -35px;margin-top: 10%;">
                         </div>
                     </div>
                     <div class="ad">
@@ -17,35 +17,37 @@
                 <div class="menu-bar">
                     <div class="menu" style="margin-top: 50px;">
                         <li class="nav-link">
-                            <a href="#" routerLinkActive="active" routerLink="/personnel">
+                            <a href="#" routerLink="/dashboard/personnels" routerLinkActive="'active'" >
                             <i class="bi bi-house-door" ></i>
                             <span class="text nav-text" style="margin-left: 20px;">Personnels</span>
                             </a>
                         </li>
                         <li class="nav-link">
-                            <a href="#" routerLinkActive="active" routerLink="/pays">
+                            <a href="#" routerLinkActive="'active'" routerLink="/dashboard/pays">
                             <i class="bi bi-people" ></i>
                             <span class="text nav-text" style="margin-left: 20px;">Pays</span>
                             </a>
                         </li>
                         <li class="nav-link">
-                            <a href="#" routerLinkActive="active" routerLink="/typeauth">
+                            <a  
+                             routerLinkActive="'active'"
+                             routerLink="/dashboard/typeauth">
                             <i class="bi bi-heart-pulse"></i>
                             <span class="text nav-text" style="margin-left: 20px; ">Authentication</span>
                             </a>
-                        </li>
+                        <!-- </li>
                         <li class="nav-link">
-                            <a href="#" routerLinkActive="active" routerLink="/evenement">
+                            <a href="#" routerLinkActive="active" routerLink="/dashboard/evenements">
                             <i class="bi bi-heart-pulse"></i>
                             <span class="text nav-text" style="margin-left: 20px; ">Evénémments</span>
                             </a>
                         </li>
                         <li class="nav-link">
-                            <a href="#" routerLinkActive="active" routerLink="/jury">
+                            <a href="#" routerLinkActive="active" routerLink="/dashboard/jury">
                             <i class="bi bi-heart-pulse"></i>
                             <span class="text nav-text" style="margin-left: 20px; ">Jury</span>
                             </a>
-                        </li>
+                        </li> -->
                        
                     </div>
                     <div class="bottom-content">
@@ -58,7 +60,13 @@
                     </div>
                 </div>
             </nav>
+            
         </div>
+        <main>
+            <div class="main-content">
+                <router-outlet></router-outlet>
+              </div>
+        </main>
     </div>
 </div>
   

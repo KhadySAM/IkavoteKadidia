@@ -1,1 +1,65 @@
-<p>popup-add-personnels works!</p>
+<!-- Button trigger modal -->
+<div class="row">
+    <div class="col-md-6" >
+        
+        <button type="button" class="mybt" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+            </svg>
+        </button>
+    </div>
+    <div class="col-sm-6" >
+
+        <p>Ajouter Projet</p>
+    </div>
+</div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Ajoute d'une région</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form  action="">
+            <div>
+              <input class="form-control" type="text" placeholder="Nom d'utilisateur" formControlName="username">&nbsp;&nbsp;
+              <input class="form-control" type="mail" placeholder="Email" formControlName="email">&nbsp;&nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    Role
+                </div>
+                <div class="col-sm-3">
+                    <select>
+                        <option> Optin 1</option>
+                        <option> Optin 2</option>
+                        <option> Optin 3</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-3">
+                    Pays
+                </div>
+                <div class="col-sm-3">
+                    <select >
+                        <option> Mali</option>
+                        <option> Guinnée</option>
+                        <option> Burkina</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btfn1 btn-secondary" data-bs-dismiss="modal" >Fermer</button>
+              <button type="" class="btfn2 btn-primary">Enregistrer</button>
+            </div>
+            
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>

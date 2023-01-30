@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +30,8 @@ import { PopupDeleteEvenementComponent } from './Popup/PopupDelete/popup-delete-
 import { PopupDeletePersonnelsComponent } from './Popup/PopupDelete/popup-delete-personnels/popup-delete-personnels.component';
 import { PopupDeletePaysComponent } from './Popup/PopupDelete/popup-delete-pays/popup-delete-pays.component';
 import { PopupDeleteJuryComponent } from './Popup/PopupDelete/popup-delete-jury/popup-delete-jury.component';
+import { ConnexionComponent } from './Pages/connexion/connexion.component';
+
 
 @NgModule({
   declarations: [
@@ -56,11 +60,21 @@ import { PopupDeleteJuryComponent } from './Popup/PopupDelete/popup-delete-jury/
     PopupDeleteEvenementComponent,
     PopupDeletePersonnelsComponent,
     PopupDeletePaysComponent,
-    PopupDeleteJuryComponent
+    PopupDeleteJuryComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  
+   
+   
+    HttpClientModule,
+   
+    // Ng2SearchPipeModule,
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]
