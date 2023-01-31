@@ -8,6 +8,8 @@ import { PersonnelsService } from 'src/app/Services/personnels.service';
 })
 export class PersonnelsComponent implements OnInit {
 
+
+
   mesusers : any;
   mesadmin : any;
   p : number = 1;
@@ -18,9 +20,12 @@ export class PersonnelsComponent implements OnInit {
   ngOnInit(): void {
 
     this.servicepersonnels.getAll().subscribe(data => {
-      return this.mesusers = data
+      this.mesusers = data;
       console.log(this.mesusers);
-    });
+
+      });
+
+   
   
     
   }

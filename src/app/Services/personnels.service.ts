@@ -14,10 +14,12 @@ export class PersonnelsService {
 
   //affichage des users
 
-  public getAll() {
+  public getAll():Observable<any> {
     return this.http.get('http://localhost:8080/api/auth/getalluser');
     
   }
+
+  
 
   
 
