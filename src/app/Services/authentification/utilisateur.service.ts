@@ -19,7 +19,7 @@ export class UserService {
   }
   
   getJuryBoard(): Observable<any> {
-    return this.http.get(API_URL + 'livreur', { responseType: 'text' });
+    return this.http.get(API_URL + 'jury', { responseType: 'text' });
   }
 
   getAdminBoard(): Observable<any> {

@@ -1,9 +1,24 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from '../Models/personnels/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonnelsService {
 
-  constructor() { }
+
+  constructor( private http: HttpClient) { }
+
+
+  //affichage des users
+
+  public getAll() {
+    return this.http.get('http://localhost:8080/api/auth/getalluser');
+    
+  }
+
+  
+
 }
