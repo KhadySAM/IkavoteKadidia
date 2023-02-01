@@ -5,7 +5,7 @@
 }
 
 button{
-  background-color: #F58220;
+  background-color: #FF8E2E;;;
   color: white;
   width: 50%;
   border: none;
@@ -15,9 +15,8 @@ button{
 
 button:hover{
 
-  background-color:  white;
-  color: #F58220;
-  border: 2px solid #F58220;
+  background-color:  #7d4d23;;
+
 }
 
 .right{
@@ -77,7 +76,7 @@ table{
       font-weight: 600;
   }
   thead{
-    background-color: #7F71B3;
+    background-color: #0C85F8;
   }
 
   @media screen and (max-width: 900px) {

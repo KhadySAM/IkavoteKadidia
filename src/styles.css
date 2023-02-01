@@ -250,7 +250,7 @@ body.dark .sidebar header .toggle {
     /* height: 600px; */
 
 }
-
+@import "~bootstrap/dist/css/bootstrap.css";
 .sidebar .li a .ion,
 .sidebar .li a .text {
     color: var(--sidebar-color);

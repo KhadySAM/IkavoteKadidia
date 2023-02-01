@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { httpInterceptorProviders } from './_helpers/http.interceptor';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { PersonnelsComponent } from './Pages/personnels/personnels.component';
@@ -24,13 +23,14 @@ import { PopupUpdatePersonnelsComponent } from './Popup/PopupUpdate/popup-update
 import { PopupUpdateEvenementComponent } from './Popup/PopupUpdate/popup-update-evenement/popup-update-evenement.component';
 import { PopupUpdateProjetsComponent } from './Popup/PopupUpdate/popup-update-projets/popup-update-projets.component';
 import { PopupUpdateAuthentificationComponent } from './Popup/PopupUpdate/popup-update-authentification/popup-update-authentification.component';
-import { PopupDeleteAuthentificationComponent } from './Popup/PopupDelete/popup-delete-authentification/popup-delete-authentification.component';
-import { PopupDeleteProjetsComponent } from './Popup/PopupDelete/popup-delete-projets/popup-delete-projets.component';
-import { PopupDeleteEvenementComponent } from './Popup/PopupDelete/popup-delete-evenement/popup-delete-evenement.component';
-import { PopupDeletePersonnelsComponent } from './Popup/PopupDelete/popup-delete-personnels/popup-delete-personnels.component';
-import { PopupDeletePaysComponent } from './Popup/PopupDelete/popup-delete-pays/popup-delete-pays.component';
-import { PopupDeleteJuryComponent } from './Popup/PopupDelete/popup-delete-jury/popup-delete-jury.component';
 import { ConnexionComponent } from './Pages/connexion/connexion.component';
+import { DashboardadminComponent } from './Pages/dashboardadmin/dashboardadmin.component';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './Pages/login/login.component';
+
+
 
 
 @NgModule({
@@ -55,28 +55,19 @@ import { ConnexionComponent } from './Pages/connexion/connexion.component';
     PopupUpdateEvenementComponent,
     PopupUpdateProjetsComponent,
     PopupUpdateAuthentificationComponent,
-    PopupDeleteAuthentificationComponent,
-    PopupDeleteProjetsComponent,
-    PopupDeleteEvenementComponent,
-    PopupDeletePersonnelsComponent,
-    PopupDeletePaysComponent,
-    PopupDeleteJuryComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    DashboardadminComponent,
+    LoginComponent,
+ 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-  
-   
-   
-    HttpClientModule,
-   
-    // Ng2SearchPipeModule,
- 
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-<div class="container-fluid" style="overflow: hidden;">
+<!-- <div class="container-fluid" style="overflow: hidden;">
     <div class="row flex-nowrap">
         <div id="sidebar" class="col-auto sidebar  collapse collapse-horizontal show" style="height: 100vh;">
             <nav class="">
@@ -9,10 +9,13 @@
                             <img src="../../../assets/image/mylogo.png" alt="" style="width: 120px; height: 120px; margin-left: -35px;margin-top: 10%;">
                         </div>
                     </div>
-                    <div class="ad" >
-                        <h4 class="name">{{ username }}</h4>
-                        <h6 class="designation">{{ Role }}</h6>
+                    <div class="ad" *ngIf="currentUser; else loggedOut">
+                        <h4 class="name">{{ currentUser.username }}</h4>
+                        <h6 class="designation" *ngFor="let role of currentUser.roles">{{ role }}</h6>
                     </div>
+                    <ng-template #loggedOut>
+                        Please login.
+                      </ng-template>
                 </header>
                 <div class="menu-bar">
                     <div class="menu" style="margin-top: 50px;">
@@ -34,9 +37,22 @@
                              routerLink="/dashboard/typeauth">
                             <i class="bi bi-heart-pulse"></i>
                             <span class="text nav-text" style="margin-left: 20px; ">Authentication</span>
+                            </a> -->
+                        <!-- </li>
+                        <li class="nav-link">
+                            <a href="#" routerLinkActive="active" routerLink="/dashboard/evenements">
+                            <i class="bi bi-heart-pulse"></i>
+                            <span class="text nav-text" style="margin-left: 20px; ">Evénémments</span>
                             </a>
                         </li>
-                    </div>
+                        <li class="nav-link">
+                            <a href="#" routerLinkActive="active" routerLink="/dashboard/jury">
+                            <i class="bi bi-heart-pulse"></i>
+                            <span class="text nav-text" style="margin-left: 20px; ">Jury</span>
+                            </a>
+                        </li> -->
+                       
+                    <!-- </div>
                     <div class="bottom-content">
                         <li class="li">
                             <a href="/login">
@@ -47,6 +63,7 @@
                     </div>
                 </div>
             </nav>
+            
         </div>
         <main>
             <div class="main-content">
@@ -55,4 +72,4 @@
         </main>
     </div>
 </div>
-  
+   -->
