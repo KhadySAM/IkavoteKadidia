@@ -11,7 +11,7 @@ import { PaysService } from 'src/app/Services/pays.service';
 export class PopupAddPaysComponent implements OnInit {
 
   ObjetPays : PaysModel = {
-    id_pays: 0,
+   // id_pays: 0,
     nom: '',
     initiale:'',
     images:'',
@@ -36,42 +36,43 @@ export class PopupAddPaysComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.formulaire = this.formB.group({
+//     this.formulaire = this.formB.group({
      
-      nompays: ["", Validators.required],
-      file: ["", Validators.required],
-      initialepays: ["", Validators.required],
+//       nompays: ["", Validators.required],
+//       file: ["", Validators.required],
+//       initialepays: ["", Validators.required],
 
-})
+// })
 
-    console.log("Pays kadi :"+this.formulaire.value)
-}
+//     console.log("Pays kadi :"+this.formulaire.value)
+// }
 
 // ======================================= ICI ON AJOUTE UN PAYS ======================================
 
-fileChang(event: any) {
-  this.file = event.target.files[0]
-  console.log(event)
-}
+// fileChang(event: any) {
+//   this.file = event.target.files[0]
+//   console.log(event)
+// }
 
-CreerPays(){
-
-
-this.nomPays = this.formulaire.get("nompays")!.value;
-this.initialePays = this.formulaire.get("initialepays")!.value;
-this.images = this.formulaire!.get("file")!.value;
+// CreerPays(){
 
 
+// this.nomPays = this.formulaire.get("nompays")!.value;
+// this.initialePays = this.formulaire.get("initialepays")!.value;
+// this.images = this.formulaire!.get("file")!.value;
 
-console.log("ID: "+this.id_Pays+" Nom: " +this.nomPays+"Images: " +this.images+"Initiale: " +this.initialePays);
 
- this.paysService.PostPays(this.nomPays, this.initialePays, this.file).subscribe(
-  data =>{
-    const PaysEnregistrer = data
-    console.log("================="+PaysEnregistrer)
-  })
-}
+
+// console.log("ID: "+this.id_Pays+" Nom: " +this.nomPays+"Images: " +this.images+"Initiale: " +this.initialePays);
+
+//  this.paysService.PostPays(this.nomPays, this.initialePays, this.file).subscribe(
+//   data =>{
+//     const PaysEnregistrer = data
+//     console.log("================="+PaysEnregistrer)
+//   })
+// }
 
   }
+}
 
   

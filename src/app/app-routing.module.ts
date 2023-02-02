@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConnexionComponent } from './Pages/connexion/connexion.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { EvenementComponent } from './Pages/evenement/evenement.component';
 import { JuryComponent } from './Pages/jury/jury.component';

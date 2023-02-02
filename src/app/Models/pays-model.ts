@@ -1,8 +1,8 @@
 export class PaysModel {
-    id_pays: any;
-    nom?: string;
-    initiale?: string;
-    images?: string;
+   // id!: number;
+    nom!: string;
+    initiale!: string;
+    images!: string;
 }
 
 

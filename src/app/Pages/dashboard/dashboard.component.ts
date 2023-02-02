@@ -1,7 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, OnInit , Inject,  PLATFORM_ID } from '@angular/core';
-import { AuthService } from 'src/app/Services/authentification/auth.services'; 
-import { StorageService } from 'src/app/Services/authentification/stockage.service'; 
+import { AuthService } from 'src/app/Services/_services/auth.service'; 
+import { StorageService } from 'src/app/Services/_services/storage.service'; 
 
 
 @Component({
@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
 
   constructor( 
     @Inject(PLATFORM_ID) private platformId: object,
-    private storageService: StorageService, private authService: AuthService,
+    private storageService: StorageService, private authService:AuthService,
     ) {}
 
 
@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit {
     }
   }
   logout(): void {
-    this.authService.logout().subscribe({
+    this.authService.logout1().subscribe({
       next: res => {
         console.log(res);
         this.storageService.clean();
@@ -56,6 +56,8 @@ export class DashboardComponent implements OnInit {
         console.log(err);
       }
     });
+
+    
 
 
     if (isPlatformBrowser(this.platformId)) {

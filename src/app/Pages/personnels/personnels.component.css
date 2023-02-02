@@ -1,11 +1,23 @@
 .container{
-    text-align: center;
-    margin-top: 4%;
+  text-align: center;
+
+}
+.adp{
+  background-color: #0C85F8;
+  color: white;
+  width: 20%;
+  border: none;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.adp:hover{
+  background-color:  #264e73;
 
 }
 
 button{
-  background-color: #FF8E2E;;;
+  background-color: #0C85F8;
   color: white;
   width: 50%;
   border: none;
@@ -15,7 +27,7 @@ button{
 
 button:hover{
 
-  background-color:  #7d4d23;;
+  background-color:  #264e73;
 
 }
 
@@ -23,12 +35,14 @@ button:hover{
     border-radius: 15px;
     background-color: white;
     padding: 1%;
+    margin-top: 2%;
     
 }
 
 .searchBar{
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
 }
 .InputSearch{
     margin-top: 10px;

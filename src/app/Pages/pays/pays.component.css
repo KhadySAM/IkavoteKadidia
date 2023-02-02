@@ -1,20 +1,62 @@
 .container{
-    text-align: center;
-    margin-top:4%;
+  text-align: center;
+  
+}
+
+.adp{
+  background-color: #0C85F8;
+  color: white;
+  width: 20%;
+  border: none;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.adp:hover{
+  background-color:  #264e73;
 
 }
 
+.save{
+  background-color: rgb(56, 211, 56);
+  color: white;
+  width: 20%;
+  border: none;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.save:hover{
+ background-color: green;
+
+}
+
+.annuler{
+  background-color: rgb(225, 26, 26);
+  color: white;
+  width: 20%;
+  border: none;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.annuler:hover{
+ background-color: rgb(114, 23, 23);
+
+}
 
 .right{
     border-radius: 15px;
     background-color: white;
     padding: 1%;
+    margin-top: 2%;
     
 }
 
 .searchBar{
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 15%;
 }
 .InputSearch{
     margin-top: 10px;
@@ -62,7 +104,7 @@ table{
       font-weight: 600;
   }
   thead{
-    background-color: #7F71B3;
+    background-color: #0C85F8;
   }
 
   @media screen and (max-width: 900px) {

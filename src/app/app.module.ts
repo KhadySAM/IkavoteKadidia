@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { httpInterceptorProviders } from './_helpers/http.interceptor';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { PersonnelsComponent } from './Pages/personnels/personnels.component';
@@ -23,7 +24,6 @@ import { PopupUpdatePersonnelsComponent } from './Popup/PopupUpdate/popup-update
 import { PopupUpdateEvenementComponent } from './Popup/PopupUpdate/popup-update-evenement/popup-update-evenement.component';
 import { PopupUpdateProjetsComponent } from './Popup/PopupUpdate/popup-update-projets/popup-update-projets.component';
 import { PopupUpdateAuthentificationComponent } from './Popup/PopupUpdate/popup-update-authentification/popup-update-authentification.component';
-import { ConnexionComponent } from './Pages/connexion/connexion.component';
 import { DashboardadminComponent } from './Pages/dashboardadmin/dashboardadmin.component';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -55,7 +55,6 @@ import { LoginComponent } from './Pages/login/login.component';
     PopupUpdateEvenementComponent,
     PopupUpdateProjetsComponent,
     PopupUpdateAuthentificationComponent,
-    ConnexionComponent,
     DashboardadminComponent,
     LoginComponent,
  
@@ -65,7 +64,9 @@ import { LoginComponent } from './Pages/login/login.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

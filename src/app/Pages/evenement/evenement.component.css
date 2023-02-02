@@ -6,6 +6,12 @@
     
 }
 
+.searchBar{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
 .mycard{
     display: flex;
     flex-direction: column;
@@ -64,10 +70,7 @@
     
 }
 
-.searchBar{
-    display: flex;
-    justify-content: center;
-}
+
 .InputSearch{
     margin-top: 10px;
     width: 40%;

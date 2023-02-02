@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JuryComponent implements OnInit {
 
+  p : number = 1;
+  userFilter : any={user: ''};
+
   constructor() { }
 
   ngOnInit(): void {

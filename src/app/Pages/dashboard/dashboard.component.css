@@ -1,17 +1,11 @@
 .ad {
     margin-top: 5px;
     text-align: center;
-    /* background-color: rebeccapurple; */
-
-  
     width: 180px;
- 
     color: white;
 }
 .sidebar li a:hover {
     background-color: #F58220;;
-
-   
 }
 .ad .name {
     text-align: center;

@@ -9,11 +9,10 @@ import { PersonnelsService } from 'src/app/Services/personnels.service';
 export class PersonnelsComponent implements OnInit {
 
 
-
   mesusers : any;
   mesadmin : any;
   p : number = 1;
-  userFilter : any={uti: ''};
+  userFilter : any={user: ''};
 
   constructor(private servicepersonnels : PersonnelsService) { }
 

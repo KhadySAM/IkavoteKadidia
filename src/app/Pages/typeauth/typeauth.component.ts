@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TypesauthService } from 'src/app/Services/typesauth.service';
 
 @Component({
   selector: 'app-typeauth',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TypeauthComponent implements OnInit {
 
-  constructor() { }
+  mesTypesAuth : any;
+  p : number = 1;
+  userFilter : any={user: ''};
+
+  constructor(private serviceAuth: TypesauthService) { }
 
   ngOnInit(): void {
-  }
 
+    this.serviceAuth.getAllTypeAuth().subscribe(data =>{
+      this.mesTypesAuth = data;
+      console.log(this.mesTypesAuth);
+    })
+  }
 }

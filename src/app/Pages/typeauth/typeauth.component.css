@@ -1,6 +1,34 @@
 .container{
     text-align: center;
-    margin-top: 15%;
+
+}
+
+button{
+  background-color: #0C85F8;
+  color: white;
+  width: 20%;
+  border: none;
+  height: 100%;
+  border-radius: 5px;
+}
+
+button:hover{
+
+  background-color:  #264e73;
+
+}
+
+.adp{
+  background-color: #0C85F8;
+  color: white;
+  width: 20%;
+  border: none;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.adp:hover{
+  background-color:  #264e73;
 
 }
 
@@ -12,12 +40,14 @@
     border-radius: 15px;
     background-color: white;
     padding: 1%;
+    margin-top: 2%;
     
 }
 
 .searchBar{
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 15%;
 }
 .InputSearch{
     margin-top: 10px;
@@ -65,7 +95,7 @@ table{
       font-weight: 600;
   }
   thead{
-    background-color: #495579;
+    background-color: #0C85F8;
   }
 
   @media screen and (max-width: 900px) {
