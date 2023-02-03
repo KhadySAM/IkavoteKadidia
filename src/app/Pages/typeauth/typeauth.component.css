@@ -3,7 +3,7 @@
 
 }
 
-button{
+/* button{
   background-color: #0C85F8;
   color: white;
   width: 20%;
@@ -16,7 +16,7 @@ button:hover{
 
   background-color:  #264e73;
 
-}
+} */
 
 .adp{
   background-color: #0C85F8;
@@ -29,6 +29,34 @@ button:hover{
 
 .adp:hover{
   background-color:  #264e73;
+
+}
+
+.save{
+  background-color: rgb(56, 211, 56);
+  color: white;
+  width: 20%;
+  border: none;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.save:hover{
+ background-color: green;
+
+}
+
+.annuler{
+  background-color: rgb(225, 26, 26);
+  color: white;
+  width: 20%;
+  border: none;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.annuler:hover{
+ background-color: rgb(114, 23, 23);
 
 }
 

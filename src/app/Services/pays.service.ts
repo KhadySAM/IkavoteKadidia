@@ -25,10 +25,17 @@ AjouterPays(pays: PaysModel, file:any):Observable<any>{
 
   data.append("initiale", pays.initiale);
   data.append("nom", pays.nom);
-  
   data.append("file",file)
   
   return this.http.post(`http://localhost:8080/api/auth/ajoutpays`,data);
 }
+
+// ========================================= suprimer un pays ====================
+
+url="http://localhost:8080/api/auth/supprime"
+  public deletePaysById(id:number) {
+    return this.http.delete(`${this.url}/${id}`);
+    
+  }
 
 }

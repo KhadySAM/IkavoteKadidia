@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PaysModel } from 'src/app/Models/pays-model';
 import { PaysService } from 'src/app/Services/pays.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-pays',
@@ -18,7 +19,6 @@ export class PaysComponent implements OnInit {
 
   //add pays
   ObjetsPays : PaysModel = {
-   // id: 0,
     nom: '',
     initiale: '',
     images: '',
@@ -33,7 +33,6 @@ export class PaysComponent implements OnInit {
   nomPays: any;
   images: any;
   initialePays: any;
-  
   id_Pays: any;
  
 
@@ -66,41 +65,43 @@ fileChang(event: any) {
   console.log(event)
 }
 
-
-
-
 CreerPays(){
-
-
   this.ObjetsPays = this.formulaire.value
-
   this.paysService.AjouterPays(this.ObjetsPays, this.file).subscribe(
     data =>{
       this.ObjetsPays = data
     },
     err => console.log(err)
   )
-
-
-
-// this.nomPays = this.formulaire!.get("nompays")!.value;
-// this.images = this.formulaire!.get("file")!.value;
-// this.initialePays = this.formulaire!.get("initialepays")!.value;
-
-
-
-// console.log("ID: "+this.id_Pays+" Nom: " +this.nomPays+"Images: " +this.images+"Initiale: " +this.initialePays);
-
-//  this.paysService.AjouterPays(this.nomPays, this.initialePays,this.file)
-
-//   .subscribe(data=>{
-//     const PaysEnregistrer = data
-//     console.log("================= "+PaysEnregistrer)
-//   })
 }
 
+// ============================================= suprime pays =======================
 
-    
-    
+openModal(nom : any, id : number) {
+  Swal.fire({
+    title: nom,
+    text: "Commfirmer la suppression ?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    cancelButtonText : "NON",
+    confirmButtonText: 'OUI'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      //suppp
+      this.paysService.deletePaysById(id).subscribe(() => {
+      console.log(id)
+      Swal.fire(
+        'Supprimer!',
+        'Pays supprimé avec succès'
+      );
+    });
+
+    }
+  });
+
+}
+
 
 }

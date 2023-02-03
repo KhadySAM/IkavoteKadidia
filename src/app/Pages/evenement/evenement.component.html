@@ -1,145 +1,69 @@
-    <div class="container">
-        <div class="left">
-            <div class="searchBar">
-                <div class="InputSearch">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill=" #495579" class="bi bi-search"
-                        viewBox="0 0 16 16">
-                        <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                    </svg>
-                    <input type="text" name="motCle" id="motCle" placeholder="Recherche events">
+<div class="searchBar">
+    <div class="InputSearch">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill=" #0C85F8" class="bi bi-search"
+            viewBox="0 0 16 16">
+            <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+        </svg>
+        <input type="text" name="motCle" id="motCle" placeholder="Recherche">
+    </div>
+</div>
 
+<div class="container">
+    <div class="row" >
+        <div class="right" >
+            <div class="row">
+                <div class="col-md-4" >
+                    <!-- Button trigger modal -->
+                    <button type="button" class="adp"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                        </svg>
+                        Events
+                    </button>
+                    
+                        <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ajout d'un types authentification </h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                   <h3> Liste des événements</h3>
                 </div>
             </div>
-
             <div class="listeEvents">
-
                 <!-- condition dans le cas où aucune liste n'est importée -->
-                <!-- <div  class="auccunEv">Accune liste importée</div> -->
+                <div *ngIf="totalEventLength==0" class="auccunEv"> <h4>Accun événement en cours</h4>  </div>
 
-                <div id="list"  class="col" >
+                <div id="list"  class="col" *ngFor="let evenement of mesevents">
                     <div class="row">
-                        <label >Evenement 1</label>
+                        <label >{{evenement.libelle}}</label>
                     </div>
                     <div class="row">
                         <img src="../../../assets/image/2.jpeg" alt="" style="width: 100px ;">
                     </div>
                     <div class="row">
-                        <label>Tech4Good</label>
+                        <label>qr code</label>
                     </div>
-
                 </div>
-
-                <div id="list"  class="col" >
-                    <div class="row">
-                        <label >Evenement 1</label>
-                    </div>
-                    <div class="row">
-                        <img src="../../../assets/image/2.jpeg" alt="" style="width: 100px ;">
-                    </div>
-                    <div class="row">
-                        <label>Tech4Good</label>
-                    </div>
-
-                </div>
-
-                <div id="list"  class="col" >
-                    <div class="row">
-                        <label >Evenement 1</label>
-                    </div>
-                    <div class="row">
-                        <img src="../../../assets/image/2.jpeg" alt="" style="width: 100px ;">
-                    </div>
-                    <div class="row">
-                        <label>Tech4Good</label>
-                    </div>
-
-                </div>
-
-                <div id="list"  class="col" >
-                    <div class="row">
-                        <label >Evenement 1</label>
-                    </div>
-                    <div class="row">
-                        <img src="../../../assets/image/2.jpeg" alt="" style="width: 100px ;">
-                    </div>
-                    <div class="row">
-                        <label>Tech4Good</label>
-                    </div>
-
-                </div>
-
-                <div id="list"  class="col" >
-                    <div class="row">
-                        <label >Evenement 1</label>
-                    </div>
-                    <div class="row">
-                        <img src="../../../assets/image/2.jpeg" alt="" style="width: 100px ;">
-                    </div>
-                    <div class="row">
-                        <label>Tech4Good</label>
-                    </div>
-
-                </div>
-                
-
-                
+               
             </div>
-            
-
-        </div>
-
-        <div class="right">
-
-        
-            <div class="container mycard">
-
-                <div class="card bg-info text-white">
-                  <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6" >
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="col-sm-6" >
-                            <p>Ajouter Evenement</p>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-                <br>
-                <div class="card bg-info text-white">
-                  <div class="card-body">
-                    <div class="row" style="text-align: center;">
-                        <h5>7</h5>
-                        <h5>Evenement total</h5>
-                    </div>
-                  </div>
-                </div>
-                <br>
-                <div class="card bg-warning text-white">
-                  <div class="card-body">
-                    <div class="row" style="text-align: center;">
-                        <h5>2</h5>
-                        <h5>Evenement en cours</h5>
-                    </div>
-                  </div>
-                </div>
-                <br>
-                <div class="card bg-danger text-white">
-                  <div class="card-body">
-                    <div class="row" style="text-align: center;">
-                        <h5>5</h5>
-                        <h5>Evenement terminé</h5>
-                    </div>
-                  </div>
-                </div>
-              
-                
-            </div>
-              
         </div>
     </div>
+</div>
+
+
+
+
+
+    

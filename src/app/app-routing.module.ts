@@ -6,6 +6,7 @@ import { JuryComponent } from './Pages/jury/jury.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { PaysComponent } from './Pages/pays/pays.component';
 import { PersonnelsComponent } from './Pages/personnels/personnels.component';
+import { ProjetsComponent } from './Pages/projets/projets.component';
 import { TypeauthComponent } from './Pages/typeauth/typeauth.component';
 
 const routes: Routes = [
@@ -27,7 +28,8 @@ const routes: Routes = [
       {path: 'pays', component: PaysComponent},
       {path: 'typeauth', component: TypeauthComponent},
       {path: 'evenement', component: EvenementComponent},
-      {path: 'jury', component: JuryComponent}
+      {path: 'jury', component: JuryComponent},
+      {path: 'projet', component: ProjetsComponent}
     ]
   }
 ];

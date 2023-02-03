@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EvenementService } from 'src/app/Services/evenement.service';
 
 @Component({
   selector: 'app-evenement',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EvenementComponent implements OnInit {
 
-  constructor() { }
+  mesevents: any
+  totalEventLength = 0;
+
+  
+
+  constructor(private serviceEvents: EvenementService) { }
 
   ngOnInit(): void {
+
+    this.serviceEvents.getAllEvents().subscribe(data =>{
+      this.mesevents = data;
+      console.log(this.mesevents);
+
+      this.totalEventLength = data.data.length
+
+      console.log(this.totalEventLength)
+    });
   }
 
 }

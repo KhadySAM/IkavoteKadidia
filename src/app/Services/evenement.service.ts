@@ -5,14 +5,14 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class JuryService {
+export class EvenementService {
 
   constructor(private http: HttpClient) { }
 
-    //affichage des jury
+  //affichage des jury
 
-    public getTousJury():Observable<any> {
-      return this.http.get('http://localhost:8080/api/auth/userByRole/3');
-      
-    }
+  public getAllEvents():Observable<any> {
+    return this.http.get('http://localhost:8080/api/auth/getallevents');
+    
+  }
 }

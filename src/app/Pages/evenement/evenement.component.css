@@ -1,16 +1,50 @@
 .container{
-    margin-top: 4%;
-    display: grid;
-    grid-template-columns: 68% 28%;
-    column-gap: 4%;
-    
+    text-align: center;
+
 }
 
-.searchBar{
-    display: flex;
-    justify-content: center;
-    margin-top: 10%;
-}
+.adp{
+    background-color: #0C85F8;
+    color: white;
+    width: 20%;
+    border: none;
+    height: 100%;
+    border-radius: 5px;
+  }
+  
+  .adp:hover{
+    background-color:  #264e73;
+  
+  }
+  
+  .save{
+    background-color: rgb(56, 211, 56);
+    color: white;
+    width: 20%;
+    border: none;
+    height: 100%;
+    border-radius: 5px;
+  }
+  
+  .save:hover{
+   background-color: green;
+  
+  }
+  
+  .annuler{
+    background-color: rgb(225, 26, 26);
+    color: white;
+    width: 20%;
+    border: none;
+    height: 100%;
+    border-radius: 5px;
+  }
+  
+  .annuler:hover{
+   background-color: rgb(114, 23, 23);
+  
+  }
+
 
 .mycard{
     display: flex;
@@ -20,8 +54,8 @@
 .auccunEv{
     text-align: center;
     font-size: x-large;
-    margin-top: 10%;
-    color: #495579;
+    margin-left: 50%;
+
 }
 
 #libelleEvents{
@@ -59,18 +93,20 @@
     border-radius: 15px;
 }
 
-.left{
-    border-radius: 15px;
-    background-color: white;
-}
 
 .right{
     border-radius: 15px;
     background-color: white;
+    padding: 1%;
+    margin-top: 2%;
     
 }
 
-
+.searchBar{
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
 .InputSearch{
     margin-top: 10px;
     width: 40%;
@@ -104,16 +140,9 @@
 
 
 
-
 @media only screen and (max-width: 1220px) {
     .container{
         display: block;
-    }
-
-    .left{
-        grid-template-rows: 10% 94%;
-        row-gap: 3%;
-        padding: 1.5%;
     }
 
     .right{
@@ -142,15 +171,6 @@
         display: grid;
         grid-template-columns: 30% 65%;
     }
-
-
- 
-
-    .left{
-        padding: 20px;
-        height: 100%
-    }
-
 
     .container{
         display: block;
