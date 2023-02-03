@@ -15,10 +15,8 @@ export class PaysComponent implements OnInit {
   userFilter : any={user: ''};
 
 
-
   //add pays
   ObjetsPays : PaysModel = {
-   // id: 0,
     nom: '',
     initiale: '',
     images: '',
@@ -29,11 +27,9 @@ export class PaysComponent implements OnInit {
   contenu?:String;
 
   file: any;
-
   nomPays: any;
   images: any;
   initialePays: any;
-  
   id_Pays: any;
  
 
@@ -67,8 +63,6 @@ fileChang(event: any) {
 }
 
 
-
-
 CreerPays(){
 
 
@@ -81,26 +75,5 @@ CreerPays(){
     err => console.log(err)
   )
 
-
-
-// this.nomPays = this.formulaire!.get("nompays")!.value;
-// this.images = this.formulaire!.get("file")!.value;
-// this.initialePays = this.formulaire!.get("initialepays")!.value;
-
-
-
-// console.log("ID: "+this.id_Pays+" Nom: " +this.nomPays+"Images: " +this.images+"Initiale: " +this.initialePays);
-
-//  this.paysService.AjouterPays(this.nomPays, this.initialePays,this.file)
-
-//   .subscribe(data=>{
-//     const PaysEnregistrer = data
-//     console.log("================= "+PaysEnregistrer)
-//   })
 }
-
-
-    
-    
-
 }
