@@ -16,7 +16,6 @@ export class PaysComponent implements OnInit {
   userFilter : any={user: ''};
 
 
-
   //add pays
   ObjetsPays : PaysModel = {
     nom: '',
@@ -29,7 +28,6 @@ export class PaysComponent implements OnInit {
   contenu?:String;
 
   file: any;
-
   nomPays: any;
   images: any;
   initialePays: any;
