@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { Personnels } from 'src/app/Models/personnels';
 import { PersonnelsService } from 'src/app/Services/personnels.service';
-import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/Services/_services/auth.service';
+import { PaysService } from 'src/app/Services/pays.service';
 
 @Component({
   selector: 'app-personnels',
@@ -15,25 +15,26 @@ export class PersonnelsComponent implements OnInit {
   ids=0;
   mesusers : any;
   mesadmin : any;
+  paysid : any;
   
   p : number = 1;
   userFilter : any={user: ''};
 
-  //add perso
-  ObjetUser : Personnels = {
-    username: '',
-    email: '',
-    password: '',
-  }
- 
-   formulaire!: FormGroup
-    contenu?:String;
-  
-    usernamePerso: any;
-   id_user: any;
+  form: any = {
+    username: null,
+    email: null,
+    password: null,
+    idpays:null
+  };
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
+  mespays: any;
 
-
-  constructor(private servicepersonnels : PersonnelsService, private formB: FormBuilder,private route:ActivatedRoute) { }
+  constructor(
+    private servicepersonnels : PersonnelsService,
+    private authService: AuthService,
+    private paysService:PaysService) { }
 
   ngOnInit(): void {
     
@@ -42,8 +43,14 @@ export class PersonnelsComponent implements OnInit {
       console.log(this.mesadmin);
     })
 
+    this.paysService.getAllPays().subscribe(data =>{
+      this.mespays = data;
+      console.log(data);
+    })
+
     
   }
+
 
  // ============================================= suprime pays =======================
 
@@ -71,4 +78,25 @@ openModal(username : any, id : number) {
     }
   });
 }
+
+//ajouter
+
+onSubmit(): void {
+  const { username, email, password, pays} = this.form;
+
+  console.log(pays)
+  this.authService.register(username, email, password, pays).subscribe({
+    next: data => {
+      console.log(data);
+      this.isSuccessful = true;
+      this.isSignUpFailed = false;
+    },
+    error: err => {
+      this.errorMessage = err.error.message;
+      this.isSignUpFailed = true;
+    }
+  });
+
+}
+
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { JuryService } from 'src/app/Services/jury.service';
+import { PaysService } from 'src/app/Services/pays.service';
+import { AuthService } from 'src/app/Services/_services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-jury',
@@ -12,7 +15,18 @@ export class JuryComponent implements OnInit {
   userFilter : any={user: ''};
   mesjury : any;
 
-  constructor(private serviceJury: JuryService) { }
+  mespays: any;
+  form: any = {
+    username: null,
+    email: null,
+    password: null,
+    idpays:null
+  };
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
+
+  constructor(private serviceJury: JuryService, private authService: AuthService, private paysService: PaysService) { }
 
   ngOnInit(): void {
 
@@ -20,6 +34,56 @@ export class JuryComponent implements OnInit {
       this.mesjury = data;
       console.log(this.mesjury);
     });
+
+    this.paysService.getAllPays().subscribe(data =>{
+      this.mespays = data;
+      console.log(data);
+    })
   }
+
+  onSubmitJury(): void {
+    const { username, email, password, pays} = this.form;
+  
+    console.log(pays)
+    this.authService.registerJury(username, email, password, pays).subscribe({
+      next: data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      error: err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    });
+  
+    }
+
+    //================================================ suprimer ===================
+
+    openModal(username : any, id : number) {
+      Swal.fire({
+        title: username,
+        text: "Commfirmer la suppression ?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText : "NON",
+        confirmButtonText: 'OUI'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          //suppp
+          this.serviceJury.deleteUserById(id).subscribe(() => {
+          console.log(id)
+          Swal.fire(
+            'Supprimer!',
+            'supprimé avec succès'
+          );
+        });
+    
+        }
+      });
+    }
 
 }

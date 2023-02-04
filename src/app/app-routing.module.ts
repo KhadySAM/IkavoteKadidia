@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CriteresComponent } from './Pages/criteres/criteres.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { EvenementComponent } from './Pages/evenement/evenement.component';
 import { JuryComponent } from './Pages/jury/jury.component';
@@ -29,7 +30,8 @@ const routes: Routes = [
       {path: 'typeauth', component: TypeauthComponent},
       {path: 'evenement', component: EvenementComponent},
       {path: 'jury', component: JuryComponent},
-      {path: 'projet', component: ProjetsComponent}
+      {path: 'projet', component: ProjetsComponent},
+      {path: 'criteres', component: CriteresComponent}
     ]
   }
 ];

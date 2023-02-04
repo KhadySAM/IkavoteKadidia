@@ -12,6 +12,7 @@
     <div class="row" >
         <div class="right" >
             <div class="row"  >
+
                 <div class="col-md-4" >
                     <!-- Button trigger modal -->
                     <button type="button" class="adp"  data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -26,28 +27,98 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ajout d'un pays</h1>
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ajout d'un admin</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form  action="">
-                                        <div>
-                                            <input name="nompays" class="form-control" type="text" placeholder="Nom pays" formControlName="nom">&nbsp;&nbsp;
-                                            <input name="initialepays" class="form-control" type="text" placeholder="Initiale" formControlName="initiale">&nbsp;&nbsp;
+                                    <form
+                                    *ngIf="!isSuccessful"
+                                    name="form"
+                                    (ngSubmit)="f.form.valid && onSubmit()"
+                                    #f="ngForm"
+                                    novalidate
+                                  >
+                                    <div class="form-group">
+                                      <label for="username">Nom d'utilisateur</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        name="username"
+                                        [(ngModel)]="form.username"
+                                        required
+                                        minlength="3"
+                                        maxlength="20"
+                                        #username="ngModel"
+                                        [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
+                                      />
+                                      <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
+                                        <div *ngIf="username.errors['required']">Username is required</div>
+                                        <div *ngIf="username.errors['minlength']">
+                                         Le nom d'utilisateur doit depasser 3 characters
                                         </div>
-                                        <div>
-                                            <input   class="form-control" name="file" type="file" placeholder="images">&nbsp;&nbsp;
+                                        <div *ngIf="username.errors['maxlength']">
+                                            Le nom d'utilisateur ne doit pas depasser 20 characters
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button"  class="annuler" data-bs-dismiss="modal">Annuler</button>
-                                            <button type="submit" class="save" >Enregistrer</button>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="email">Email</label>
+                                      <input
+                                        type="email"
+                                        class="form-control"
+                                        name="email"
+                                        [(ngModel)]="form.email"
+                                        required
+                                        email
+                                        #email="ngModel"
+                                        [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+                                      />
+                                      <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
+                                        <div *ngIf="email.errors['required']">Email est obligatoire</div>
+                                        <div *ngIf="email.errors['email']">
+                                          Cet email est invalid !
                                         </div>
-                                    </form>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="password">Mot de passe</label>
+                                      <input
+                                        type="password"
+                                        class="form-control"
+                                        name="password"
+                                        [(ngModel)]="form.password"
+                                        required
+                                        minlength="6"
+                                        #password="ngModel"
+                                        [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+                                      />
+                                      <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+                                        <div *ngIf="password.errors['required']">Mot de passe est obligatoire</div>
+                                        <div *ngIf="password.errors['minlength']">
+                                            Le mot de passe doit depasser 6 characters
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <select class="form-select" aria-label="Default select example" selected [(ngModel)]="form.pays" name="pays" >
+                                        <option  >Choisir un pays</option>
+                                        <option *ngFor="let pays of mespays"  >{{pays.nom}}</option>
+                                        
+                                      </select>
+                                    
+                                    <div class="form-group">
+                                      <button class="ajout">Ajouter</button>
+                                    </div>
+                              
+                                    <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                                        L'ajour a échoué !<br />{{ errorMessage }}
+                                    </div>
+                                  </form>
                                 </div> 
                             </div>
                         </div>
                     </div>
                 </div>
+           
                 <div class="col-md-4" >
                     <h3>Les administrateur</h3>
                 </div>

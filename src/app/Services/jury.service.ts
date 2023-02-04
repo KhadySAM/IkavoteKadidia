@@ -15,4 +15,14 @@ export class JuryService {
       return this.http.get('http://localhost:8080/api/auth/userByRole/3');
       
     }
+
+    
+
+    // =============================== suprime pays ==========================
+    
+    url="http://localhost:8080/api/auth/supprimeuser"
+    public deleteUserById(id:number) {
+  return this.http.delete(`${this.url}/${id}`);
+  
+}
 }

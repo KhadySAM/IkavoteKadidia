@@ -45,6 +45,22 @@
 
 }
 
+.ajout{
+  margin-top: 2%;
+  background-color: #0C85F8;
+  color: white;
+  width: 50%;
+  border: none;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.ajout:hover{
+
+  background-color:  #264e73;
+
+}
+
 .annuler{
   background-color: rgb(225, 26, 26);
   color: white;

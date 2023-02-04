@@ -10,6 +10,7 @@ export class EvenementComponent implements OnInit {
 
   mesevents: any
   totalEventLength = 0;
+  p : number = 1;
 
   
 

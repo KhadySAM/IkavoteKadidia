@@ -29,6 +29,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './Pages/login/login.component';
+import { CriteresComponent } from './Pages/criteres/criteres.component';
 
 
 
@@ -57,6 +58,7 @@ import { LoginComponent } from './Pages/login/login.component';
     PopupUpdateAuthentificationComponent,
     DashboardadminComponent,
     LoginComponent,
+    CriteresComponent,
  
   ],
   imports: [

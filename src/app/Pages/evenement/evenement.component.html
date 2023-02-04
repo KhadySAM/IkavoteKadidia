@@ -8,11 +8,10 @@
         <input type="text" name="motCle" id="motCle" placeholder="Recherche">
     </div>
 </div>
-
 <div class="container">
     <div class="row" >
         <div class="right" >
-            <div class="row">
+            <div class="row"  >
                 <div class="col-md-4" >
                     <!-- Button trigger modal -->
                     <button type="button" class="adp"  data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -27,43 +26,104 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ajout d'un types authentification </h1>
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ajout d'un jury</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    
+                                    <!-- <form [formGroup]="formulaire" (ngSubmit)="CreerPays()"  action="">
+                                        <div>
+                                            <input name="nompays" class="form-control" type="text" placeholder="Nom pays" formControlName="nom">&nbsp;&nbsp;
+                                            <input name="initialepays" class="form-control" type="text" placeholder="Initiale" formControlName="initiale">&nbsp;&nbsp;
+                                        </div>
+                                        <div>
+                                            <input (change)="fileChang($event)"  class="form-control" name="file" type="file" placeholder="images">&nbsp;&nbsp;
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button"  class="annuler" data-bs-dismiss="modal">Annuler</button>
+                                            <button type="submit" class="save" >Enregistrer</button>
+                                        </div>
+                                    </form> -->
                                 </div> 
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                   <h3> Liste des événements</h3>
+                <div class="col-md-4" >
+                    <h3>Liste des jury</h3>
                 </div>
             </div>
-            <div class="listeEvents">
-                <!-- condition dans le cas où aucune liste n'est importée -->
-                <div *ngIf="totalEventLength==0" class="auccunEv"> <h4>Accun événement en cours</h4>  </div>
-
-                <div id="list"  class="col" *ngFor="let evenement of mesevents">
-                    <div class="row">
-                        <label >{{evenement.libelle}}</label>
-                    </div>
-                    <div class="row">
-                        <img src="../../../assets/image/2.jpeg" alt="" style="width: 100px ;">
-                    </div>
-                    <div class="row">
-                        <label>qr code</label>
-                    </div>
-                </div>
-               
-            </div>
-        </div>
+             <!-- condition dans le cas où aucune liste n'est importée -->
+             <!-- <div *ngIf="totalEventLength==0" class="auccunEv">
+                <h4>Accun événement en cours</h4> 
+            </div> -->
+            <table class="table table-striped text-center">
+                <thead>
+                    <tr>
+                    <th scope="col" [width]="10">N°</th>
+                    <th scope="col">Logo</th>
+                    <th scope="col" class="hideColonne hideColonneOder">Nom</th>
+                    <th scope="col">Date début</th>
+                    <th scope="col">Date fin</th>
+                    <th scope="col" class="hideColonne hideColonneOder">Projet</th>
+                    <th scope="col">Nombre votant</th>
+                    <th scope="col">Critère</th>
+                    <th scope="col" class="hideColonne hideColonneOder">Barème</th>
+                    <th scope="col">coefficient Votants</th>
+                    <th scope="col">coefficient Jury</th>
+                    <th scope="col" class="hideColonne hideColonneOder">coefficientUser</th>
+                    <!-- <th scope="col">Jury</th> -->
+                    <th scope="col">Actions</th>
+                   
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let evenement of mesevents">
+                    <td>{{evenement.id}}</td>
+                    <td><img src="{{evenement.images}}" alt="" width="50px" height="30px"> </td>
+                    <td class="hideColonne hideColonneOder" > {{evenement.libelle}} </td>
+                    <td>{{evenement.dateDebut | date: "dd MMMM yyyy"}}</td>
+                    <td>{{evenement.dateFin | date: "dd MMMM yyyy"}}</td> 
+                    <td class="hideColonne hideColonneOder">4</td> 
+                    <td> {{evenement.nbreVotant}} </td>
+                    <td> 4 </td>
+                    <td class="hideColonne hideColonneOder"> 10 </td>
+                    <td> 30 </td>
+                    <td> 35 % </td>
+                    <td class="hideColonne hideColonneOder"> 65 % </td>
+                    <!-- <td> 3 </td> -->
+                    <td>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button type="button" class="adpers" data-bs-toggle="modal" data-bs-target="#modifier">
+                                    <svg id="icons" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                    </svg> 
+                                </button>
+                            </div>
+                            <div class="col-md-3">
+                                gener
+                            </div>  
+                            <div class="col-md-3">
+                                <button type="button" class="adpers" data-bs-toggle="modal" data-bs-target="#modifier">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>  
+                            <div class="col-sm-3" >
+                                <button type="button" class="adpers" data-bs-toggle="modal" data-bs-target="#supprimer">
+                                    <svg id="icons" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>  
+                    </td>
+                    </tr>
+                </tbody>
+            
+            </table>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
     </div>
 </div>
 
-
-
-
-
-    

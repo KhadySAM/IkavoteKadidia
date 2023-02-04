@@ -26,25 +26,35 @@ export class AuthService {
     );
   }
 
-  register(username: string, email: string, password: string): Observable<any> {
+  register(username: string, email: string, password: string,pays:string): Observable<any> {
     return this.http.post(
-      AUTH_API + 'signup',
+      AUTH_API + 'inscadmin/' + `${pays}`,
       {
         username,
         email,
         password,
+        pays
       },
       httpOptions
     );
   }
 
-  // logout(): Observable<any> {
-  //   return this.http.post(AUTH_API + 'signout', { }, httpOptions);
-  // }
+  registerJury(username: string, email: string, password: string,pays:string): Observable<any> {
+    return this.http.post(
+      AUTH_API + 'inscjury/' + `${pays}`,
+      {
+        username,
+        email,
+        password,
+        pays
+      },
+      httpOptions
+    );
+  }
+
+
   logout1(): Observable<any> {
-    // return this.http.post(
-    //   AUTH_API + 'logout',{},httpOptions
-    //   );
+   
     const req = new HttpRequest('POST', AUTH_API + 'signout', {}, httpOptions);
     return this.http.request(req);
   }
