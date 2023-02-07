@@ -5,12 +5,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ProjetService {
+export class CriteresService {
 
   constructor(public http: HttpClient) { }
 
-  // Recuperation des projets par id evements
-  getProjetsByIdEvents(idevent:any):Observable<any>{
-    return this.http.get(`http://localhost:8080/api/auth/projetbyetevents/${idevent}`)
+  getCritersByIdEvents(idevent:any):Observable<any>{
+    return this.http.get(`http://localhost:8080/api/auth/criteresbyevents/${idevent}`)
    }
 }

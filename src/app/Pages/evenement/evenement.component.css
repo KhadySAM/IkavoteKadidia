@@ -215,6 +215,51 @@ table{
     background-color:  #264e73;
   
   }
+
+  .adcri{
+    background-color: #0C85F8;
+    color: white;
+    width: 87%;
+    border: none;
+    height: 100%;
+    border-radius: 5px;
+  }
+  
+  .adcri:hover{
+  
+    background-color:  #264e73;
+  
+  }
+
+  .adgrr{
+    background-color: #0C85F8;
+    color: white;
+    width: 78%;
+    border: none;
+    height: 3.5vh;
+    border-radius: 5px;
+  }
+  
+  .adgrr:hover{
+  
+    background-color:  #264e73;
+  
+  }
+
+  .adper{
+    background-color: #0C85F8;
+    color: white;
+    width: 6vh;
+    border: none;
+    height: 100%;
+    border-radius: 5px;
+  }
+  
+  .adper:hover{
+  
+    background-color:  #264e73;
+  
+  }
   
 
   .adpd{

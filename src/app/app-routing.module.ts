@@ -21,6 +21,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
 
+ 
+
   {
     path: "dashboard", component: DashboardComponent,
 
@@ -30,10 +32,12 @@ const routes: Routes = [
       {path: 'typeauth', component: TypeauthComponent},
       {path: 'evenement', component: EvenementComponent},
       {path: 'jury', component: JuryComponent},
-      {path: 'projet', component: ProjetsComponent},
-      {path: 'criteres', component: CriteresComponent}
+      {path: 'projets/:id', component: ProjetsComponent},
+      {path: 'criteres/:id', component: CriteresComponent},
+      
     ]
-  }
+  },
+  
 ];
 
 @NgModule({
