@@ -32,7 +32,7 @@ const routes: Routes = [
       {path: 'typeauth', component: TypeauthComponent},
       {path: 'evenement', component: EvenementComponent},
       {path: 'jury', component: JuryComponent},
-      {path: 'projets/:id', component: ProjetsComponent},
+      {path: 'projets/:idEvents', component: ProjetsComponent},
       {path: 'criteres/:id', component: CriteresComponent},
       
     ]

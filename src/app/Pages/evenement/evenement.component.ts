@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Evenement } from 'src/app/Models/evenement';
 import { EvenementService } from 'src/app/Services/evenement.service';
+import { PaysService } from 'src/app/Services/pays.service';
 import { ProjetService } from 'src/app/Services/projet.service';
 import { TypesauthService } from 'src/app/Services/typesauth.service';
 
@@ -18,51 +19,32 @@ export class EvenementComponent implements OnInit {
   p : number = 1;
 
 
-   //add pays
-   ObjetsEvents : Evenement = {
+   //add events
+   ObjetsEvents : any = {
 
-    libelle: '',
-    dateDebut: '',
-    dateFin: '',
-    images: '',
-    bareme: '',
-    coefficientUser: '',
-    coefficientJury: '',
-    nbreVotant: '',
-    idauth: '',
-
+    libelle: null,
+    dateDebut: null,
+    dateFin: null,
+    images: null,
+    bareme: null,
+    coefficientUser:null,
+    coefficientJury: null,
+    nbreVotant: null,
 
   }
 
-  formulaire!: FormGroup
-  fichier: any;
-  contenu?:String;
-
+  nompays: any;
+  mespays: any;
+  libelleauth: any;
+  mesTypesAuth: any;
   file: any;
-  libelle: any;
-  dateDebut:  any;
-  dateFin:  any;
-  images:  any;
-  bareme:  any;
-  coefficientUser:  any;
-  coefficientJury:  any;
-  nbreVotant:  any;
-  idauth:  any;
-  id_evenements:  any;
-
-  mesTypesAuth:any
-  form: any = {
-    libelle: null
-  };
-
-  
-
 
   constructor(
     private serviceEvents: EvenementService,
     private router: Router,
-    private formB: FormBuilder,
+   // private formB: FormBuilder,
     private serviceAuth: TypesauthService,
+    private paysService: PaysService,
     ) { }
 
   ngOnInit(): void {
@@ -78,37 +60,38 @@ export class EvenementComponent implements OnInit {
     //:::::::::::::::::::::::::::::::::: get type auth ::::::::::::::::::::::
     this.serviceAuth.getAllTypeAuth().subscribe(data =>{
       this.mesTypesAuth = data;
-      console.log(this.mesTypesAuth);
+      this.libelleauth =data[1].libelle
+      console.log(this.libelleauth);
+
+    });
+
+    //:::::::::::::::::::::::::::::::::: get type pays ::::::::::::::::::::::
+
+    this.paysService.getAllPays().subscribe(data =>{
+      this.mespays = data;
+     
+      console.log(this.nompays);
+      console.log(this.mespays)
+      console.log(data)
     })
-
-    //:::::::::::::::::::::::::::: insertion formulaire :::::::::::::::::::::::::::
-    this.formulaire = this.formB.group({
-      libelle: ["", Validators.required],
-      file: ["", Validators.required],
-      dateDebut: ["", Validators.required],
-      dateFin: ["", Validators.required],
-      bareme: ["", Validators.required],
-      coefficientUser: ["", Validators.required],
-      coefficientJury: ["", Validators.required],
-      nbreVotant: ["", Validators.required],
-      idauth: ["", Validators.required],
-})
-
-    console.log("Events kadi :"+this.formulaire.value)
-
-    
+  
   }
 
-  // ======================================= ICI ON AJOUTE UN Evenement ======================================
+  // ======================================= ICI ON AJOUTE L'IMAGE ======================================
 
 fileChang(event: any) {
   this.file = event.target.files[0]
   console.log(event)
 }
 
+
+// ======================================= ICI ON CREE L'EVENT ======================================
+
+
 CreerEvenement(){
-  this.ObjetsEvents = this.formulaire.value
-  this.serviceEvents.AjouterEvents(this.ObjetsEvents, this.file).subscribe(
+  this.serviceEvents.AjouterEvents(this.ObjetsEvents.libelle,  this.ObjetsEvents.dateDebut, this.ObjetsEvents.dateFin,
+     this.ObjetsEvents.bareme, this.ObjetsEvents.coefficientUser, this.ObjetsEvents.coefficientJury,
+      this.ObjetsEvents.nbreVotant, this.file, this.mespays.nom, this.mesTypesAuth.libelle).subscribe(
     data =>{
       this.ObjetsEvents = data
     },
@@ -118,10 +101,9 @@ CreerEvenement(){
 
   
 
-
-  goAllProjetByIdEvents(id:number){
-    console.log(id);
-    return this.router.navigate(['dashboard/projets', id])
+  goAllProjetByIdEvents(idEvents:number){
+    console.log(idEvents);
+    return this.router.navigate(['dashboard/projets', idEvents])
   }
 
   goAllCritereByIdEvents(id:number){

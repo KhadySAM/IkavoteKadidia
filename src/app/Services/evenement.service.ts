@@ -26,22 +26,24 @@ export class EvenementService {
 
 
 
-//:::::::::::::::::::::::::::::::: AJOUTER UN PAYS ::::::::::::::::::::::::::::::::::::::: 
+//:::::::::::::::::::::::::::::::: AJOUTER UN EVENTS ::::::::::::::::::::::::::::::::::::::: 
 
-AjouterEvents(evements: Evenement, file:any):Observable<any>{
+AjouterEvents(libelle:any, dateDebut:any, dateFin:any, bareme:any, coefficientUser:any, coefficientJury:any, nbreVotant:any, file:File, nompays: any, libelleauth: any):Observable<any>{
 
   let data =new FormData();
 
-  data.append("libelle", evements.libelle);
-  data.append("dateDebut", evements.dateDebut);
-  data.append("dateFin", evements.dateFin);
-  data.append("bareme", evements.bareme);
-  data.append("coefficientUser", evements.coefficientUser);
-  data.append("coefficientJury", evements.coefficientJury);
-  data.append("nbreVotant", evements.nbreVotant);
-  data.append("idauth", evements.idauth);
+  data.append("libelle", libelle);
+  data.append("dateDebut", dateDebut);
+  data.append("dateFin", dateFin);
+  data.append("bareme", bareme);
+  data.append("coefficientUser", coefficientUser);
+  data.append("coefficientJury", coefficientJury);
+  data.append("nbreVotant", nbreVotant);
   data.append("file",file)
+
   
-  return this.http.post(`http://localhost:8080/api/auth/ajoutevents`,data);
+  return this.http.post(`http://localhost:8080/api/auth/ajoutevents/${nompays}/${libelleauth}`,data);
+  
 }
+
 }

@@ -30,41 +30,54 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form [formGroup]="formulaire" (ngSubmit)="CreerEvenement()"  action="">
+
+                                    <!-- [formGroup]="formulaire"  -->
+                                    <form (ngSubmit)="CreerEvenement()"  action="">
                                         <div>
-                                            <input name="libelleevent" class="form-control" type="text" placeholder="Libelle" formControlName="libelle">&nbsp;&nbsp;
-                                            <input name="datedebutevent" class="form-control" type="text" placeholder="Date debut" formControlName="dateDebut">&nbsp;&nbsp;
+                                            <input name="libelleevent" class="form-control" type="text" placeholder="Libelle" [(ngModel)]="ObjetsEvents.libelle" name="libelle">&nbsp;&nbsp;
+                                            <input name="datedebutevent" class="form-control" type="text" placeholder="Date debut"[(ngModel)]="ObjetsEvents.dateDebut" name="dateDebut" >&nbsp;&nbsp;
                                         </div>
 
                                         <div>
-                                            <input name="datefinevent" class="form-control" type="text" placeholder="Date fin" formControlName="dateFin">&nbsp;&nbsp;
-                                            <input name="baremeevent" class="form-control" type="text" placeholder="Barème" formControlName="bareme">&nbsp;&nbsp;
+                                            <input name="datefinevent" class="form-control" type="text" placeholder="Date fin" [(ngModel)]="ObjetsEvents.dateFin" name="dateFin">&nbsp;&nbsp;
+                                            <input name="baremeevent" class="form-control" type="number" min="2" placeholder="Barème" [(ngModel)]="ObjetsEvents.bareme" name="bareme">&nbsp;&nbsp;
                                         </div>
 
                                         <div>
-                                            <input name="coefficientuserevent" class="form-control" type="text" placeholder="coefficient votant" formControlName="coefficientUser">&nbsp;&nbsp;
-                                            <input name="coefficientjuryevent" class="form-control" type="text" placeholder="coefficient jury" formControlName="coefficient jury">&nbsp;&nbsp;
+                                            <input name="coefficientuserevent" class="form-control" min="0" max="100" type="number" placeholder="coefficient votant"[(ngModel)]="ObjetsEvents.coefficientUser" name="coefficientUser" >&nbsp;&nbsp;
+                                            <input name="coefficientjuryevent" class="form-control" min="0" max="100" type="number" placeholder="coefficient jury" [(ngModel)]="ObjetsEvents.coefficientJury" name="coefficientJury">&nbsp;&nbsp;
                                         </div>
 
                                         <div>
-                                            <input name="nbreVotantevent" class="form-control" type="text" placeholder="Nombre votant" formControlName="nbreVotant">&nbsp;&nbsp;
-                                            <input name="nbreVotantevent" class="form-control" type="text" placeholder="type d'authenfication" formControlName="idauth">&nbsp;&nbsp;
+                                            <input name="nbreVotantevent" class="form-control" type="number" min="0" placeholder="Nombre votant" [(ngModel)]="ObjetsEvents.nbreVotant" name="nbreVotant">&nbsp;&nbsp;
+
+                                            <select class="form-select" aria-label="Default select example" selected [(ngModel)]="mespays.nom" name="nompays" >
+                                                <option>Choisir un pays</option>
+                                                <option *ngFor="let pays of mespays"  >{{pays.nom}}</option>
+                                            </select>
                                             
-                                            <!-- <select class="form-select" aria-label="Default select example" selected [(ngModel)]="form.pays" name="idauth" >
+                                            <select class="form-select" aria-label="Default select example" selected [(ngModel)]="mesTypesAuth.libelle" name="libelleauth" >&nbsp;&nbsp;
                                                 <option  >Choisir un type d'authenfication</option>
                                                 <option *ngFor="let auth of mesTypesAuth"  >{{auth.libelle}}</option>
                                                 
-                                            </select> -->
+                                            </select>
                                         </div>
 
+                                        
+
                                         <div>
-                                            <input (change)="fileChang($event)"  class="form-control" name="file" type="file" placeholder="images">&nbsp;&nbsp;
+
+                                            
+
+                                            <input (change)="fileChang($event)"  class="form-control" name="file" type="file" placeholder="images" [(ngModel)]="ObjetsEvents.file" name="file">&nbsp;&nbsp;
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button"  class="annuler" data-bs-dismiss="modal">Annuler</button>
                                             <button type="submit" class="save" >Enregistrer</button>
                                         </div>
                                     </form>
+
+
                                 </div> 
                             </div>
                         </div>
@@ -97,7 +110,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let evenement of mesevents">
+                    <tr *ngFor="let evenement of mesevents  | paginate: { itemsPerPage: 5, currentPage: p }">
 
                         <td>{{evenement.id}}</td>
                         <td><img src="{{evenement.images}}" alt="" width="50px" height="30px"> </td>

@@ -10,7 +10,24 @@ export class ProjetService {
   constructor(public http: HttpClient) { }
 
   // Recuperation des projets par id evements
-  getProjetsByIdEvents(idevent:any):Observable<any>{
-    return this.http.get(`http://localhost:8080/api/auth/projetbyetevents/${idevent}`)
+  getProjetsByIdEvents(idEvents:any):Observable<any>{
+    return this.http.get(`http://localhost:8080/api/auth/projetbyevents/${idEvents}`)
    }
+
+   //:::::::::::::::::::::::::::::::: AJOUTER UN PROJET ::::::::::::::::::::::::::::::::::::::: 
+
+AjouterProjet(libelle:any, description:any, file:File, idEvents: any):Observable<any>{
+
+  let data =new FormData();
+
+  data.append("libelle", libelle);
+  data.append("description", description);
+  data.append("file",file)
+
+  
+  return this.http.post(`http://localhost:8080/api/auth/ajoutprojet/${idEvents}`,data);
+  
+}
+
+   
 }

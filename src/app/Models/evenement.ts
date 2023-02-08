@@ -8,6 +8,6 @@ export class Evenement {
     coefficientUser!: string;
     coefficientJury!: string;
     nbreVotant!: string;
-    idauth!: string;
+
   
 }

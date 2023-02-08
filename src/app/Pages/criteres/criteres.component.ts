@@ -16,6 +16,15 @@ export class CriteresComponent implements OnInit {
   allEvents:any
   nbrCritere:any
 
+   //add critere
+   ObjetsCritere : any = {
+
+    titre: null,
+    contenu: null,
+    
+
+  }
+
   constructor(
     private route: ActivatedRoute,
     private criteresService: CriteresService,
@@ -30,17 +39,32 @@ export class CriteresComponent implements OnInit {
       this.criteresAff = data;
       this.nbrCritere = data.length
       console.log(this.criteresAff)
-    });
-
-    this.id = this.route.snapshot.params['id']
-    console.log(this.id)
-    // nom events
+      console.log(this.id)
+      
     this.evenementService.getEventsById(this.id).subscribe(data =>{
       this.allEvents = data
       this.libelleEvents=data.libelle
       console.log(this.libelleEvents)
+    });
+
+        // nom events
+    // this.id = this.route.snapshot.params['id']
+    
       
     })
   }
+
+
+
+// ======================================= ICI ON CREE CRITERE ======================================
+
+CreerCritere(){
+  this.criteresService.AjouterCritere(this.ObjetsCritere.titre, this.ObjetsCritere.contenu, this.id).subscribe(
+    data =>{
+      this.ObjetsCritere =data
+      console.log(this.ObjetsCritere)
+    },
+  )
+}
 
 }
