@@ -49,9 +49,7 @@ export class CriteresComponent implements OnInit {
       console.log(this.libelleEvents)
     });
 
-        // nom events
-    // this.id = this.route.snapshot.params['id']
-    
+      
       
     })
   }
