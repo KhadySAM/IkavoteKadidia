@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Evenement } from 'src/app/Models/evenement';
 import { EvenementService } from 'src/app/Services/evenement.service';
 import { PaysService } from 'src/app/Services/pays.service';
-import { ProjetService } from 'src/app/Services/projet.service';
 import { TypesauthService } from 'src/app/Services/typesauth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-evenement',
@@ -98,6 +97,33 @@ CreerEvenement(){
     err => console.log(err)
   )
 }
+
+    //================================================ suprimer ===================
+
+    openModal(libelle : any, id : number) {
+      Swal.fire({
+        title: libelle,
+        text: "Commfirmer la suppression ?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText : "NON",
+        confirmButtonText: 'OUI'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          //suppp
+          this.serviceEvents.deleteEvenementById(id).subscribe(() => {
+          console.log(id)
+          Swal.fire(
+            'Supprimer!',
+            'supprimé avec succès'
+          );
+        });
+    
+        }
+      });
+    }
 
   
 

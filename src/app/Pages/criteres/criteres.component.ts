@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CriteresService } from 'src/app/Services/criteres.service';
 import { EvenementService } from 'src/app/Services/evenement.service';
+import  Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-criteres',
@@ -66,5 +68,32 @@ CreerCritere(){
     },
   )
 }
+
+    //================================================ suprimer ===================
+
+    openModal(titre : any, id : number) {
+      Swal.fire({
+        title: titre,
+        text: "Commfirmer la suppression ?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText : "NON",
+        confirmButtonText: 'OUI'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          //suppp
+          this.criteresService.deleteCritereById(id).subscribe(() => {
+          console.log(id)
+          Swal.fire(
+            'Supprimer!',
+            'supprimé avec succès'
+          );
+        });
+    
+        }
+      });
+    }
 
 }

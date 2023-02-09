@@ -23,6 +23,6 @@ export class JuryService {
     url="http://localhost:8080/api/auth/supprimeuser"
     public deleteUserById(id:number) {
   return this.http.delete(`${this.url}/${id}`);
-  
 }
+
 }

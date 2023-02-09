@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EvenementService } from 'src/app/Services/evenement.service';
 import { ProjetService } from 'src/app/Services/projet.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-projets',
@@ -45,7 +46,7 @@ export class ProjetsComponent implements OnInit {
     })
 
 
-    //:::::::::::::::::::::::::::::::::: get  event ::::::::::::::::::::::
+    //:::::::::::::::::::::::::::::::::: get event ::::::::::::::::::::::
   
 
     this.evenementService.getEventsById(this.idEvents).subscribe(data =>{
@@ -77,6 +78,32 @@ CreerProjet(){
   )
 }
 
+    //================================================ suprimer ===================
+
+    openModal(libelle : any, id : number) {
+      Swal.fire({
+        title: libelle,
+        text: "Commfirmer la suppression ?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText : "NON",
+        confirmButtonText: 'OUI'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          //suppp
+          this.projetService.deleteProjetById(id).subscribe(() => {
+          console.log(id)
+          Swal.fire(
+            'Supprimer!',
+            'supprimé avec succès'
+          );
+        });
+    
+        }
+      });
+    }
 
 
 }

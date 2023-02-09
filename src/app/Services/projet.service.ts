@@ -29,5 +29,14 @@ AjouterProjet(libelle:any, description:any, file:File, idEvents: any):Observable
   
 }
 
+
+
+    // =============================== suprime pays ==========================
+    
+    url="http://localhost:8080/api/auth/supprimeprojet"
+    public deleteProjetById(id:number) {
+  return this.http.delete(`${this.url}/${id}`);
+}
+
    
 }

@@ -20,13 +20,21 @@ AjouterCritere(titre:any, contenu:any, idEvents: any):Observable<any>{
 
   let data =new FormData();
 
-  data.append("libelle", titre);
-  data.append("description", contenu);
+  data.append("titre", titre);
+  data.append("contenu", contenu);
 
 
   
   return this.http.post(`http://localhost:8080/api/auth/ajoutcriteres/${idEvents}`,data);
   
+}
+
+
+    // =============================== suprime pays ==========================
+    
+    url="http://localhost:8080/api/auth/supprimecriteres"
+    public deleteCritereById(id:number) {
+  return this.http.delete(`${this.url}/${id}`);
 }
 
 

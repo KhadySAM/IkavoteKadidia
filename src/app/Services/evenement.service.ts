@@ -22,7 +22,14 @@ export class EvenementService {
     return this.http.get(`http://localhost:8080/api/auth/events/${idevent}`)
    }
 
-   //:::::::::::::::::::::::::::::::: AJOUTER UN PAYS ::::::::::::::::::::::::::::::::::::::: 
+
+   
+    // =============================== suprime evenement ==========================
+    
+    url="http://localhost:8080/api/auth/supprimevent"
+    public deleteEvenementById(id:number) {
+  return this.http.delete(`${this.url}/${id}`);
+}
 
 
 

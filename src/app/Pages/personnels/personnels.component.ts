@@ -54,9 +54,9 @@ export class PersonnelsComponent implements OnInit {
 
  // ============================================= suprime pays =======================
 
-openModal(username : any, id : number) {
+openModal(nom : any, id : number) {
   Swal.fire({
-    title: username,
+    title: nom,
     text: "Commfirmer la suppression ?",
     icon: 'warning',
     showCancelButton: true,
