@@ -103,7 +103,7 @@
                     <th scope="col" class="hideColonne hideColonneOder">Barème</th>
                     <th scope="col">coefficient Votants</th>
                     <th scope="col">coefficient Jury</th>
-                    <th scope="col">QR code</th>
+                    <th scope="col">Resultat</th>
                     <th scope="col" class="hideColonne hideColonneOder">Projet</th>
                     <th scope="col">Critère</th>
                     <th scope="col">Actions</th>
@@ -123,7 +123,11 @@
                         <td> {{evenement.coefficientJury}} %</td>
 
                         <td> 
-                            <button class="adgrr">generer</button>
+                            <a (click)="goAllProjetByIdEvents(evenement.id)">
+                                <button class="adpers">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </a>
                         </td>
                     
                         <td class="hideColonne hideColonneOder" >

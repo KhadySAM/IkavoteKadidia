@@ -125,7 +125,10 @@ CreerEvenement(){
       });
     }
 
-  
+  goResultatByIdEvents(id:number){
+    console.log(id);
+    return this.router.navigate(['dashboard/criteres', id])
+  }
 
   goAllProjetByIdEvents(idEvents:number){
     console.log(idEvents);

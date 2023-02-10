@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PopupAddJuryComponent } from './popup-add-jury.component';
+import { GenererCodeComponent } from './generer-code.component';
 
-describe('PopupAddJuryComponent', () => {
-  let component: PopupAddJuryComponent;
-  let fixture: ComponentFixture<PopupAddJuryComponent>;
+describe('GenererCodeComponent', () => {
+  let component: GenererCodeComponent;
+  let fixture: ComponentFixture<GenererCodeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PopupAddJuryComponent ]
+      declarations: [ GenererCodeComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PopupAddJuryComponent);
+    fixture = TestBed.createComponent(GenererCodeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

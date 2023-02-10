@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="left">
+
+
+        <div class="searchBar">
+            <div class="InputSearch">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill=" #0C85F8" class="bi bi-search"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
+                <input type="text" name="motCle" id="motCle" placeholder="Recherche liste">
+
+            </div>
+        </div>
+
+    
+
+        <div class="listeList">
+
+            <!-- condition dans le cas où aucune liste n'est importée -->
+            <!-- <div class="auccunT">Accune liste importée</div> -->
+
+            <div id="list"  class="col"   *ngFor="let evenement of mesevents  | paginate: { itemsPerPage: 5, currentPage: p }">
+
+                <div class="text-center"> <h2>{{evenement.libelle}}</h2></div>
+                <div class="text-center"><img src="{{evenement.images}}" alt=""></div>&nbsp;
+                <div class="text-center" (click)="goAllCodeVotanttByIdEvents(evenement.id)"><button class="mybtn text-center" >generercode </button></div>
+
+                
+                
+                
+            </div>
+           
+            
+
+            
+        </div>
+        <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
+       
+       
+    </div>
+
+    
+</div>
