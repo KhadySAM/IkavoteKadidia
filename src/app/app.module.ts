@@ -20,7 +20,9 @@ import { CriteresComponent } from './Pages/criteres/criteres.component';
 import { GenererCodeComponent } from './Pages/generer-code/generer-code.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { MesCodeComponent } from './Pages/mes-code/mes-code.component';
-
+import jsPDF from 'jspdf';
+// import { saveAs } from 'file-saver';
+import html2canvas from 'html2canvas';
 
 
 

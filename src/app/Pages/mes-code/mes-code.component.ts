@@ -2,8 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CodeVotantServiceService } from 'src/app/Services/code-votant-service.service';
 import { EvenementService } from 'src/app/Services/evenement.service';
-import * as jspdf from 'jspdf';
 import { SafeUrl } from '@angular/platform-browser';
+
+
+
+
+
 
 @Component({
   selector: 'app-mes-code',
@@ -12,11 +16,13 @@ import { SafeUrl } from '@angular/platform-browser';
 })
 export class MesCodeComponent implements OnInit {
 
-  url:SafeUrl = 'src/../'
+  url:SafeUrl = ''
   onCodeChange(url: SafeUrl) {
-    console.log("url")
-    this.url = url
+    console.log(url)
+    this.url = url;
   }
+
+
 
   idEvents:any
   p:number=1
@@ -52,20 +58,9 @@ export class MesCodeComponent implements OnInit {
       
     });
   }
-
-//   exportMyData() {
-//     const data = this.getDataFromDatabase();
-//     const doc = new jspdf.jsPDF
-//     const doc = new jspdf();
-//     doc.text(this.idEvents, this.nbrCodeVotant, this.allCodeVotant);
-//     doc.save('data.pdf');
-//   }
-
-//   getDataFromDatabase() {
-//     this.serviceCodeVotant.getCodeVotantByEvents(this.idEvents).subscribe(data =>{
-//       this.allCodeVotant = data.code
-//     return data;
-//   });
-
-// }
 }
+
+
+
+
+
