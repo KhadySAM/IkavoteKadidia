@@ -10,13 +10,14 @@ import { MesCodeComponent } from './Pages/mes-code/mes-code.component';
 import { PaysComponent } from './Pages/pays/pays.component';
 import { PersonnelsComponent } from './Pages/personnels/personnels.component';
 import { ProjetsComponent } from './Pages/projets/projets.component';
+import { ResultatComponent } from './Pages/resultat/resultat.component';
 import { TypeauthComponent } from './Pages/typeauth/typeauth.component';
 
 const routes: Routes = [
 
   {path: 'login', component: LoginComponent},
 
- 
+
   {
     path: '',
     redirectTo: 'login',
@@ -30,6 +31,7 @@ const routes: Routes = [
 
     children: [
       {path: 'personnels', component: PersonnelsComponent},
+      {path: 'resultat/:idEvents', component: ResultatComponent},
       {path: 'pays', component: PaysComponent},
       {path: 'typeauth', component: TypeauthComponent},
       {path: 'evenement', component: EvenementComponent},

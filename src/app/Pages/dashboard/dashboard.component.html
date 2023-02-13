@@ -1,4 +1,4 @@
-<div class="container-fluid" style="overflow: hidden;">
+<div  class="container-fluid" style="overflow: hidden;">
     <div class="row flex-nowrap">
         <div id="sidebar" class="col-auto sidebar  collapse collapse-horizontal show" style="height: 100vh;">
             <nav class="">
@@ -65,6 +65,15 @@
                             <span class="text nav-text" style="margin-left: 20px; ">Generer code</span>
                             </a>
                         </li>
+                        <!-- <li class="nav-link ">
+                            <a 
+                             routerLinkActive="active"
+                             routerLink="/dashboard/resultat">
+                            <i class="bi bi-heart-pulse"></i>
+                            <span class="text nav-text" style="margin-left: 20px; ">resultat</span>
+                           
+                            </a>
+                        </li> -->
 
                     </div>
                     <div class="bottom-content">
@@ -78,7 +87,9 @@
                 </div>
             </nav>
         </div>
+        <!-- <app-resultat [List]='Animals'></app-resultat> -->
         <main>
+            
             <div class="main-content">
                 <router-outlet></router-outlet>
               </div>

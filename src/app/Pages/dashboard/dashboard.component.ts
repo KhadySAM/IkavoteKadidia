@@ -1,5 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, OnInit , Inject,  PLATFORM_ID } from '@angular/core';
+import { ResultatModel } from 'src/app/Models/resultat-model';
 import { AuthService } from 'src/app/Services/_services/auth.service'; 
 import { StorageService } from 'src/app/Services/_services/storage.service'; 
 
@@ -10,6 +11,14 @@ import { StorageService } from 'src/app/Services/_services/storage.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
+  public Animals: Array<ResultatModel> = [
+    {Valeur: 350, couleur:'#498B94', taille:'', nom:'Monkeys'},
+    {Valeur: 2000, couleur:'#F8C622', taille:'', nom:'Giraffes'},
+    {Valeur: 1000, couleur:'#747474', taille:'', nom:'Lions'},
+    {Valeur: 500, couleur:'#EC972D', taille:'', nom:'Tigers'},
+  ];
+
 
   // les attributs pour l'authentification
   private roles: string[] = [];

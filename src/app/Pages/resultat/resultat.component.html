@@ -1,0 +1,31 @@
+<!-- <div class="grafico">
+    <div class="content">
+        <div class="bars" *ngFor="let item of List">
+            <span>{{item.Valeur}}</span>
+            <div class="bar" [style.background-color]="item.couleur" [style.height]='item.taille'></div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="legends">
+        <span *ngFor="let item of List">{{item.nom}}</span>
+    </div>
+</div> -->
+
+<!-- <div class="statistique" [List]='Animals'>
+</div> -->
+<!-- <app-resultat [List]='Animals'></app-resultat> -->
+
+
+<div  class="grafico">
+    
+    <div class="content">
+        <div class="bars" *ngFor="let item of List">
+            <span>{{item.Valeur}}</span>
+            <div class="bar" [style.background-color]="item.couleur" [style.height]='item.taille'></div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="legends">
+        <span *ngFor="let item of List">{{item.nom}}</span>
+    </div>
+</div>

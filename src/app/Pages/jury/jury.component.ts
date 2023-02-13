@@ -41,6 +41,32 @@ export class JuryComponent implements OnInit {
     })
   }
 
+  actualisationJury(){
+
+    this.serviceJury.getTousJury().subscribe(data =>{
+      
+    });
+
+  }
+
+  // onSubmitJury(): void {
+  //   const { username, email, password, pays} = this.form;
+  
+  //   console.log(pays)
+  //   this.authService.registerJury(username, email, password, pays).subscribe({
+  //     next: data => {
+  //       console.log(data);
+  //       this.isSuccessful = true;
+  //       this.isSignUpFailed = false;
+  //     },
+  //     error: err => {
+  //       this.errorMessage = err.error.message;
+  //       this.isSignUpFailed = true;
+  //     }
+  //   });
+  
+  //   }
+
   onSubmitJury(): void {
     const { username, email, password, pays} = this.form;
   
@@ -50,6 +76,16 @@ export class JuryComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        if(this.isSuccessful == true){
+          Swal.fire({
+            title: username,
+        text: "Ajouter avec succès ?",
+        icon: 'success',
+
+          })
+          window.location.reload();
+          
+        }
       },
       error: err => {
         this.errorMessage = err.error.message;
@@ -74,13 +110,17 @@ export class JuryComponent implements OnInit {
       }).then((result) => {
         if (result.isConfirmed) {
           //suppp
-          this.serviceJury.deleteUserById(id).subscribe(() => {
+          this.serviceJury.deleteUserById(id).subscribe(() => {});
           console.log(id)
-          Swal.fire(
-            'Supprimer!',
-            'supprimé avec succès'
-          );
-        });
+          Swal.fire({
+            title: 'Supprimer  avec succès',
+            icon: 'success',
+            showCancelButton: false,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK'
+          });
+          window.location.reload()
+        
     
         }
       });

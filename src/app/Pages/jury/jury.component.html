@@ -127,6 +127,7 @@
                     <th scope="col">N°</th>
                     <th scope="col">NOM</th>
                     <th scope="col" class="hideColonne hideColonneOder">Mail</th>
+                    <!-- <th scope="col">Pays</th> -->
                     <th scope="col">Action</th>
                     <!-- <th scope="col" class="hideColonne hideColonneOder">Action</th> -->
             
@@ -136,7 +137,8 @@
                     <tr *ngFor="let utilisteurs of mesjury | paginate: { itemsPerPage: 5, currentPage: p }" >
                     <td> {{utilisteurs.id}} </td>
                     <td> {{utilisteurs.username}}</td>
-                    <td class="hideColonne hideColonneOder" > {{utilisteurs.email}} </td> 
+                    <td class="hideColonne hideColonneOder" > {{utilisteurs.email}} </td>
+                    <!-- <td> {{utilisteurs.pays}}</td>  -->
                     <td> 
                         <div class="row">
                             <div class="col-md-6 test">

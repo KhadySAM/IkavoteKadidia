@@ -23,6 +23,8 @@ import { MesCodeComponent } from './Pages/mes-code/mes-code.component';
 import jsPDF from 'jspdf';
 // import { saveAs } from 'file-saver';
 import html2canvas from 'html2canvas';
+import { ResultatComponent } from './Pages/resultat/resultat.component';
+
 
 
 
@@ -42,6 +44,7 @@ import html2canvas from 'html2canvas';
     CriteresComponent,
     GenererCodeComponent,
     MesCodeComponent,
+    ResultatComponent,
  
   ],
   imports: [
