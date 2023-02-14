@@ -96,6 +96,7 @@ CreerEvenement(){
     },
     err => console.log(err)
   )
+  window.location.reload();
 }
 
     //================================================ suprimer ===================
@@ -116,7 +117,7 @@ CreerEvenement(){
           this.serviceEvents.deleteEvenementById(id).subscribe(() => {
           console.log(id)
           Swal.fire(
-            'Supprimer!',
+             'Supprimer!',
             'supprimé avec succès'
           );
         });

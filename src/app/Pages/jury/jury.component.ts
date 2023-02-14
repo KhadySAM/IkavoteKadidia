@@ -74,6 +74,7 @@ export class JuryComponent implements OnInit {
     this.authService.registerJury(username, email, password, pays).subscribe({
       next: data => {
         console.log(data);
+        
         this.isSuccessful = true;
         this.isSignUpFailed = false;
         if(this.isSuccessful == true){
@@ -83,9 +84,10 @@ export class JuryComponent implements OnInit {
         icon: 'success',
 
           })
-          window.location.reload();
+          
           
         }
+        window.location.reload();
       },
       error: err => {
         this.errorMessage = err.error.message;
@@ -115,7 +117,7 @@ export class JuryComponent implements OnInit {
           Swal.fire({
             title: 'Supprimer  avec succès',
             icon: 'success',
-            showCancelButton: false,
+            showCancelButton: true,
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'OK'
           });

@@ -46,9 +46,20 @@
 <!-- <qrcode (qrCodeURL)="onCodeChange($event)" [width]="400" errorCorrectionLevel="L" qrdata="salut"></qrcode>
 <a [href]="url" download>telechargez</a> -->
 
-<div *ngFor="let monCode  of allCodeVotant" class="text-center" id="qr-code">
-  
-    <qrcode (qrCodeURL)="onCodeChange($event)" [width]="300" errorCorrectionLevel="L" qrdata="{{monCode.code}}"></qrcode>
+
+
+
+
+<!-- <button (click)="exportToPdf2()">Exporter en PDF</button>
+<div id="content">
+    <div *ngFor="let monCode  of allCodeVotant " class="text-center" >
+        <qrcode [width]="350" errorCorrectionLevel="L" qrdata="{{monCode.code}}"></qrcode>   
+    </div>
    
-</div>
-<button  >salut</button>
+</div> -->
+<div *ngFor="let monCode  of allCodeVotant" class="text-center" id="qr-code">
+    <qrcode  [width]="300" errorCorrectionLevel="L" qrdata="{{monCode.code}}"></qrcode>
+    <!-- <a [href]="url" download> télécharger</a> -->
+  </div>
+  
+  <button (click)="generatePDF()">Générer le PDF</button>
