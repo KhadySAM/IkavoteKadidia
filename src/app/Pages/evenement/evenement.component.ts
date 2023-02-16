@@ -116,10 +116,15 @@ CreerEvenement(){
           //suppp
           this.serviceEvents.deleteEvenementById(id).subscribe(() => {
           console.log(id)
-          Swal.fire(
-             'Supprimer!',
-            'supprimé avec succès'
-          );
+          Swal.fire({
+            title: 'Supprimer  avec succès',
+            icon: 'success',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK'
+          });
+          window.location.reload()
+
         });
     
         }

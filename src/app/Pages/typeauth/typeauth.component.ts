@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 export class TypeauthComponent implements OnInit {
 
   mesTypesAuth : any;
+  nbreTypes: any;
   p : number = 1;
   userFilter : any={user: ''};
 
@@ -33,6 +34,7 @@ export class TypeauthComponent implements OnInit {
 
     this.serviceAuth.getAllTypeAuth().subscribe(data =>{
       this.mesTypesAuth = data;
+      this.nbreTypes = data.length
       console.log(this.mesTypesAuth);
     })
 
@@ -56,7 +58,7 @@ CreerAuth(){
     },
     err => console.log(err)
   )
-
+  window.location.reload();
 }
 
 // ============================================= suprime pays =======================
@@ -76,11 +78,18 @@ openModal(libelle : any, id : number) {
       //suppp
       this.serviceAuth.deleteTypesAuthById(id).subscribe(() => {
       console.log(id)
-      Swal.fire(
-        'Supprimer!',
-        'supprimé avec succès'
-      );
+      Swal.fire({
+        title: 'Supprimer  avec succès',
+        icon: 'success',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK'
+      });
+     
+
     });
+
+    window.location.reload()
 
     }
   });

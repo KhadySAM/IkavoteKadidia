@@ -85,7 +85,9 @@
 
                 </div>
             </div>
-            <table class="table table-striped text-center">
+              <!-- condition dans le cas où aucune liste n'est importée -->
+              <div *ngIf="totalCritere==0" class="auccunEv">
+            <table class="table table-striped text-center" *ngFor="let critere of criteresAff  | paginate: { itemsPerPage: 5, currentPage: p }">
                 <thead>
                     <tr>
                     <th scope="col">N°</th>
@@ -95,7 +97,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let critere of criteresAff">
+                    <tr >
                     <td>{{critere.id}} </td>
                     <td> {{critere.titre}}</td>
                     <td class="hideColonne hideColonneOder" > {{critere.contenu}} </td> 
@@ -122,6 +124,7 @@
                 </tbody>
             
             </table>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
     </div>
 </div>

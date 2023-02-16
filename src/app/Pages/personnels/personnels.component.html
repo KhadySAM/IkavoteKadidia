@@ -123,25 +123,26 @@
                     <h3>Les administrateur</h3>
                 </div>
             </div>
-            <table class="table table-striped text-center">
+            <!-- condition dans le cas où aucune liste n'est importée -->
+            <div *ngIf="nbreAdmin==0" class="auccunEv">Accun Administrateur n'a été ajouter !</div>
+            
+            <table class="table table-striped text-center" *ngFor="let utilisteurs of mesadmin | paginate: { itemsPerPage: 5, currentPage: p }">
                 <thead>
                     <tr>
                     <th scope="col">N°</th>
                     <th scope="col">Pays</th>
                     <th scope="col">Nom</th>
                     <th scope="col" class="hideColonne hideColonneOder">Email</th>
-                    <!-- <th scope="col">Role</th> -->
                     <th scope="col" class="hideColonne hideColonneOder">Action</th>
             
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let utilisteurs of mesadmin | paginate: { itemsPerPage: 5, currentPage: p }" >
+                    <tr  >
                         <td > {{utilisteurs.id}} </td>
                         <td *ngIf="utilisteurs.pays!=null" > {{utilisteurs.pays.nom}}</td>
                         <td> {{utilisteurs.username}} </td>
                         <td class="hideColonne hideColonneOder" >{{utilisteurs.email}}</td> 
-                        <!-- <td>  {{utilisteurs.roles[0].name}} </td> -->
                         <td class="hideColonne hideColonneOder" > 
                             <div class="row">
                                 <div class="col-md-6 test">
@@ -168,7 +169,7 @@
                     
                 </tbody>
                 
-            
+                <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
             </table>
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>

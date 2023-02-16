@@ -76,6 +76,7 @@ CreerProjet(){
       this.ObjetsProjets =data
     },
   )
+  window.location.reload();
 }
 
     //================================================ suprimer ===================
@@ -95,12 +96,17 @@ CreerProjet(){
           //suppp
           this.projetService.deleteProjetById(id).subscribe(() => {
           console.log(id)
-          Swal.fire(
-            'Supprimer!',
-            'supprimé avec succès'
-          );
+          Swal.fire({
+            title: 'Supprimer  avec succès',
+            icon: 'success',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK'
+          });
+         
         });
     
+        window.location.reload()
         }
       });
     }

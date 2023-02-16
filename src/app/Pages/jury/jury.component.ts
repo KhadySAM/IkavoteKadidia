@@ -14,6 +14,7 @@ export class JuryComponent implements OnInit {
   p : number = 1;
   userFilter : any={user: ''};
   mesjury : any;
+  nbreJury:any
 
   mespays: any;
   form: any = {
@@ -33,6 +34,7 @@ export class JuryComponent implements OnInit {
     this.serviceJury.getTousJury().subscribe(data =>{
       this.mesjury = data;
       console.log(this.mesjury);
+      this.nbreJury = data.length
     });
 
     this.paysService.getAllPays().subscribe(data =>{
@@ -85,9 +87,9 @@ export class JuryComponent implements OnInit {
 
           })
           
-          
+          window.location.reload();
         }
-        window.location.reload();
+       
       },
       error: err => {
         this.errorMessage = err.error.message;

@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 export class PaysComponent implements OnInit {
 
   mespays : any;
+  nbrePays:any
   p : number = 1;
   userFilter : any={user: ''};
 
@@ -43,6 +44,7 @@ export class PaysComponent implements OnInit {
     
     this.paysService.getAllPays().subscribe(data => {
       this.mespays = data;
+      this.nbrePays = data.length
       console.log(this.mespays);
     });
   
@@ -71,6 +73,7 @@ CreerPays(){
     },
     err => console.log(err)
   )
+  window.location.reload();
 }
 
 // ============================================= suprime pays =======================
@@ -90,11 +93,17 @@ openModal(nom : any, id : number) {
       //suppp
       this.paysService.deletePaysById(id).subscribe(() => {
       console.log(id)
-      Swal.fire(
-        'Supprimer!',
-        'Pays supprimé avec succès'
-      );
+      Swal.fire({
+        title: 'Supprimer  avec succès',
+        icon: 'success',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK'
+      });
+     
     });
+
+    window.location.reload()
 
     }
   });

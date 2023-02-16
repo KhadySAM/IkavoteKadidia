@@ -30,9 +30,10 @@ const routes: Routes = [
     path: "dashboard", component: DashboardComponent,
 
     children: [
+      {path: 'pays', component: PaysComponent},
       {path: 'personnels', component: PersonnelsComponent},
       {path: 'resultat/:idEvents', component: ResultatComponent},
-      {path: 'pays', component: PaysComponent},
+     
       {path: 'typeauth', component: TypeauthComponent},
       {path: 'evenement', component: EvenementComponent},
       {path: 'jury', component: JuryComponent},

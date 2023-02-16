@@ -50,8 +50,11 @@
                     <h3>Les pays</h3>
                 </div>
             </div>
+
+            <!-- condition dans le cas où aucune liste n'est importée -->
+            <div *ngIf="nbrePays==0" class="auccunEv">Accun Pays n'a été ajouter !</div>
             
-            <table class="table table-striped text-center">
+            <table class="table table-striped text-center" *ngFor="let pays of mespays | paginate: { itemsPerPage: 5, currentPage: p }" >
                 <thead>
                     <tr>
                     <th scope="col">N°</th>
@@ -62,7 +65,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let pays of mespays | paginate: { itemsPerPage: 5, currentPage: p }" >
+                    <tr >
                     <td>{{pays.id}}</td>
                     <td><img src="{{pays.images}}" alt="" width="50px" height="30px"> </td>
                     <td class="hideColonne hideColonneOder" > {{pays.initiale}} </td> 

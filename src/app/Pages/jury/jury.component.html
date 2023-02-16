@@ -121,19 +121,21 @@
                     <h3>Liste des jury</h3>
                 </div>
             </div>
-            <table class="table table-striped text-center">
-                <thead>
+             <!-- condition dans le cas où aucune liste n'est importée -->
+             <div *ngIf="nbreJury==0" class="auccunEv">Accun Pays n'a été ajouter !</div>
+            
+            <table class="table table-striped text-center"  >
+                <thead >
                     <tr>
                     <th scope="col">N°</th>
                     <th scope="col">NOM</th>
                     <th scope="col" class="hideColonne hideColonneOder">Mail</th>
-                    <!-- <th scope="col">Pays</th> -->
                     <th scope="col">Action</th>
-                    <!-- <th scope="col" class="hideColonne hideColonneOder">Action</th> -->
+                   
             
                     </tr>
                 </thead>
-                <tbody>
+                <tbody >
                     <tr *ngFor="let utilisteurs of mesjury | paginate: { itemsPerPage: 5, currentPage: p }" >
                     <td> {{utilisteurs.id}} </td>
                     <td> {{utilisteurs.username}}</td>
@@ -162,6 +164,7 @@
                     </td>
                 </tr>
             </tbody>
+            <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
         </table>
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>

@@ -15,6 +15,7 @@ export class PersonnelsComponent implements OnInit {
   ids=0;
   mesusers : any;
   mesadmin : any;
+  nbreAdmin: any;
   paysid : any;
   
   p : number = 1;
@@ -40,6 +41,7 @@ export class PersonnelsComponent implements OnInit {
     
      this.servicepersonnels.getTousAdmin().subscribe(data =>{
       this.mesadmin = data;
+      this.nbreAdmin =data.length
       console.log(this.mesadmin);
     })
 
@@ -69,12 +71,18 @@ openModal(nom : any, id : number) {
       //suppp
       this.servicepersonnels.deleteUserById(id).subscribe(() => {
       console.log(id)
-      Swal.fire(
-        'Supprimer!',
-        'supprimé avec succès'
-      );
+      Swal.fire({
+        title: 'Supprimer  avec succès',
+        icon: 'success',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK'
+      });
+     
+
     });
 
+    window.location.reload();
     }
   });
 }
@@ -96,6 +104,7 @@ onSubmit(): void {
       this.isSignUpFailed = true;
     }
   });
+  window.location.reload();
 
 }
 

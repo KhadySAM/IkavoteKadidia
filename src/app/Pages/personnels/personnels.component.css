@@ -31,6 +31,13 @@
 
 }
 
+.auccunEv{
+  text-align: center;
+  font-size: x-large;
+  margin-top: 2%;
+
+}
+
 .save{
   background-color: rgb(56, 211, 56);
   color: white;
@@ -130,7 +137,7 @@ table{
   }
   th{
     font-family: myfon2;
-    color: #ffff !important;
+    color: #ffff ;
       font-weight: 600;
   }
   thead{

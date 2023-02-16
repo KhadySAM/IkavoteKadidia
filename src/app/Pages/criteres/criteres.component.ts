@@ -13,6 +13,8 @@ import  Swal from 'sweetalert2';
 export class CriteresComponent implements OnInit {
 
   id:any
+  p:any
+  totalCritere: any
   criteresAff:any
   libelleEvents:any
   allEvents:any
@@ -64,7 +66,9 @@ CreerCritere(){
       this.ObjetsCritere =data
       console.log(this.ObjetsCritere)
     },
+    
   )
+  window.location.reload();
 }
 
     //================================================ suprimer ===================
@@ -84,10 +88,15 @@ CreerCritere(){
           //suppp
           this.criteresService.deleteCritereById(id).subscribe(() => {
           console.log(id)
-          Swal.fire(
-            'Supprimer!',
-            'supprimé avec succès'
-          );
+          Swal.fire({
+            title: 'Supprimer  avec succès',
+            icon: 'success',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK'
+          });
+          window.location.reload()
+
         });
     
         }

@@ -47,16 +47,20 @@
                     <h3>Types d'authentification</h3>
                 </div>
             </div>
-            <table class="table table-striped text-center">
+
+              <!-- condition dans le cas où aucune liste n'est importée -->
+              <div *ngIf="nbreTypes==0" class="auccunEv">Accun type d'authentification à afficher</div>
+
+            <table class="table table-striped text-center" >
                 <thead>
                     <tr>
                         <th scope="col">N°</th>
-                        <th scope="col" class="hideColonne hideColonneOder">Liblle</th>
+                        <th scope="col" class="hideColonne hideColonneOder">Libelle</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let auth of mesTypesAuth | paginate: { itemsPerPage: 5, currentPage: p }" >
+                    <tr  *ngFor="let auth of mesTypesAuth | paginate: { itemsPerPage: 5, currentPage: p }">
                         <td>{{auth.id}}</td>
                         <td>{{auth.libelle}} </td>
                         
