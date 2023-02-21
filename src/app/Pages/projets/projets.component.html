@@ -31,7 +31,6 @@
                                                 </div>
         
         
-                                                
         
                                                 <div>
         
@@ -95,9 +94,10 @@
             </div>
 
               <!-- condition dans le cas où aucune liste n'est importée -->
-              <div *ngIf="nbrProjet==0" class="auccunEv">
+              <!-- <div *ngIf="nbrProjet==0" class="auccunEv"> -->
+                
 
-            <table class="table table-striped text-center" *ngFor="let projet  of allProjets  | paginate: { itemsPerPage: 5, currentPage: p }">
+            <table class="table table-striped text-center">
                 <thead>
                     <tr>
                     <th scope="col">N°</th>
@@ -110,7 +110,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr >
+                    <tr  *ngFor="let projet  of allProjets  | paginate: { itemsPerPage: 5, currentPage: p }">
 
                     <td>{{projet.id}} </td>
                     <td> <img src="{{projet.images}}" alt="" width="50px" height="30px"></td>
