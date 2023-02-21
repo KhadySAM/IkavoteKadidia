@@ -21,15 +21,15 @@
                             routerLinkActive="active"
                             routerLink="/dashboard/personnels" 
                             >
-                            <i class="bi bi-people" ></i>
-                            <span class="text nav-text" style="margin-left: 20px;">Administrateur</span>
+                            <i class="fas fa-users monclr"></i>
+                            <span class="text nav-text " style="margin-left: 20px;">Administrateur</span>
                             </a>
                         </li>
                         <li class="nav-link">
                             <a 
                             routerLinkActive="active"
                              routerLink="/dashboard/jury">
-                            <i class="bi bi-heart-pulse"></i>
+                             <i class="fas fa-scale-unbalanced monclr"></i>
                             <span class="text nav-text" style="margin-left: 20px; ">Jury</span>
                             </a>
                         </li>
@@ -37,7 +37,7 @@
                             <a
                              routerLinkActive="active"
                              routerLink="/dashboard/pays">
-                            <i class="bi bi-people" ></i>
+                             <i class="fas fa-globe monclr"></i>
                             <span class="text nav-text" style="margin-left: 20px;">Pays</span>
                             </a>
                         </li>
@@ -46,7 +46,8 @@
                             <a  
                              routerLinkActive="active"
                              routerLink="/dashboard/typeauth">
-                            <i class="bi bi-heart-pulse"></i>
+                            
+                            <i class="fa-solid fa-user monclr"></i>
                             <span class="text nav-text" style="margin-left: 20px; ">Authentication</span>
                             </a>
                         </li>
@@ -54,7 +55,7 @@
                             <a 
                              routerLinkActive="active"
                              routerLink="/dashboard/evenement">
-                            <i class="bi bi-heart-pulse"></i>
+                             <i class="fas fa-calendar-day monclr"></i>
                             <span class="text nav-text" style="margin-left: 20px; ">Evenement</span>
                             </a>
                         </li>
@@ -62,7 +63,7 @@
                             <a 
                              routerLinkActive="active"
                              routerLink="/dashboard/generercode">
-                            <i class="bi bi-heart-pulse"></i>
+                             <i class="fas fa-qrcode monclr"></i>
                             <span class="text nav-text" style="margin-left: 20px; ">Generer code</span>
                             </a>
                         </li>
@@ -78,12 +79,7 @@
 
                     </div>
                     <div class="bottom-content">
-                        <li class="li">
-                            <a href="/login">
-                            <i class='bx bx-power-off icon' style="color:#0C85F8"></i>
-                            <span class="text nav-text" style="color: #0C85F8;" (click)="logout()">Déconnexion</span>
-                            </a>
-                        </li>
+                        <button class="deconnexion"><i class="fas but fa-power-off" style="color:  #FF731D;"></i> Déconnexion</button>
                     </div>
                 </div>
             </nav>

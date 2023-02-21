@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CodeVotantServiceService } from 'src/app/Services/code-votant-service.service';
 import { EvenementService } from 'src/app/Services/evenement.service';
-// import { SafeUrl } from '@angular/platform-browser';
+
 import  jsPDF from 'jspdf'
 import html2canvas from 'html2canvas';
 
@@ -20,12 +20,6 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 })
 export class MesCodeComponent implements OnInit {
 
-  // url:SafeUrl = ''
- 
-  // onCodeChange(url: SafeUrl) {
-  //   console.log(url)
-  //   this.url = url;
-  // }
 
   
 
