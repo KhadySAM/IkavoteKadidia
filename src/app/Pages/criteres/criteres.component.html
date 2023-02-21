@@ -86,8 +86,8 @@
                 </div>
             </div>
               <!-- condition dans le cas où aucune liste n'est importée -->
-              <!-- <div *ngIf="totalCritere==0" class="auccunEv"> -->
-            <table class="table table-striped text-center">
+              <div *ngIf="totalCritere==0" class="auccunEv">
+            <table class="table table-striped text-center" *ngFor="let critere of criteresAff  | paginate: { itemsPerPage: 5, currentPage: p }">
                 <thead>
                     <tr>
                     <th scope="col">N°</th>

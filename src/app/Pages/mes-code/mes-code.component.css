@@ -1,11 +1,25 @@
 .container{
-   margin-top: 10%;
+   margin-top: 5%;
    text-align: center;
-   background-color: white;
-   border-radius: 20px;
+  
+  
 }
 
 .adp{
+  background-color: #1746A2;
+  color: white;
+  width: 10%;
+  border: none;
+  height: 6vh;
+  border-radius: 5px;
+}
+
+.adp:hover{
+  background-color:  #2f5ebb;
+
+}
+
+/* .adp{
     background-color: #0C85F8;
     color: white;
     width: 50%;
@@ -36,4 +50,4 @@ table{
   }
   thead{
     background-color: #0C85F8;
-  }
+  } */

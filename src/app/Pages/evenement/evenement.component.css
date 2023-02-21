@@ -4,18 +4,18 @@
 }
 
 .adp{
-    background-color: #0C85F8;
-    color: white;
-    width: 20%;
-    border: none;
-    height: 100%;
-    border-radius: 5px;
-  }
-  
-  .adp:hover{
-    background-color:  #264e73;
-  
-  }
+  background-color: #1746A2;
+  color: white;
+  width: 20%;
+  border: none;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.adp:hover{
+  background-color:  #2f5ebb;
+
+}
   
   .save{
     background-color: rgb(56, 211, 56);
@@ -82,7 +82,7 @@ table{
       font-weight: 600;
   }
   thead{
-    background-color: #0C85F8;
+    background-color: #1746A2;
   }
 
 .listeEvents{
@@ -202,68 +202,52 @@ table{
   }
 
   .adpers{
-    background-color: #0C85F8;
-    color: white;
-    width: 100%;
+    color: #FF731D;
+    width: 15px;
     border: none;
-    height: 100%;
-    border-radius: 5px;
+    
   }
   
   .adpers:hover{
   
-    background-color:  #264e73;
+    background-color:  #8d4315;
   
   }
 
-  .adcri{
-    background-color: #0C85F8;
-    color: white;
-    width: 87%;
+
+
+  .adperM{
+    color: rgb(46, 221, 46);
     border: none;
-    height: 100%;
-    border-radius: 5px;
-  }
-  
-  .adcri:hover{
-  
-    background-color:  #264e73;
-  
   }
 
-  .adgrr{
-    background-color: #0C85F8;
-    color: white;
-    width: 78%;
+  
+  .adperM:hover{
+    color: rgb(17, 54, 17);
     border: none;
-    height: 3.5vh;
-    border-radius: 5px;
-  }
-  
-  .adgrr:hover{
-  
-    background-color:  #264e73;
-  
   }
 
-  .adper{
-    background-color: #0C85F8;
-    color: white;
-    width: 6vh;
+  .adperS{
+    color: red;
+    width: 5px;
     border: none;
-    height: 100%;
-    border-radius: 5px;
+  }
+
+  .adperS:hover{
+    color: rgb(136, 27, 27);
+    width: 5px;
+    border: none;
   }
   
   .adper:hover{
   
-    background-color:  #264e73;
+    background-color:  #507bd3;
   
   }
   
 
   .adpd{
-    background-color: #0C85F8;
+    background-color: #1746A2;
     color: white;
     width: 40%;
     border: none;
@@ -273,7 +257,7 @@ table{
   
   .adpd:hover{
   
-    background-color:  #264e73;
+    background-color:  #507bd3;
   
   }
 

@@ -6,16 +6,16 @@
 
 
 .adp{
-  background-color: #0C85F8;
+  background-color: #1746A2;
   color: white;
-  width: 50%;
+  width: 20%;
   border: none;
   height: 100%;
   border-radius: 5px;
 }
 
 .adp:hover{
-  background-color:  #264e73;
+  background-color:  #2f5ebb;
 
 }
 
@@ -105,7 +105,7 @@ table{
       font-weight: 600;
   }
   thead{
-    background-color: #0C85F8;
+    background-color: #1746A2;
   }
 
   @media screen and (max-width: 900px) {

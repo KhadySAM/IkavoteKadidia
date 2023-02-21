@@ -20,23 +20,31 @@
 
 }
 
-.adpd{
-  background-color: #0C85F8;
-  color: white;
-  width: 40%;
+.adperM{
+  color: rgb(46, 221, 46);
   border: none;
-  height: 100%;
-  border-radius: 5px;
 }
 
-.adpd:hover{
 
-  background-color:  #264e73;
+.adperM:hover{
+  color: rgb(17, 54, 17);
+  border: none;
+}
 
+.adperS{
+  color: red;
+  width: 5px;
+  border: none;
+}
+
+.adperS:hover{
+  color: rgb(136, 27, 27);
+  width: 5px;
+  border: none;
 }
 
 .adp{
-  background-color: #0C85F8;
+  background-color: #1746A2;
   color: white;
   width: 20%;
   border: none;
@@ -45,7 +53,7 @@
 }
 
 .adp:hover{
-  background-color:  #264e73;
+  background-color:  #2f5ebb;
 
 }
 
@@ -107,7 +115,8 @@ table{
       font-weight: 600;
   }
   thead{
-    background-color: #0C85F8;
+    background-color: #1746A2;
+
   }
 
   @media screen and (max-width: 900px) {
