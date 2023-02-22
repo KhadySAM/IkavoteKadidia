@@ -1,21 +1,15 @@
-<!-- 
-<div *ngFor="let monCode  of allCodeVotant" class="container text-center" id="qr-code">
-    <qrcode  [width]="300" errorCorrectionLevel="L" qrdata="{{monCode.code}}"></qrcode>
-  
+  <div class="text-center haut">
+    <button class="adp" (click)="generatePDF()">Exporter en PDF</button>
   </div>
-  
-  <button class="adp" (click)="generatePDF()">Exporter en PDF</button> -->
+  <div class="row">
 
-  <div class="container" *ngFor="let monCode  of allCodeVotant" class="container text-center" id="qr-code">
-    <div class="row">
-        <div class="col-md-3 "><qrcode  [width]="300" errorCorrectionLevel="L" qrdata="{{monCode.code}}"></qrcode></div>
+    <div class="col-sm-3" *ngFor="let monCode  of allCodeVotant " id="qr-code">
 
-        <div class="col-md-3 "><qrcode  [width]="300" errorCorrectionLevel="L" qrdata="{{monCode.code}}"></qrcode></div>
-
-        <div class="col-md-3 "><qrcode  [width]="300" errorCorrectionLevel="L" qrdata="{{monCode.code}}"></qrcode></div>
-        
-        <div class="col-md-3 "><qrcode  [width]="300" errorCorrectionLevel="L" qrdata="{{monCode.code}}"></qrcode></div>
+      <div>
+        <qrcode  [width]="100" errorCorrectionLevel="L" qrdata="{{monCode.code}}"></qrcode>
+      </div>
     </div>
     
-   
-</div>
+    
+  </div> 
+ 

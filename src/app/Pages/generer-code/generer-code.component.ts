@@ -29,6 +29,11 @@ export class GenererCodeComponent implements OnInit {
    
   }
 
+  goResultatByIdEvents(id:number){
+    console.log(id);
+    return this.router.navigate(['dashboard/criteres', id])
+  }
+
   goAllCodeVotanttByIdEvents(idEvents:number){
     console.log(idEvents);
     return this.router.navigate(['dashboard/mescode', idEvents])

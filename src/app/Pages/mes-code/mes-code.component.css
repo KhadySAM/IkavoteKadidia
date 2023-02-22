@@ -1,8 +1,9 @@
-.container{
-   margin-top: 5%;
-   text-align: center;
-  
-  
+.row{
+   margin-top: 5px;
+}
+
+.haut{
+  margin-top: 5px;
 }
 
 .adp{
@@ -19,35 +20,3 @@
 
 }
 
-/* .adp{
-    background-color: #0C85F8;
-    color: white;
-    width: 50%;
-    border: none;
-    height: 100%;
-    border-radius: 5px;
-    margin-top: 2%;
-  }
-  
-  .adp:hover{
-    background-color:  #264e73;
-  
-  }
-
-table{
-    margin-top: 15px;
-   
-   
-  }
-  
-  td{
-    font-family: myfon2;
-  }
-  th{
-    font-family: myfon2;
-    color: #ffff !important;
-      font-weight: 600;
-  }
-  thead{
-    background-color: #0C85F8;
-  } */
