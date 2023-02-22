@@ -3,7 +3,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#1746A2" class="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
         </svg>
-        <input type="text" name="motCle" id="motCle" placeholder="Recherche">
+        <input type="text" name="motCle" id="motCle" placeholder="Recherche pays">
     </div>
 </div>
 <div class="container">
@@ -28,17 +28,20 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form [formGroup]="formulaire" (ngSubmit)="CreerPays()"  action="">
+                                    <form [formGroup]="formulaire" (ngSubmit)="popAddPays()"  action="">
                                         <div>
+                                            <label for="floatingInput" style=" margin-left: -380px;">Nom pays</label>
                                             <input name="nompays" class="form-control" type="text" placeholder="Nom pays" formControlName="nom">&nbsp;&nbsp;
+                                            <label for="floatingInput" style=" margin-left: -420px;">Initiale</label>
                                             <input name="initialepays" class="form-control" type="text" placeholder="Initiale" formControlName="initiale">&nbsp;&nbsp;
                                         </div>
                                         <div>
+                                            <label for="floatingInput" style=" margin-left: -410px;">Image</label>
                                             <input (change)="fileChang($event)"  class="form-control" name="file" type="file" placeholder="images">&nbsp;&nbsp;
                                         </div>
                                         <div class="modal-footer">
+                                            <button type="submit" class="save" >Enregistrer</button>&nbsp;&nbsp;
                                             <button type="button"  class="annuler" data-bs-dismiss="modal">Annuler</button>
-                                            <button type="submit" class="save" >Enregistrer</button>
                                         </div>
                                     </form>
                                 </div> 
@@ -54,7 +57,7 @@
             <!-- condition dans le cas où aucune liste n'est importée -->
             <div *ngIf="nbrePays==0" class="auccunEv">Accun Pays n'a été ajouter !</div>
             
-            <table class="table table-striped text-center" *ngFor="let pays of mespays | paginate: { itemsPerPage: 5, currentPage: p }" >
+            <table class="table table-striped text-center" >
                 <thead>
                     <tr>
                     <th scope="col">N°</th>
@@ -65,7 +68,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr >
+                    <tr *ngFor="let pays of mespays | paginate: { itemsPerPage: 5, currentPage: p }">
                     <td>{{pays.id}}</td>
                     <td><img src="{{pays.images}}" alt="" width="50px" height="30px"> </td>
                     <td class="hideColonne hideColonneOder" > {{pays.initiale}} </td> 

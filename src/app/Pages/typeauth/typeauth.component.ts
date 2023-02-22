@@ -58,8 +58,52 @@ CreerAuth(){
     },
     err => console.log(err)
   )
-  window.location.reload();
+  // window.location.reload();
 }
+// ======================================= add typesAuth ======================================
+
+popAddAuth(){
+
+  
+
+ Swal.fire({
+   position:'center',
+   title: 'Voulez-vous ajouter cet type authentificatication ?',
+   showDenyButton: true,
+   showCancelButton: false,
+   confirmButtonText: 'Oui',
+   denyButtonText: 'Non',
+   icon : 'success',
+   denyButtonColor:'red',
+   // cancelButtonText: 'Annuler',
+   cancelButtonColor:'red',
+   confirmButtonColor: 'green',
+   heightAuto: false,
+ }).then((result) => {
+   /* Read more about isConfirmed, isDenied below */
+   if (result.isConfirmed) {
+     //Swal.fire('Saved!', '', 'success');
+     this.ObjetsAuth = this.formulaire.value
+
+     this.serviceAuth.AjouterTypesAuth(this.ObjetsAuth).subscribe(
+       data =>{
+         this.ObjetsAuth = data
+       },
+       err => console.log(err)
+     )
+
+     window.location.reload();
+
+   } else if (result.isDenied) {
+     //Swal.fire('Changes are not saved', '', 'info');
+   //  this.route.navigate(['tirage'])
+   }
+ });
+
+ //  window.location.reload();
+
+}
+
 
 // ============================================= suprime pays =======================
 

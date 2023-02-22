@@ -99,6 +99,45 @@ CreerEvenement(){
   window.location.reload();
 }
 
+//==================================== Ajout Event ===================================================
+popAddEvent(){
+
+    Swal.fire({
+      position:'center',
+      title: 'Voulez-vous ajouter cet event ?',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: 'Oui',
+      denyButtonText: 'Non',
+      icon : 'success',
+      denyButtonColor:'red',
+      // cancelButtonText: 'Annuler',
+      cancelButtonColor:'red',
+      confirmButtonColor: 'green',
+      heightAuto: false,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        //Swal.fire('Saved!', '', 'success');
+        this.serviceEvents.AjouterEvents(this.ObjetsEvents.libelle,  this.ObjetsEvents.dateDebut, this.ObjetsEvents.dateFin,
+          this.ObjetsEvents.bareme, this.ObjetsEvents.coefficientUser, this.ObjetsEvents.coefficientJury,
+           this.ObjetsEvents.nbreVotant, this.file, this.mespays.nom, this.mesTypesAuth.libelle).subscribe(
+         data =>{
+           this.ObjetsEvents = data
+         },
+         err => console.log(err)
+       )
+
+      } else if (result.isDenied) {
+        //Swal.fire('Changes are not saved', '', 'info');
+      //  this.route.navigate(['tirage'])
+      }
+    });
+
+    window.location.reload()
+
+  }
+
     //================================================ suprimer ===================
 
     openModal(libelle : any, id : number) {
@@ -131,10 +170,7 @@ CreerEvenement(){
       });
     }
 
-  // goResultatByIdEvents(id:number){
-  //   console.log(id);
-  //   return this.router.navigate(['dashboard/criteres', id])
-  // }
+ 
 
   goAllProjetByIdEvents(idEvents:number){
     console.log(idEvents);

@@ -5,7 +5,7 @@
             <path
                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
         </svg>
-        <input type="text" name="motCle" id="motCle" placeholder="Recherche">
+        <input type="text" name="motCle" id="motCle" placeholder="Recherche jury">
     </div>
 </div>
 <div class="container">
@@ -33,12 +33,12 @@
                                     <form
                                     *ngIf="!isSuccessful"
                                     name="form"
-                                    (ngSubmit)="f.form.valid && onSubmitJury()"
+                                    (ngSubmit)="f.form.valid && popAddJury()"
                                     #f="ngForm"
                                     novalidate
                                   >
                                     <div class="form-group">
-                                      <label for="username">Nom d'utilisateur</label>
+                                      <label for="username" style=" margin-left: -330px;">Nom d'utilisateur</label>
                                       <input
                                         type="text"
                                         class="form-control"
@@ -51,7 +51,7 @@
                                         [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
                                       />
                                       <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
-                                        <div *ngIf="username.errors['required']">Username is required</div>
+                                        <div *ngIf="username.errors['required']">Username est obligatoire</div>
                                         <div *ngIf="username.errors['minlength']">
                                          Le nom d'utilisateur doit depasser 3 characters
                                         </div>
@@ -61,7 +61,7 @@
                                       </div>
                                     </div>
                                     <div class="form-group">
-                                      <label for="email">Email</label>
+                                      <label for="email" style=" margin-left: -420px;">Email</label>
                                       <input
                                         type="email"
                                         class="form-control"
@@ -80,7 +80,7 @@
                                       </div>
                                     </div>
                                     <div class="form-group">
-                                      <label for="password">Mot de passe</label>
+                                      <label for="password" style=" margin-left: -360px;">Mot de passe</label>
                                       <input
                                         type="password"
                                         class="form-control"
@@ -98,14 +98,16 @@
                                         </div>
                                       </div>
                                     </div>
+                                    <label for="floatingInput" style=" margin-left: -420px;">Pays</label>
                                     <select class="form-select" aria-label="Default select example" selected [(ngModel)]="form.pays" name="pays" >
                                         <option  >Choisir un pays</option>
                                         <option *ngFor="let pays of mespays"  >{{pays.nom}}</option>
                                         
-                                    </select>
+                                    </select><br>
                                     
                                     <div class="form-group">
-                                      <button class="ajout">Ajouter</button>
+                                        <button type="submit" class="save" >Enregistrer</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <button type="reset"  class="annuler" data-bs-dismiss="modal">Annuler</button>
                                     </div>
                               
                                     <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">

@@ -16,6 +16,14 @@
   background-color:  #2f5ebb;
 
 }
+
+label{
+  margin-left: -112px;
+  font-weight: 800;
+  color: #5b5b5c;
+  position: relative;
+  top: 10px;
+}
   
   .save{
     background-color: rgb(56, 211, 56);

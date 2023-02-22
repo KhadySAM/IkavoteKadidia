@@ -73,7 +73,48 @@ CreerPays(){
     },
     err => console.log(err)
   )
-  window.location.reload();
+ 
+}
+//=============================== add Pays===============================
+popAddPays(){
+
+  // const { username, email, password, pays} = this.form;
+
+ Swal.fire({
+   position:'center',
+   title: 'Voulez-vous ajouter cet pays ?',
+   showDenyButton: true,
+   showCancelButton: false,
+   confirmButtonText: 'Oui',
+   denyButtonText: 'Non',
+   icon : 'success',
+   denyButtonColor:'red',
+   // cancelButtonText: 'Annuler',
+   cancelButtonColor:'red',
+   confirmButtonColor: 'green',
+   heightAuto: false,
+ }).then((result) => {
+   /* Read more about isConfirmed, isDenied below */
+   if (result.isConfirmed) {
+     //Swal.fire('Saved!', '', 'success');
+     this.ObjetsPays = this.formulaire.value
+     this.paysService.AjouterPays(this.ObjetsPays, this.file).subscribe(
+      data =>{
+        this.ObjetsPays = data
+      },
+      err => console.log(err)
+    )
+
+     window.location.reload();
+
+   } else if (result.isDenied) {
+     //Swal.fire('Changes are not saved', '', 'info');
+   //  this.route.navigate(['tirage'])
+   }
+ });
+
+ //  window.location.reload();
+
 }
 
 // ============================================= suprime pays =======================

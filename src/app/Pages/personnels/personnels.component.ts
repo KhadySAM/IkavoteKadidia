@@ -104,8 +104,54 @@ onSubmit(): void {
       this.isSignUpFailed = true;
     }
   });
-  window.location.reload();
+ 
+}
+
+//==================================== Ajout Admin ===================================================
+popAddAdmin(){
+
+   const { username, email, password, pays} = this.form;
+
+  Swal.fire({
+    position:'center',
+    title: 'Voulez-vous ajouter cet admin ?',
+    showDenyButton: true,
+    showCancelButton: false,
+    confirmButtonText: 'Oui',
+    denyButtonText: 'Non',
+    icon : 'success',
+    denyButtonColor:'red',
+    // cancelButtonText: 'Annuler',
+    cancelButtonColor:'red',
+    confirmButtonColor: 'green',
+    heightAuto: false,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      //Swal.fire('Saved!', '', 'success');
+      this.authService.register(username, email, password, pays).subscribe({
+        next: data => {
+          console.log(data);
+          this.isSuccessful = true;
+          this.isSignUpFailed = false;
+        },
+        error: err => {
+          this.errorMessage = err.error.message;
+          this.isSignUpFailed = true;
+        }
+      });
+
+      window.location.reload();
+
+    } else if (result.isDenied) {
+      //Swal.fire('Changes are not saved', '', 'info');
+    //  this.route.navigate(['tirage'])
+    }
+  });
+
+  //  window.location.reload();
 
 }
+
 
 }

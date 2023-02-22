@@ -5,7 +5,7 @@
             <path
                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
         </svg>
-        <input type="text" name="motCle" id="motCle" placeholder="Recherche">
+        <input type="text" name="motCle" id="motCle" placeholder="Recherche event">
     </div>
 </div>
 <div class="container">
@@ -29,48 +29,66 @@
                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Ajout d'un evenement</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-body form-floating">
 
                                     <!-- [formGroup]="formulaire"  -->
-                                    <form (ngSubmit)="CreerEvenement()"  action="">
-                                        <div>
+                                    <form (ngSubmit)="popAddEvent()"  action="">
+                                      <div class="row">
+                                        <div class="col-6">
+                                            <label for="floatingInput">Nom event</label>
                                             <input name="libelleevent" class="form-control" type="text" placeholder="Libelle" [(ngModel)]="ObjetsEvents.libelle" name="libelle">&nbsp;&nbsp;
+                                            <label for="floatingInput">Date debut</label>
                                             <input name="datedebutevent" class="form-control" type="text" placeholder="Date debut"[(ngModel)]="ObjetsEvents.dateDebut" name="dateDebut" >&nbsp;&nbsp;
                                         </div>
-
-                                        <div>
+                                        <div class="col-6">
+                                            <!-- <label for="floatingInput">Barème</label>
+                                            <input name="baremeevent" class="form-control" type="number" min="2" placeholder="Barème" [(ngModel)]="ObjetsEvents.bareme" name="bareme">&nbsp;&nbsp; -->
+                                            <!-- <div> -->
+                                                <label for="floatingInput">Image events</label>
+                                                <input (change)="fileChang($event)"  class="form-control" name="file" type="file" placeholder="images" [(ngModel)]="ObjetsEvents.file" name="file">&nbsp;&nbsp;
+                                            <!-- </div> -->
+                                            <label for="floatingInput">Date fin</label>
                                             <input name="datefinevent" class="form-control" type="text" placeholder="Date fin" [(ngModel)]="ObjetsEvents.dateFin" name="dateFin">&nbsp;&nbsp;
-                                            <input name="baremeevent" class="form-control" type="number" min="2" placeholder="Barème" [(ngModel)]="ObjetsEvents.bareme" name="bareme">&nbsp;&nbsp;
                                         </div>
-
-                                        <div>
-                                            <input name="coefficientuserevent" class="form-control" min="0" max="100" type="number" placeholder="coefficient votant"[(ngModel)]="ObjetsEvents.coefficientUser" name="coefficientUser" >&nbsp;&nbsp;
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-6">
+                                            <label for="floatingInput">Barème</label>
+                                            <input name="baremeevent" class="form-control" type="number" min="2" placeholder="Barème" [(ngModel)]="ObjetsEvents.bareme" name="bareme">&nbsp;&nbsp;
+                                            <label for="floatingInput">Coéff jury</label>
                                             <input name="coefficientjuryevent" class="form-control" min="0" max="100" type="number" placeholder="coefficient jury" [(ngModel)]="ObjetsEvents.coefficientJury" name="coefficientJury">&nbsp;&nbsp;
                                         </div>
-
-                                        <div>
+                                        <div class="col-6">
+                                            <label for="floatingInput">Nbre votant</label>
                                             <input name="nbreVotantevent" class="form-control" type="number" min="0" placeholder="Nombre votant" [(ngModel)]="ObjetsEvents.nbreVotant" name="nbreVotant">&nbsp;&nbsp;
-
-                                            <select class="form-select" aria-label="Default select example" selected [(ngModel)]="mespays.nom" name="nompays" >
-                                                <option>Choisir un pays</option>
-                                                <option *ngFor="let pays of mespays"  >{{pays.nom}}</option>
-                                            </select>
+                                            <label for="floatingInput">Coéff votant</label>
+                                            <input name="coefficientuserevent" class="form-control" min="0" max="100" type="number" placeholder="coefficient votant"[(ngModel)]="ObjetsEvents.coefficientUser" name="coefficientUser" >&nbsp;&nbsp;
                                             
+                                            
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="floatingInput">Accès votant</label>
                                             <select class="form-select" aria-label="Default select example" selected [(ngModel)]="mesTypesAuth.libelle" name="libelleauth" >&nbsp;&nbsp;
                                                 <option  >Choisir un type d'authenfication</option>
                                                 <option *ngFor="let auth of mesTypesAuth"  >{{auth.libelle}}</option>
                                                 
                                             </select>
                                         </div>
-
+                                        <div class="col-6">
+                                            <label for="floatingInput">Pays event</label>
+                                            <select class="form-select" aria-label="Default select example" selected [(ngModel)]="mespays.nom" name="nompays" >
+                                                <option>Choisir un pays</option>
+                                                <option *ngFor="let pays of mespays"  >{{pays.nom}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                         
 
-                                        <div>
-
-                                            
-
-                                            <input (change)="fileChang($event)"  class="form-control" name="file" type="file" placeholder="images" [(ngModel)]="ObjetsEvents.file" name="file">&nbsp;&nbsp;
-                                        </div>
+                                       
                                         <div class="modal-footer">
                                             <button type="reset"  class="annuler">Annuler</button>
                                             <button type="submit" class="save" >Enregistrer</button>
@@ -141,7 +159,6 @@
                         <td>
                             <a (click)="goAllCritereByIdEvents(evenement.id)">
                                 <button class="adpers">
-
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </a>

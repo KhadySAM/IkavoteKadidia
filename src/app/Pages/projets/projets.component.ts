@@ -76,8 +76,48 @@ CreerProjet(){
       this.ObjetsProjets =data
     },
   )
-  window.location.reload();
+  // window.location.reload();
 }
+//===============================add projet =========================================================
+
+popAddProjet(){
+
+  // const { username, email, password, pays} = this.form;
+
+ Swal.fire({
+   position:'center',
+   title: 'Voulez-vous ajouter cet projet ?',
+   showDenyButton: true,
+   showCancelButton: false,
+   confirmButtonText: 'Oui',
+   denyButtonText: 'Non',
+   icon : 'success',
+   denyButtonColor:'red',
+   // cancelButtonText: 'Annuler',
+   cancelButtonColor:'red',
+   confirmButtonColor: 'green',
+   heightAuto: false,
+ }).then((result) => {
+   /* Read more about isConfirmed, isDenied below */
+   if (result.isConfirmed) {
+     //Swal.fire('Saved!', '', 'success');
+     this.projetService.AjouterProjet(this.ObjetsProjets.libelle, this.ObjetsProjets.description, this.file, this.idEvents).subscribe(
+      data =>{
+        this.ObjetsProjets =data
+      })
+
+     window.location.reload();
+
+   } else if (result.isDenied) {
+     //Swal.fire('Changes are not saved', '', 'info');
+   //  this.route.navigate(['tirage'])
+   }
+ });
+
+ //  window.location.reload();
+
+}
+
 
     //================================================ suprimer ===================
 

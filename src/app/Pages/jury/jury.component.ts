@@ -51,23 +51,7 @@ export class JuryComponent implements OnInit {
 
   }
 
-  // onSubmitJury(): void {
-  //   const { username, email, password, pays} = this.form;
-  
-  //   console.log(pays)
-  //   this.authService.registerJury(username, email, password, pays).subscribe({
-  //     next: data => {
-  //       console.log(data);
-  //       this.isSuccessful = true;
-  //       this.isSignUpFailed = false;
-  //     },
-  //     error: err => {
-  //       this.errorMessage = err.error.message;
-  //       this.isSignUpFailed = true;
-  //     }
-  //   });
-  
-  //   }
+
 
   onSubmitJury(): void {
     const { username, email, password, pays} = this.form;
@@ -79,25 +63,59 @@ export class JuryComponent implements OnInit {
         
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-        if(this.isSuccessful == true){
-          Swal.fire({
-            title: username,
-        text: "Ajouter avec succès ?",
-        icon: 'success',
-
-          })
-          
-          window.location.reload();
-        }
-       
       },
       error: err => {
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
       }
     });
-  
     }
+//=================================== add Jury ===================================================
+    popAddJury(){
+
+      const { username, email, password, pays} = this.form;
+   
+     Swal.fire({
+       position:'center',
+       title: 'Voulez-vous ajouter cet jury ?',
+       showDenyButton: true,
+       showCancelButton: false,
+       confirmButtonText: 'Oui',
+       denyButtonText: 'Non',
+       icon : 'success',
+       denyButtonColor:'red',
+       // cancelButtonText: 'Annuler',
+       cancelButtonColor:'red',
+       confirmButtonColor: 'green',
+       heightAuto: false,
+     }).then((result) => {
+       /* Read more about isConfirmed, isDenied below */
+       if (result.isConfirmed) {
+         //Swal.fire('Saved!', '', 'success');
+         this.authService.registerJury(username, email, password, pays).subscribe({
+          next: data => {
+            console.log(data);
+            
+            this.isSuccessful = true;
+            this.isSignUpFailed = false;
+          },
+          error: err => {
+            this.errorMessage = err.error.message;
+            this.isSignUpFailed = true;
+          }
+         });
+   
+         window.location.reload();
+   
+       } else if (result.isDenied) {
+         //Swal.fire('Changes are not saved', '', 'info');
+       //  this.route.navigate(['tirage'])
+       }
+     });
+   
+     //  window.location.reload();
+   
+   }
 
     //================================================ suprimer ===================
 
