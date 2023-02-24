@@ -103,17 +103,17 @@ export class JuryComponent implements OnInit {
             this.errorMessage = err.error.message;
             this.isSignUpFailed = true;
           }
-         });
-   
+         })
+
          window.location.reload();
-   
+    
        } else if (result.isDenied) {
          //Swal.fire('Changes are not saved', '', 'info');
        //  this.route.navigate(['tirage'])
        }
      });
    
-     //  window.location.reload();
+      //  window.location.reload();
    
    }
 

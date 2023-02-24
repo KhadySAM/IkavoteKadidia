@@ -69,7 +69,6 @@ export class EvenementComponent implements OnInit {
     this.paysService.getAllPays().subscribe(data =>{
       this.mespays = data;
      
-      console.log(this.nompays);
       console.log(this.mespays)
       console.log(data)
     })
@@ -96,7 +95,7 @@ CreerEvenement(){
     },
     err => console.log(err)
   )
-  window.location.reload();
+ 
 }
 
 //==================================== Ajout Event ===================================================
@@ -126,15 +125,17 @@ popAddEvent(){
            this.ObjetsEvents = data
          },
          err => console.log(err)
-       )
+         )
 
-      } else if (result.isDenied) {
+         window.location.reload();
+    
+       } else if (result.isDenied) {
         //Swal.fire('Changes are not saved', '', 'info');
       //  this.route.navigate(['tirage'])
       }
     });
 
-    window.location.reload()
+   
 
   }
 

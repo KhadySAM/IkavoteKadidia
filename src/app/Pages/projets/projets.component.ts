@@ -73,10 +73,13 @@ fileChang(event: any) {
 CreerProjet(){
   this.projetService.AjouterProjet(this.ObjetsProjets.libelle, this.ObjetsProjets.description, this.file, this.idEvents).subscribe(
     data =>{
-      this.ObjetsProjets =data
+      this.ObjetsProjets = data
     },
+    err => console.log(err)
   )
-  // window.location.reload();
+ 
+  
+
 }
 //===============================add projet =========================================================
 
@@ -100,11 +103,13 @@ popAddProjet(){
  }).then((result) => {
    /* Read more about isConfirmed, isDenied below */
    if (result.isConfirmed) {
-     //Swal.fire('Saved!', '', 'success');
-     this.projetService.AjouterProjet(this.ObjetsProjets.libelle, this.ObjetsProjets.description, this.file, this.idEvents).subscribe(
+   
+    this.projetService.AjouterProjet(this.ObjetsProjets.libelle, this.ObjetsProjets.description, this.file, this.idEvents).subscribe(
       data =>{
         this.ObjetsProjets =data
-      })
+      },
+     err => console.log(err)
+     )
 
      window.location.reload();
 

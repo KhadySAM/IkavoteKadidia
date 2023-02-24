@@ -68,14 +68,55 @@ CreerCritere(){
     },
     
   )
-  window.location.reload();
+  // window.location.reload();
 }
+
+//==================================== Ajout Event ===================================================
+popAddCriteret(){
+
+  Swal.fire({
+    position:'center',
+    title: 'Voulez-vous ajouter cet critere ?',
+    showDenyButton: true,
+    showCancelButton: false,
+    confirmButtonText: 'Oui',
+    denyButtonText: 'Non',
+    icon : 'success',
+    denyButtonColor:'red',
+    // cancelButtonText: 'Annuler',
+    cancelButtonColor:'red',
+    confirmButtonColor: 'green',
+    heightAuto: false,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      //Swal.fire('Saved!', '', 'success');
+      this.criteresService.AjouterCritere(this.ObjetsCritere.titre, this.ObjetsCritere.contenu, this.id).subscribe(
+        data =>{
+          this.ObjetsCritere =data
+          console.log(this.ObjetsCritere)
+        },
+       )
+
+       window.location.reload();
+  
+     } else if (result.isDenied) {
+      //Swal.fire('Changes are not saved', '', 'info');
+    //  this.route.navigate(['tirage'])
+    }
+  });
+
+ 
+
+}
+
 
     //================================================ suprimer ===================
 
-    openModal(titre : any, id : number) {
+    
+    openModal(username : any, id : number) {
       Swal.fire({
-        title: titre,
+        title: username,
         text: "Commfirmer la suppression ?",
         icon: 'warning',
         showCancelButton: true,
@@ -86,7 +127,7 @@ CreerCritere(){
       }).then((result) => {
         if (result.isConfirmed) {
           //suppp
-          this.criteresService.deleteCritereById(id).subscribe(() => {
+          this.criteresService.deleteCritereById(id).subscribe(() => {});
           console.log(id)
           Swal.fire({
             title: 'Supprimer  avec succès',
@@ -96,11 +137,9 @@ CreerCritere(){
             confirmButtonText: 'OK'
           });
           window.location.reload()
-
-        });
+        
     
         }
       });
     }
-
 }

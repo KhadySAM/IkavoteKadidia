@@ -32,7 +32,7 @@ AjouterCritere(titre:any, contenu:any, idEvents: any):Observable<any>{
 
     // =============================== suprime pays ==========================
     
-    url="http://localhost:8080/api/auth/supprimecriteres"
+    url="http://localhost:8080/api/auth/deletecritere"
     public deleteCritereById(id:number) {
   return this.http.delete(`${this.url}/${id}`);
 }
