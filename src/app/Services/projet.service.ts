@@ -14,6 +14,10 @@ export class ProjetService {
     return this.http.get(`http://localhost:8080/api/auth/projetbyevents/${idEvents}`)
    }
 
+
+   
+ 
+
    //:::::::::::::::::::::::::::::::: AJOUTER UN PROJET ::::::::::::::::::::::::::::::::::::::: 
 
 AjouterProjet(libelle:any, description:any, file:File, idEvents: any):Observable<any>{

@@ -13,4 +13,9 @@ export class ResultatServiceService {
    getResultatsByIdEvents(idEvents:any):Observable<any>{
     return this.http.get(`http://localhost:8080/api/auth/moyenneJuryParEvent/${idEvents}`)
    }
+
+    // Recuperation des resultats par id evements
+  getResultaByIdEvents(idEvents:any):Observable<any>{
+    return this.http.get(`http://localhost:8080/api/auth/getResultatParId/${idEvents}`)
+   }
 }

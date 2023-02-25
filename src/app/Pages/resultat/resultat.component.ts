@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ResultatModel } from 'src/app/Models/resultat-model';
 import { ProjetService } from 'src/app/Services/projet.service';
+import { ResultatServiceService } from 'src/app/Services/resultat-service.service';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class ResultatComponent implements OnInit {
 
   constructor(
     private projetService: ProjetService,
+    private resultatService: ResultatServiceService,
     private route: ActivatedRoute
   ) { }
 
@@ -38,17 +40,22 @@ export class ResultatComponent implements OnInit {
 
   MontarGrafico(){
     this.idEvents = this.route.snapshot.params['idEvents']
-    this.projetService.getProjetsByIdEvents(this.idEvents).subscribe(data =>{
+    this.resultatService.getResultaByIdEvents(this.idEvents).subscribe(data =>{
       this.allProject = data;
+      // this.nomProject = data.note_final;
+
+      console.log(this.allProject)
     
       this.List = this.allProject.map((element: any) => {
 
-        console.log(this.allProject)
+        // console.log(this.allProject)
         return {
-          Valeur: element.moyTotal,
+         // Valeur: element.moyTotal,
+          Valeur: element.noteFinal,
           couleur: '#EC972D',
           taille: '',
-          nom: element.libelle
+          // nom: element.libelle
+          nom: element.projets.libelle
         }
       });
       

@@ -101,9 +101,9 @@
                     <th scope="col">N°</th>
                     <th scope="col">Logo</th>
                     <th scope="col">Nom</th>
-                    <th scope="col"  class="hideColonne hideColonneOder">Note jury</th>
+                    <!-- <th scope="col"  class="hideColonne hideColonneOder">Note jury</th>
                     <th scope="col">Note votant</th>
-                    <th scope="col">Note final</th>
+                    <th scope="col">Note final</th> -->
                     <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -113,12 +113,12 @@
                     <td>{{projet.id}} </td>
                     <td> <img src="{{projet.images}}" alt="" width="50px" height="30px"></td>
                     <td  > {{projet.libelle}} </td>
-                    <td *ngIf="projet.moyJury==null" class="hideColonne hideColonneOder"> 0 </td>
+                    <!-- <td *ngIf="projet.moyJury==null" class="hideColonne hideColonneOder"> 0 </td>
                     <td *ngIf="projet.moyJury!=null" > {{projet.moyJury}} </td>
                     <td  *ngIf="projet.moyParcitipant==null" > 0 </td>
                     <td *ngIf="projet.moyParcitipant!=null" > {{projet.moyParcitipant}} </td>
                     <td *ngIf="projet.moyTotal==null" > 0 </td>
-                    <td *ngIf="projet.moyTotal!=null" > {{projet.moyTotal}} </td>
+                    <td *ngIf="projet.moyTotal!=null" > {{projet.moyTotal}} </td> -->
                     <td class="hideColonne hideColonneOder" > 
                         <div class="row">
                             <div class="col-md-6">
