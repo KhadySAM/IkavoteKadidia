@@ -19,7 +19,7 @@ const routes: Routes = [
 
 
   {
-    path: '',
+     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
   },
@@ -43,6 +43,8 @@ const routes: Routes = [
       {path: 'mescode/:idEvents', component: MesCodeComponent},
       
     ]
+
+    
   },
   
 ];

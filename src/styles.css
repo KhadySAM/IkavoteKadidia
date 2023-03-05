@@ -303,9 +303,23 @@ body.dark .mode .sun-moon i.moon {
 
 .menu-bar .bottom-content .toggle-switch {
     position: absolute;
+    
     right: 0;
     height: 100%;
     min-width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.bottom-content {
+    position: absolute;
+    bottom: 10px;
+    /* right: 0; */
+    /* height: 100%; */
+    min-width: 55px; 
     display: flex;
     align-items: center;
     justify-content: center;

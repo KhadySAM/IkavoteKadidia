@@ -85,8 +85,7 @@ CreerProjet(){
 
 popAddProjet(){
 
-  // const { username, email, password, pays} = this.form;
-
+  
  Swal.fire({
    position:'center',
    title: 'Voulez-vous ajouter cet projet ?',
@@ -96,12 +95,11 @@ popAddProjet(){
    denyButtonText: 'Non',
    icon : 'success',
    denyButtonColor:'red',
-   // cancelButtonText: 'Annuler',
    cancelButtonColor:'red',
    confirmButtonColor: 'green',
    heightAuto: false,
  }).then((result) => {
-   /* Read more about isConfirmed, isDenied below */
+ 
    if (result.isConfirmed) {
    
     this.projetService.AjouterProjet(this.ObjetsProjets.libelle, this.ObjetsProjets.description, this.file, this.idEvents).subscribe(
@@ -114,13 +112,9 @@ popAddProjet(){
      window.location.reload();
 
    } else if (result.isDenied) {
-     //Swal.fire('Changes are not saved', '', 'info');
-   //  this.route.navigate(['tirage'])
+ 
    }
  });
-
- //  window.location.reload();
-
 }
 
 

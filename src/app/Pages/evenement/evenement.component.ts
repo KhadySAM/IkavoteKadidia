@@ -98,8 +98,39 @@ CreerEvenement(){
  
 }
 
+// Méthode pour vérifier si la date est passée ou non
+isDatePassed(date: any): boolean {
+  const today = new Date();
+  return date < today;
+}
+
+// Méthode pour vérifier si la date de fin est après la date de début
+isEndDateAfterStartDate(startDate: any, endDate: any): boolean {
+  return endDate < startDate;
+}
+
 //==================================== Ajout Event ===================================================
 popAddEvent(){
+
+   // Récupération des dates saisies dans le formulaire
+   const startDate = new Date(this.ObjetsEvents.dateDebut);
+   const endDate = new Date(this.ObjetsEvents.dateFin);
+
+   // Vérification des dates saisies
+   if (this.isDatePassed(startDate)) {
+     alert('La date de début est passée.');
+     return;
+   }
+
+   if (this.isEndDateAfterStartDate(startDate, endDate)) {
+     alert('La date de fin doit etre après la date de début.');
+     return;
+   }
+
+   // Si les dates sont valides, on peut poursuivre avec la soumission du formulaire
+   console.log('Formulaire soumis avec succès !');
+ 
+
 
     Swal.fire({
       position:'center',

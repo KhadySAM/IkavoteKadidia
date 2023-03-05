@@ -29,7 +29,9 @@
                             <div class="row">
                                 <div class="col-sm-4" (click)="goAllCodeVotanttByIdEvents(evenement.id)"><button class="adp text-center" >generer qrcode </button></div>
                                 
-                                <div class="col-sm-4 right" (click)="goAllResultatsByIdEvents(evenement.id)"><button class="adp text-center" >calculer resultat </button></div>
+                                <div class="col-sm-4 right" (click)="popCalcultResultat()">
+                                    <button class="adp text-center" >calculer resultat </button>
+                                </div>
 
                                 <div class="col-sm-4 right" (click)="goAllResultatsByIdEvents(evenement.id)"><button class="adp text-center" >voir resultat </button></div>
                             </div>

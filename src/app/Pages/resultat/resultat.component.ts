@@ -21,16 +21,18 @@ export class ResultatComponent implements OnInit {
   allProject:any
   nomProject:any
   idEvents:any
-  premier !: number;
+  // premier !: number;
+
 
 
   constructor(
-    private projetService: ProjetService,
+    //  private projetService: ProjetService,
     private resultatService: ResultatServiceService,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+
 
     this.MontarGrafico();
     

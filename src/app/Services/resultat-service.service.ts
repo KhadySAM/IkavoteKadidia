@@ -15,6 +15,11 @@ export class ResultatServiceService {
    }
 
     // Recuperation des resultats par id evements
+    getCalculerResultatsByIdEvents(idEvents:any):Observable<any>{
+      return this.http.get(`http://localhost:8080/api/auth/resultat/${idEvents}`)
+     }
+
+    // Recuperation des resultats par id evements
   getResultaByIdEvents(idEvents:any):Observable<any>{
     return this.http.get(`http://localhost:8080/api/auth/getResultatParId/${idEvents}`)
    }

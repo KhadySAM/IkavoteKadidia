@@ -12,12 +12,12 @@ import { StorageService } from 'src/app/Services/_services/storage.service';
 })
 export class DashboardComponent implements OnInit {
 
-  public Animals: Array<ResultatModel> = [
-    {Valeur: 350, couleur:'#498B94', taille:'', nom:'Monkeys'},
-    {Valeur: 2000, couleur:'#F8C622', taille:'', nom:'Giraffes'},
-    {Valeur: 1000, couleur:'#747474', taille:'', nom:'Lions'},
-    {Valeur: 500, couleur:'#EC972D', taille:'', nom:'Tigers'},
-  ];
+  // public Animals: Array<ResultatModel> = [
+  //   {Valeur: 350, couleur:'#498B94', taille:'', nom:'Monkeys'},
+  //   {Valeur: 2000, couleur:'#F8C622', taille:'', nom:'Giraffes'},
+  //   {Valeur: 1000, couleur:'#747474', taille:'', nom:'Lions'},
+  //   {Valeur: 500, couleur:'#EC972D', taille:'', nom:'Tigers'},
+  // ];
 
 
   // les attributs pour l'authentification
@@ -32,11 +32,13 @@ export class DashboardComponent implements OnInit {
   showAdmin=false;
   showSuperAdmin=false;
 
+  
+
   constructor( 
     @Inject(PLATFORM_ID) private platformId: object,
-    private storageService: StorageService, private authService:AuthService,
+    private storageService: StorageService,
+    private authService:AuthService,
     ) {}
-
 
   ngOnInit(): void {
     //la methode pour l'authenfication
@@ -47,8 +49,8 @@ export class DashboardComponent implements OnInit {
       this.roles = user.roles;
       this.Role= this.roles;
 
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showJuryBoard = this.roles.includes('ROLE_JURY');
+      this.showAdminBoard = this.roles.includes('ADMIN');
+      this.showSuperAdmin = this.roles.includes('SUPERADMIN');
 
       this.username = user.username;
     }

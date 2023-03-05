@@ -8,6 +8,12 @@ img{
     height: 200px;
 }
 
+.bouton-desactive {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+
 .adp{
     background-color: #1746A2;
     color: white;
