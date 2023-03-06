@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { PersonnelsService } from 'src/app/Services/personnels.service';
 import { AuthService } from 'src/app/Services/_services/auth.service';
 import { PaysService } from 'src/app/Services/pays.service';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-personnels',
@@ -32,6 +33,9 @@ export class PersonnelsComponent implements OnInit {
   errorMessage = '';
   mespays: any;
 
+  duplicateError: string = '';
+
+
   constructor(
     private servicepersonnels : PersonnelsService,
     private authService: AuthService,
@@ -54,7 +58,7 @@ export class PersonnelsComponent implements OnInit {
   }
 
 
- // ============================================= suprime pays =======================
+ // ============================================= suprime admin =======================
 
 openModal(nom : any, id : number) {
   Swal.fire({
@@ -87,71 +91,70 @@ openModal(nom : any, id : number) {
   });
 }
 
-//ajouter
-
-onSubmit(): void {
+popAddAdmin(){
   const { username, email, password, pays} = this.form;
 
-  console.log(pays)
-  this.authService.register(username, email, password, pays).subscribe({
-    next: data => {
-      console.log(data);
-      this.isSuccessful = true;
-      this.isSignUpFailed = false;
-    },
-    error: err => {
-      this.errorMessage = err.error.message;
-      this.isSignUpFailed = true;
-    }
-  });
- 
-}
-
-//==================================== Ajout Admin ===================================================
-popAddAdmin(){
-
-   const { username, email, password, pays} = this.form;
-
   Swal.fire({
-    position:'center',
+    position: 'center',
     title: 'Voulez-vous ajouter cet admin ?',
     showDenyButton: true,
     showCancelButton: false,
     confirmButtonText: 'Oui',
     denyButtonText: 'Non',
-    icon : 'success',
-    denyButtonColor:'red',
-    // cancelButtonText: 'Annuler',
-    cancelButtonColor:'red',
+    icon: 'success',
+    denyButtonColor: 'red',
+    cancelButtonColor: 'red',
     confirmButtonColor: 'green',
     heightAuto: false,
   }).then((result) => {
-    /* Read more about isConfirmed, isDenied below */
     if (result.isConfirmed) {
-      //Swal.fire('Saved!', '', 'success');
-      this.authService.register(username, email, password, pays).subscribe({
-        next: data => {
-          console.log(data);
-          this.isSuccessful = true;
-          this.isSignUpFailed = false;
-        },
-        error: err => {
-          this.errorMessage = err.error.message;
+      this.servicepersonnels.checkEmail(email).subscribe((emailExists) => {
+        if (emailExists) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Erreur',
+            text: 'Cet email est déjà utilisé.'
+          });
           this.isSignUpFailed = true;
+        } else {
+          this.servicepersonnels.checkUsername(username).subscribe((usernameExists) => {
+            if (usernameExists) {
+              Swal.fire({
+                icon: 'error',
+                title: 'Erreur',
+                text: 'Ce nom d\'utilisateur est déjà utilisé.'
+              });
+              this.isSignUpFailed = true;
+            } else {
+              this.authService.register(username, email, password, pays).subscribe({
+                next: (data) => {
+                  console.log(data);
+                  this.isSuccessful = true;
+                  this.isSignUpFailed = false;
+                },
+                
+                error: (err) => {
+
+                  this.errorMessage = err.error.message;
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Erreur',
+                    text: this.errorMessage
+                  });
+                  this.isSignUpFailed = true;
+                },
+                
+              });
+              // rafraîchir la page après l'ajout réussi
+              window.location.reload();
+            }
+          });
         }
       });
-
-      window.location.reload();
-
-    } else if (result.isDenied) {
-      //Swal.fire('Changes are not saved', '', 'info');
-    //  this.route.navigate(['tirage'])
+    } 
+    else if (result.isDenied) {
     }
   });
-
-  //  window.location.reload();
-
 }
-
 
 }

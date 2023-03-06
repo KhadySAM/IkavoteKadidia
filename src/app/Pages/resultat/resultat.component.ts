@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ResultatModel } from 'src/app/Models/resultat-model';
-import { ProjetService } from 'src/app/Services/projet.service';
 import { ResultatServiceService } from 'src/app/Services/resultat-service.service';
 
 
@@ -21,12 +20,10 @@ export class ResultatComponent implements OnInit {
   allProject:any
   nomProject:any
   idEvents:any
-  // premier !: number;
 
 
 
   constructor(
-    //  private projetService: ProjetService,
     private resultatService: ResultatServiceService,
     private route: ActivatedRoute
   ) { }
@@ -44,19 +41,18 @@ export class ResultatComponent implements OnInit {
     this.idEvents = this.route.snapshot.params['idEvents']
     this.resultatService.getResultaByIdEvents(this.idEvents).subscribe(data =>{
       this.allProject = data;
-      // this.nomProject = data.note_final;
 
       console.log(this.allProject)
     
       this.List = this.allProject.map((element: any) => {
 
-        // console.log(this.allProject)
+       
         return {
-         // Valeur: element.moyTotal,
+       
           Valeur: element.noteFinal,
           couleur: '#EC972D',
           taille: '',
-          // nom: element.libelle
+        
           nom: element.projets.libelle
         }
       });

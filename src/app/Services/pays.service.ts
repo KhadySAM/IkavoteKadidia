@@ -17,6 +17,11 @@ export class PaysService {
     
   }
 
+   //verification Pays
+   public checkPays(nom:any):Observable<any> {
+    return this.http.get(`http://localhost:8080/api/auth/checkPays/${nom}`);
+  }
+
 //:::::::::::::::::::::::::::::::: AJOUTER UN PAYS ::::::::::::::::::::::::::::::::::::::: 
 
 AjouterPays(pays: PaysModel, file:any):Observable<any>{

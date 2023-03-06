@@ -75,50 +75,78 @@ CreerPays(){
   )
  
 }
+
 //=============================== add Pays===============================
 popAddPays(){
 
-  // const { username, email, password, pays} = this.form;
+  // Vérification que tous les champs sont remplis
+  if (this.ObjetsPays.nom === '' || this.ObjetsPays.initiale === null || this.file === null) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Erreur de saisie',
+      text: 'Veuillez remplir tous les champs du formulaire',
+      confirmButtonText: 'OK'
+    });
+    return;
+  }
 
- Swal.fire({
-   position:'center',
-   title: 'Voulez-vous ajouter cet pays ?',
-   showDenyButton: true,
-   showCancelButton: false,
-   confirmButtonText: 'Oui',
-   denyButtonText: 'Non',
-   icon : 'success',
-   denyButtonColor:'red',
-   // cancelButtonText: 'Annuler',
-   cancelButtonColor:'red',
-   confirmButtonColor: 'green',
-   heightAuto: false,
- }).then((result) => {
-   /* Read more about isConfirmed, isDenied below */
-   if (result.isConfirmed) {
-     //Swal.fire('Saved!', '', 'success');
-     this.ObjetsPays = this.formulaire.value
-     this.paysService.AjouterPays(this.ObjetsPays, this.file).subscribe(
-      data =>{
-        this.ObjetsPays = data
+  // Vérification si le pays existe déjà
+  this.ObjetsPays = this.formulaire.value
+  this.paysService.checkPays(this.ObjetsPays.nom).subscribe((nomExists) => {
+    if (nomExists) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erreur',
+        text: 'Cet pays existe déjà'
+      });
+    }
+        // Sinon, demander confirmation avant d'ajouter le pays
+        else {
+          Swal.fire({
+            position: 'center',
+            title: 'Voulez-vous ajouter cet pays ?',
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: 'Oui',
+            denyButtonText: 'Non',
+            icon: 'success',
+            denyButtonColor: 'red',
+            cancelButtonColor: 'red',
+            confirmButtonColor: 'green',
+            heightAuto: false,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Ajout de l'événement
+              this.paysService.AjouterPays(this.ObjetsPays, this.file).subscribe(
+                data => {
+                  // this.ObjetsEvents = data;
+                  Swal.fire({
+                    title: 'Succès',
+                    text: 'Le pays a été ajouté avec succès.',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                  });
+                },
+                err => console.log(err)
+              );
+              window.location.reload();
+            } else if (result.isDenied) {
+              // Annulation de l'ajout du pays
+              Swal.fire({
+                title: 'Information',
+                text: 'L\'ajout du pays a été annulé.',
+                icon: 'info',
+                confirmButtonText: 'OK'
+              });
+            }
+          });
+        }
       },
       err => console.log(err)
-    )
-
-     window.location.reload();
-
-   } else if (result.isDenied) {
-     //Swal.fire('Changes are not saved', '', 'info');
-   //  this.route.navigate(['tirage'])
-   }
- });
-
- //  window.location.reload();
-
+    );
 }
-
-// ============================================= suprime pays =======================
-
+ 
+//=============================== delete Pays===============================
 openModal(nom : any, id : number) {
   Swal.fire({
     title: nom,

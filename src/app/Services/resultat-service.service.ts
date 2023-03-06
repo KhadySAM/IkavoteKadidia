@@ -9,10 +9,10 @@ export class ResultatServiceService {
 
   constructor(public http: HttpClient) { }
 
-   // Recuperation des resultats par id evements
-   getResultatsByIdEvents(idEvents:any):Observable<any>{
-    return this.http.get(`http://localhost:8080/api/auth/moyenneJuryParEvent/${idEvents}`)
-   }
+  //  // Recuperation des resultats par id evements
+  //  getResultatsByIdEvents(idEvents:any):Observable<any>{
+  //   return this.http.get(`http://localhost:8080/api/auth/moyenneJuryParEvent/${idEvents}`)
+  //  }
 
     // Recuperation des resultats par id evements
     getCalculerResultatsByIdEvents(idEvents:any):Observable<any>{
@@ -23,4 +23,9 @@ export class ResultatServiceService {
   getResultaByIdEvents(idEvents:any):Observable<any>{
     return this.http.get(`http://localhost:8080/api/auth/getResultatParId/${idEvents}`)
    }
+
+  //      // Recuperation des resultats par id evements
+  // getResultaByIdEvents(idEvents:any):Observable<any>{
+  //   return this.http.get(`http://localhost:8080/api/auth/getResultatParId/${idEvents}`)
+  //  }
 }

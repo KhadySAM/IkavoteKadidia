@@ -17,6 +17,12 @@ export class TypesauthService {
     
   }
 
+     //verification des typesAuth
+
+     public checkTypeAuth(libelle:any):Observable<any> {
+      return this.http.get(`http://localhost:8080/api/auth/checkTypeAuth/${libelle}`);
+    }
+
   //:::::::::::::::::::::::::::::::: AJOUTER UN auth ::::::::::::::::::::::::::::::::::::::: 
 
 AjouterTypesAuth(typeauth: TypesauthModel):Observable<any>{

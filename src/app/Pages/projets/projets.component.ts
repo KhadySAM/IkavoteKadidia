@@ -85,37 +85,105 @@ CreerProjet(){
 
 popAddProjet(){
 
-  
- Swal.fire({
-   position:'center',
-   title: 'Voulez-vous ajouter cet projet ?',
-   showDenyButton: true,
-   showCancelButton: false,
-   confirmButtonText: 'Oui',
-   denyButtonText: 'Non',
-   icon : 'success',
-   denyButtonColor:'red',
-   cancelButtonColor:'red',
-   confirmButtonColor: 'green',
-   heightAuto: false,
- }).then((result) => {
- 
-   if (result.isConfirmed) {
-   
-    this.projetService.AjouterProjet(this.ObjetsProjets.libelle, this.ObjetsProjets.description, this.file, this.idEvents).subscribe(
-      data =>{
-        this.ObjetsProjets =data
+  // Vérification que tous les champs sont remplis
+  if (this.ObjetsProjets.libelle === '' || this.ObjetsProjets.description === null || this.file === '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Erreur de saisie',
+      text: 'Veuillez remplir tous les champs du formulaire',
+      confirmButtonText: 'OK'
+    });
+    return;
+  }
+
+  // Vérification si le projet existe déjà
+  this.projetService.checkProjets(this.ObjetsProjets.libelle).subscribe((libelleExists) => {
+    if (libelleExists) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erreur',
+        text: 'Cet projet existe déjà'
+      });
+    }
+        // Sinon, demander confirmation avant d'ajouter le pays
+        else {
+          Swal.fire({
+            position: 'center',
+            title: 'Voulez-vous ajouter cet projet ?',
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: 'Oui',
+            denyButtonText: 'Non',
+            icon: 'success',
+            denyButtonColor: 'red',
+            cancelButtonColor: 'red',
+            confirmButtonColor: 'green',
+            heightAuto: false,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Ajout de l'événement
+              this.projetService.AjouterProjet(this.ObjetsProjets.libelle, this.ObjetsProjets.description, this.file, this.idEvents).subscribe(
+                data => {
+                  // this.ObjetsEvents = data;
+                  Swal.fire({
+                    title: 'Succès',
+                    text: 'Le projet a été ajouté avec succès.',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                  });
+                },
+                err => console.log(err)
+              );
+              window.location.reload();
+            } else if (result.isDenied) {
+              // Annulation de l'ajout du pays
+              Swal.fire({
+                title: 'Information',
+                text: 'L\'ajout du projet a été annulé.',
+                icon: 'info',
+                confirmButtonText: 'OK'
+              });
+            }
+          });
+        }
       },
-     err => console.log(err)
-     )
-
-     window.location.reload();
-
-   } else if (result.isDenied) {
- 
-   }
- });
+      err => console.log(err)
+    );
 }
+
+// popAddProjet(){
+
+  
+//  Swal.fire({
+//    position:'center',
+//    title: 'Voulez-vous ajouter cet projet ?',
+//    showDenyButton: true,
+//    showCancelButton: false,
+//    confirmButtonText: 'Oui',
+//    denyButtonText: 'Non',
+//    icon : 'success',
+//    denyButtonColor:'red',
+//    cancelButtonColor:'red',
+//    confirmButtonColor: 'green',
+//    heightAuto: false,
+//  }).then((result) => {
+ 
+//    if (result.isConfirmed) {
+   
+//     this.projetService.AjouterProjet(this.ObjetsProjets.libelle, this.ObjetsProjets.description, this.file, this.idEvents).subscribe(
+//       data =>{
+//         this.ObjetsProjets =data
+//       },
+//      err => console.log(err)
+//      )
+
+//      window.location.reload();
+
+//    } else if (result.isDenied) {
+ 
+//    }
+//  });
+// }
 
 
     //================================================ suprimer ===================

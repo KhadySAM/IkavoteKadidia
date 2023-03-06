@@ -58,21 +58,32 @@ export class CriteresComponent implements OnInit {
 
 
 
-// ======================================= ICI ON CREE CRITERE ======================================
+// // ======================================= ICI ON CREE CRITERE ======================================
 
-CreerCritere(){
-  this.criteresService.AjouterCritere(this.ObjetsCritere.titre, this.ObjetsCritere.contenu, this.id).subscribe(
-    data =>{
-      this.ObjetsCritere =data
-      console.log(this.ObjetsCritere)
-    },
+// CreerCritere(){
+//   this.criteresService.AjouterCritere(this.ObjetsCritere.titre, this.ObjetsCritere.contenu, this.id).subscribe(
+//     data =>{
+//       this.ObjetsCritere =data
+//       console.log(this.ObjetsCritere)
+//     },
     
-  )
-  // window.location.reload();
-}
+//   )
 
-//==================================== Ajout Event ===================================================
+// }
+
+//==================================== Ajout critere ===================================================
+
 popAddCriteret(){
+
+  if (this.ObjetsCritere.titre === '' || this.ObjetsCritere.contenu === null) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Erreur de saisie',
+      text: 'Veuillez remplir tous les champs du formulaire',
+      confirmButtonText: 'OK'
+    });
+    return;
+  }
 
   Swal.fire({
     position:'center',
@@ -83,33 +94,31 @@ popAddCriteret(){
     denyButtonText: 'Non',
     icon : 'success',
     denyButtonColor:'red',
-    // cancelButtonText: 'Annuler',
+    
     cancelButtonColor:'red',
     confirmButtonColor: 'green',
     heightAuto: false,
   }).then((result) => {
-    /* Read more about isConfirmed, isDenied below */
+   
     if (result.isConfirmed) {
-      //Swal.fire('Saved!', '', 'success');
+     
       this.criteresService.AjouterCritere(this.ObjetsCritere.titre, this.ObjetsCritere.contenu, this.id).subscribe(
         data =>{
           this.ObjetsCritere =data
           console.log(this.ObjetsCritere)
         },
-       )
-
-       window.location.reload();
-  
-     } else if (result.isDenied) {
-      //Swal.fire('Changes are not saved', '', 'info');
-    //  this.route.navigate(['tirage'])
+      
+        err => console.log(err)
+      )
+ 
+      window.location.reload();
+ 
+    } else if (result.isDenied) {
+    
     }
   });
-
  
-
-}
-
+ }
 
     //================================================ suprimer ===================
 

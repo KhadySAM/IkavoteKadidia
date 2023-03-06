@@ -64,45 +64,109 @@ CreerAuth(){
 
 popAddAuth(){
 
+  // Vérification que tous les champs sont remplis
+  if (this.ObjetsAuth.libelle === '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Erreur de saisie',
+      text: 'Veuillez renseigner type d\'authentification',
+      confirmButtonText: 'OK'
+    });
+    // return;
+  }
+// Vérification si le pays existe déjà
+this.ObjetsAuth = this.formulaire.value
+this.serviceAuth.checkTypeAuth(this.ObjetsAuth.libelle).subscribe((libelleExists) => {
+  if (libelleExists) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Erreur',
+      text: 'Cet type d\'authentification existe déjà'
+    });
+  }
+      // Sinon, demander confirmation avant d'ajouter le pays
+      else {
+        Swal.fire({
+          position: 'center',
+          title: 'Voulez-vous ajouter cet type d\'authentification ?',
+          showDenyButton: true,
+          showCancelButton: false,
+          confirmButtonText: 'Oui',
+          denyButtonText: 'Non',
+          icon: 'success',
+          denyButtonColor: 'red',
+          cancelButtonColor: 'red',
+          confirmButtonColor: 'green',
+          heightAuto: false,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Ajout de l'événement
+            this.serviceAuth.AjouterTypesAuth(this.ObjetsAuth).subscribe(
+              data => {
+                // this.ObjetsEvents = data;
+                Swal.fire({
+                  title: 'Succès',
+                  text: 'Letype d\'authentification a été ajouté avec succès.',
+                  icon: 'success',
+                  confirmButtonText: 'OK'
+                });
+              },
+              err => console.log(err)
+            );
+            window.location.reload();
+          } else if (result.isDenied) {
+            // Annulation de l'ajout du pays
+            Swal.fire({
+              title: 'Information',
+              text: 'L\'ajout du type d\'authentification a été annulé.',
+              icon: 'info',
+              confirmButtonText: 'OK'
+            });
+          }
+        });
+      }
+    },
+    err => console.log(err)
+  );
+}
+// popAddAuth(){
+
   
 
- Swal.fire({
-   position:'center',
-   title: 'Voulez-vous ajouter cet type authentificatication ?',
-   showDenyButton: true,
-   showCancelButton: false,
-   confirmButtonText: 'Oui',
-   denyButtonText: 'Non',
-   icon : 'success',
-   denyButtonColor:'red',
-   // cancelButtonText: 'Annuler',
-   cancelButtonColor:'red',
-   confirmButtonColor: 'green',
-   heightAuto: false,
- }).then((result) => {
-   /* Read more about isConfirmed, isDenied below */
-   if (result.isConfirmed) {
-     //Swal.fire('Saved!', '', 'success');
-     this.ObjetsAuth = this.formulaire.value
+//  Swal.fire({
+//    position:'center',
+//    title: 'Voulez-vous ajouter cet type authentificatication ?',
+//    showDenyButton: true,
+//    showCancelButton: false,
+//    confirmButtonText: 'Oui',
+//    denyButtonText: 'Non',
+//    icon : 'success',
+//    denyButtonColor:'red',
+   
+//    cancelButtonColor:'red',
+//    confirmButtonColor: 'green',
+//    heightAuto: false,
+//  }).then((result) => {
+  
+//    if (result.isConfirmed) {
+    
+//      this.ObjetsAuth = this.formulaire.value
 
-     this.serviceAuth.AjouterTypesAuth(this.ObjetsAuth).subscribe(
-       data =>{
-         this.ObjetsAuth = data
-       },
-       err => console.log(err)
-     )
+//      this.serviceAuth.AjouterTypesAuth(this.ObjetsAuth).subscribe(
+//        data =>{
+//          this.ObjetsAuth = data
+//        },
+//        err => console.log(err)
+//      )
 
-     window.location.reload();
+//      window.location.reload();
 
-   } else if (result.isDenied) {
-     //Swal.fire('Changes are not saved', '', 'info');
-   //  this.route.navigate(['tirage'])
-   }
- });
+//    } else if (result.isDenied) {
+   
+//    }
+//  });
 
- //  window.location.reload();
-
-}
+// }
 
 
 // ============================================= suprime pays =======================

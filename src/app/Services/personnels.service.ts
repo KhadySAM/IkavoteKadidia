@@ -20,6 +20,16 @@ export class PersonnelsService {
     
   }
 
+  //verification username
+  public checkUsername(username:any):Observable<any> {
+    return this.http.get(`http://localhost:8080/api/auth/checkusername/${username}`);
+  }
+
+   //verification email
+   public checkEmail(email:any):Observable<any> {
+    return this.http.get(`http://localhost:8080/api/auth/checkemail/${email}`);
+  }
+
 
   // ========================================= suprimer un user ====================
 

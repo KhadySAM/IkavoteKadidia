@@ -10,6 +10,12 @@ export class EvenementService {
 
   constructor(private http: HttpClient) { }
 
+   //verification event
+   public checkEvent(libelle:any):Observable<any> {
+    return this.http.get(`http://localhost:8080/api/auth/checkevent/${libelle}`);
+  }
+
+
   //affichage des jury
 
   public getAllEvents():Observable<any> {
