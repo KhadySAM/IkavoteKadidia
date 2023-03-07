@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { data } from 'jquery';
+import { Observable, retry } from 'rxjs';
 import { Evenement } from '../Models/evenement';
 
 @Injectable({
@@ -59,4 +60,22 @@ AjouterEvents(libelle:any, dateDebut:any, dateFin:any, bareme:any, coefficientUs
   
 }
 
+
+Modifier(id:any, libelle:any, dateDebut:any, dateFin:any, bareme:any, coefficientUser:any, coefficientJury:any, nbreVotant:any):Observable<any>{
+  const data = new FormData();
+  data.append("libelle", libelle);
+  data.append("dateDebut", dateDebut);
+  data.append("dateFin", dateFin);
+  data.append("bareme", bareme);
+  data.append("coefficientUser", coefficientUser);
+  data.append("coefficientJury", coefficientJury);
+  data.append("nbreVotant", nbreVotant);
+
+  return this.http.put<any>(`http://localhost:8080/api/auth/modifiier/${id}`, data)
+
+}
+
+getById(id:number):Observable<any>{
+  return this.http.get(`http://localhost:8080/api/auth/events/${id}`)
+}
 }

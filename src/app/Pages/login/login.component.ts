@@ -36,18 +36,25 @@ export class LoginComponent implements OnInit {
     this.authService.login(username, password).subscribe({
       next: data => {
         this.storageService.saveUser(data);
+        this.roles = this.storageService.getUser().roles;
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
+        if(this.roles[0]=="ADMIN"){
+          this.route.navigate(['dashboard/jury']).then(()=>{
+            setTimeout(() => {
+              location.reload();
+            }, 100);
+          });
+          
+        }else if(this.roles[0]=="SUPERADMIN"){
+          this.route.navigate(['dashboard/pays']).then(()=>{
+            setTimeout(() => {
+              location.reload();
+            }, 100);
+          });
+        }
 
-        this.route.navigate(['/dashboard/personnels']).then(()=>{
-          setTimeout(() => {
-            location.reload();
-          }, 100);
-        });
-        
-        this.roles = this.storageService.getUser().roles;
-        // this.reloadPage();
       },
       error: err => {
         this.errorMessage = err.error.message;

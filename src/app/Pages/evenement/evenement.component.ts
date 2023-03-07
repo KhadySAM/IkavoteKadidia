@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { data } from 'jquery';
+import { EvenementModel } from 'src/app/evenement-model';
 import { EvenementService } from 'src/app/Services/evenement.service';
 import { PaysService } from 'src/app/Services/pays.service';
 import { TypesauthService } from 'src/app/Services/typesauth.service';
@@ -13,7 +15,7 @@ import Swal from 'sweetalert2';
 })
 export class EvenementComponent implements OnInit {
 
-  mesevents: any
+  mesEvents: any
   totalEventLength = 0;
   p : number = 1;
 
@@ -35,12 +37,21 @@ export class EvenementComponent implements OnInit {
   nompays: any;
   mespays: any;
   libelleauth: any;
-  mesTypesAuth: any;
+  mesTypesAuths: any;
   file: any;
+  event: any;
+  monEvent:any
+  mesTypesAuth: any;
+  nbrePays = 0;
+  nbreAuth = 0;
+  idPays:any
+
+
 
   constructor(
     private serviceEvents: EvenementService,
     private router: Router,
+    // private route: ActivatedRoute,
    // private formB: FormBuilder,
     private serviceAuth: TypesauthService,
     private paysService: PaysService,
@@ -49,54 +60,55 @@ export class EvenementComponent implements OnInit {
   ngOnInit(): void {
 
     this.serviceEvents.getAllEvents().subscribe(data =>{
-      this.mesevents = data;
+      this.mesEvents = data
       this.totalEventLength = data.length
-      console.log(this.mesevents);
     });
-
 
 
     //:::::::::::::::::::::::::::::::::: get type auth ::::::::::::::::::::::
     this.serviceAuth.getAllTypeAuth().subscribe(data =>{
-      this.mesTypesAuth = data;
-      this.libelleauth =data[1].libelle
-      console.log(this.libelleauth);
-
+      this.mesTypesAuth = data
+      this.libelleauth = data[1].libelle
+      // this.libelleauth = data[1].id
     });
+
+    
 
     //:::::::::::::::::::::::::::::::::: get type pays ::::::::::::::::::::::
 
     this.paysService.getAllPays().subscribe(data =>{
       this.mespays = data;
-     
       console.log(this.mespays)
-      console.log(data)
+
+ 
     })
   
   }
+
+
 
   // ======================================= ICI ON AJOUTE L'IMAGE ======================================
 
 fileChang(event: any) {
   this.file = event.target.files[0]
-  console.log(event)
+
 }
 
 
 // ======================================= ICI ON CREE L'EVENT ======================================
 
 
-CreerEvenement(){
-  this.serviceEvents.AjouterEvents(this.ObjetsEvents.libelle,  this.ObjetsEvents.dateDebut, this.ObjetsEvents.dateFin,
-     this.ObjetsEvents.bareme, this.ObjetsEvents.coefficientUser, this.ObjetsEvents.coefficientJury,
-      this.ObjetsEvents.nbreVotant, this.file, this.mespays.nom, this.mesTypesAuth.libelle).subscribe(
-    data =>{
-      this.ObjetsEvents = data
-    },
-    err => console.log(err)
-  )
+// CreerEvenement(){
+//   this.serviceEvents.AjouterEvents(this.ObjetsEvents.libelle,  this.ObjetsEvents.dateDebut, this.ObjetsEvents.dateFin,
+//      this.ObjetsEvents.bareme, this.ObjetsEvents.coefficientUser, this.ObjetsEvents.coefficientJury,
+//       this.ObjetsEvents.nbreVotant, this.file, this.mespays.nom, this.mesTypesAuth.libelle).subscribe(
+//     data =>{
+//       this.ObjetsEvents = data
+//     },
+//     err => console.log(err)
+//   )
  
-}
+// }
 
 
 
@@ -222,155 +234,34 @@ popAddEvent() {
 }
 
 
-// popAddEvent(){
 
-  //  // Vérification que tous les champs sont remplis
-  //  if (this.ObjetsEvents.libelle === '' || this.ObjetsEvents.dateDebut === null || this.ObjetsEvents.dateFin === null || this.ObjetsEvents.bareme === null || this.ObjetsEvents.coefficientUser === null || this.ObjetsEvents.coefficientJury === null || this.ObjetsEvents.nbreVotant === null || this.file === null || this.mespays.nom === '' || this.mesTypesAuth.libelle === '') {
-  //   Swal.fire({
-  //     icon: 'error',
-  //     title: 'Erreur de saisie',
-  //     text: 'Veuillez remplir tous les champs du formulaire',
-  //     confirmButtonText: 'OK'
-  //   });
-  //   return;
-  // }
-
-//   // Récupération des dates saisies dans le formulaire
-//   const startDate = new Date(this.ObjetsEvents.dateDebut);
-//   const endDate = new Date(this.ObjetsEvents.dateFin);
-  // const coefficientUser = this.ObjetsEvents.coefficientUser;
-  // const coefficientJury = this.ObjetsEvents.coefficientJury;
-
-//   // Vérification des dates saisies
-//   if (this.isDatePassed(startDate)) {
-//     Swal.fire({
-//       icon: 'error',
-//       title: 'Erreur de saisie',
-//       text: 'La date de début est déjà passée',
-//       confirmButtonText: 'OK'
-//     });
-//     return;
-//   }
-
-//   if (this.isEndDateAfterStartDate(startDate, endDate)) {
-//     Swal.fire({
-//       icon: 'error',
-//       title: 'Erreur de saisie',
-//       text: 'La date de fin doit être après la date de début',
-//       confirmButtonText: 'OK'
-//     });
-//     return;
-//   }
-  
-    // // Vérification de la somme des coefficients
-    // const totalCoefficients = coefficientUser + coefficientJury;
-    // if (totalCoefficients !== 100) {
-    //   Swal.fire({
-    //     icon: 'error',
-    //     title: 'Erreur de saisie',
-    //     text: 'La somme des coefficients Jury et Votant doit être égale à 100',
-    //     confirmButtonText: 'OK'
-    //   });
-    //   return;
-    // }
-
-//   // Si les dates sont valides, on peut poursuivre avec la soumission du formulaire
-//   console.log('Formulaire soumis avec succès !');
-
-  
-
-//   Swal.fire({
-//     position: 'center',
-//     title: 'Voulez-vous ajouter cet event ?',
-//     showDenyButton: true,
-//     showCancelButton: false,
-//     confirmButtonText: 'Oui',
-//     denyButtonText: 'Non',
-//     icon: 'success',
-//     denyButtonColor: 'red',
-//     cancelButtonColor: 'red',
-//     confirmButtonColor: 'green',
-//     heightAuto: false,
-//   }).then((result) => {
-//     if (result.isConfirmed) {
-
-    
-//       this.serviceEvents.AjouterEvents(this.ObjetsEvents.libelle,  this.ObjetsEvents.dateDebut, this.ObjetsEvents.dateFin,
-//       this.ObjetsEvents.bareme, this.ObjetsEvents.coefficientUser, this.ObjetsEvents.coefficientJury,
-//       this.ObjetsEvents.nbreVotant, this.file, this.mespays.nom, this.mesTypesAuth.libelle).subscribe(
-//         data =>{
-//           this.ObjetsEvents = data
-//         },
-//         err => console.log(err)
-//       )
-//       window.location.reload();
-//     } else if (result.isDenied) {
-      
-//     }
-//   });
-// }
+modifier(id: any) {
+  alert('pays'+ this.event.id_pays)
+  this.serviceEvents.Modifier(id,
+    this.event.libelle,
+    this.event.dateDebut,
+    this.event.dateFin,
+    this.event.bareme,
+    this.event.coefficientUser,
+    this.event.coefficientJury,
+    this.event.nbreVotant,
+ 
+  ).subscribe(data => {
+    this.event = data;
+    console.log("data-----------" + data)
+  })
+}
 
 
-// //==================================== Ajout Event ===================================================
-// popAddEvent(){
-
-//    // Récupération des dates saisies dans le formulaire
-//    const startDate = new Date(this.ObjetsEvents.dateDebut);
-//    const endDate = new Date(this.ObjetsEvents.dateFin);
-
-//    // Vérification des dates saisies
-//    if (this.isDatePassed(startDate)) {
-//      alert('La date de début est passée.');
-//      return;
-//    }
-
-//    if (this.isEndDateAfterStartDate(startDate, endDate)) {
-//      alert('La date de fin doit etre après la date de début.');
-//      return;
-//    }
-
-//    // Si les dates sont valides, on peut poursuivre avec la soumission du formulaire
-//    console.log('Formulaire soumis avec succès !');
+getEventById(id: any){
  
 
+  this.serviceEvents.getById(id).subscribe(data=>{
+    this.event = data;
+    console.log(" id------"+id)
+  })
+}
 
-//     Swal.fire({
-//       position:'center',
-//       title: 'Voulez-vous ajouter cet event ?',
-//       showDenyButton: true,
-//       showCancelButton: false,
-//       confirmButtonText: 'Oui',
-//       denyButtonText: 'Non',
-//       icon : 'success',
-//       denyButtonColor:'red',
-//       // cancelButtonText: 'Annuler',
-//       cancelButtonColor:'red',
-//       confirmButtonColor: 'green',
-//       heightAuto: false,
-//     }).then((result) => {
-//       /* Read more about isConfirmed, isDenied below */
-//       if (result.isConfirmed) {
-//         //Swal.fire('Saved!', '', 'success');
-//         this.serviceEvents.AjouterEvents(this.ObjetsEvents.libelle,  this.ObjetsEvents.dateDebut, this.ObjetsEvents.dateFin,
-//           this.ObjetsEvents.bareme, this.ObjetsEvents.coefficientUser, this.ObjetsEvents.coefficientJury,
-//            this.ObjetsEvents.nbreVotant, this.file, this.mespays.nom, this.mesTypesAuth.libelle).subscribe(
-//          data =>{
-//            this.ObjetsEvents = data
-//          },
-//          err => console.log(err)
-//          )
-
-//          window.location.reload();
-    
-//        } else if (result.isDenied) {
-//         //Swal.fire('Changes are not saved', '', 'info');
-//       //  this.route.navigate(['tirage'])
-//       }
-//     });
-
-   
-
-//   }
 
     //================================================ suprimer ===================
 

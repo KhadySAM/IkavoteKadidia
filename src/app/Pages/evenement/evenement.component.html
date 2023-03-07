@@ -9,152 +9,168 @@
     </div>
 </div>
 <div class="container">
-    <div class="row" >
-        <div class="right" >
-            <div class="row"  >
-                <div class="col-md-4" >
-                    <!-- Button trigger modal -->
-                    <button type="button" class="adp"  data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+    <div class="row">
+        <div class="right">
+            <div class="row">
+                <div class="col-md-4">
+
+                    <button type="button" class="adp" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                         </svg>
                         Events
                     </button>
-                    
-                        <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Ajout d'un evenement</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body form-floating">
 
-                                    <!-- [formGroup]="formulaire"  -->
-                                    <form (ngSubmit)="popAddEvent()"  action="">
-                                      <div class="row">
-                                        <div class="col-6">
-                                            <label for="floatingInput">Nom event</label>
-                                            <input name="libelleevent" class="form-control" type="text" placeholder="Libelle" [(ngModel)]="ObjetsEvents.libelle" name="libelle">&nbsp;&nbsp;
-                                            <label for="floatingInput">Date debut</label>
-                                            <input name="datedebutevent" class="form-control" type="text" placeholder="Date debut"[(ngModel)]="ObjetsEvents.dateDebut" name="dateDebut" >&nbsp;&nbsp;
-                                        </div>
-                                        <div class="col-6">
-                                            <!-- <label for="floatingInput">Barème</label>
-                                            <input name="baremeevent" class="form-control" type="number" min="2" placeholder="Barème" [(ngModel)]="ObjetsEvents.bareme" name="bareme">&nbsp;&nbsp; -->
-                                            <!-- <div> -->
+
+
+
+                                    <form (ngSubmit)="popAddEvent()" action="">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label for="floatingInput">Nom event</label>
+                                                <input name="libelleevent" class="form-control" type="text"
+                                                    placeholder="Libelle" [(ngModel)]="ObjetsEvents.libelle"
+                                                    name="libelle">&nbsp;&nbsp;
+                                                <label for="floatingInput">Date debut</label>
+                                                <input name="datedebutevent" class="form-control" type="text"
+                                                    placeholder="Date debut" [(ngModel)]="ObjetsEvents.dateDebut"
+                                                    name="dateDebut">&nbsp;&nbsp;
+                                            </div>
+
+                                            <div class="col-6">
                                                 <label for="floatingInput">Image events</label>
-                                                <input (change)="fileChang($event)"  class="form-control" name="file" type="file" placeholder="images" [(ngModel)]="ObjetsEvents.file" name="file">&nbsp;&nbsp;
-                                            <!-- </div> -->
-                                            <label for="floatingInput">Date fin</label>
-                                            <input name="datefinevent" class="form-control" type="text" placeholder="Date fin" [(ngModel)]="ObjetsEvents.dateFin" name="dateFin">&nbsp;&nbsp;
+                                                <input (change)="fileChang($event)" class="form-control" name="file"
+                                                    type="file" placeholder="images" [(ngModel)]="ObjetsEvents.file"
+                                                    name="file">&nbsp;&nbsp;
+                                                <label for="floatingInput">Date fin</label>
+                                                <input name="datefinevent" class="form-control" type="text"
+                                                    placeholder="Date fin" [(ngModel)]="ObjetsEvents.dateFin"
+                                                    name="dateFin">&nbsp;&nbsp;
+                                            </div>
+
                                         </div>
-                                      </div>
-                                      <div class="row">
-                                        <div class="col-6">
-                                            <label for="floatingInput">Barème</label>
-                                            <input name="baremeevent" class="form-control" type="number" min="2" placeholder="Barème" [(ngModel)]="ObjetsEvents.bareme" name="bareme">&nbsp;&nbsp;
-                                            <label for="floatingInput">Coéff jury</label>
-                                            <input name="coefficientjuryevent" class="form-control" min="0" max="100" type="number" placeholder="coefficient jury" [(ngModel)]="ObjetsEvents.coefficientJury" name="coefficientJury">&nbsp;&nbsp;
-                                        </div>
-                                        <div class="col-6">
-                                            <label for="floatingInput">Nbre votant</label>
-                                            <input name="nbreVotantevent" class="form-control" type="number" min="0" placeholder="Nombre votant" [(ngModel)]="ObjetsEvents.nbreVotant" name="nbreVotant">&nbsp;&nbsp;
-                                            <label for="floatingInput">Coéff votant</label>
-                                            <input name="coefficientuserevent" class="form-control" min="0" max="100" type="number" placeholder="coefficient votant"[(ngModel)]="ObjetsEvents.coefficientUser" name="coefficientUser" >&nbsp;&nbsp;
-                                            
-                                            
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label for="floatingInput">Barème</label>
+                                                <input name="baremeevent" class="form-control" type="number" min="2"
+                                                    placeholder="Barème" [(ngModel)]="ObjetsEvents.bareme"
+                                                    name="bareme">&nbsp;&nbsp;
+                                                <label for="floatingInput">Coéff jury</label>
+                                                <input name="coefficientjuryevent" class="form-control" min="0"
+                                                    max="100" type="number" placeholder="coefficient jury"
+                                                    [(ngModel)]="ObjetsEvents.coefficientJury"
+                                                    name="coefficientJury">&nbsp;&nbsp;
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="floatingInput">Nbre votant</label>
+                                                <input name="nbreVotantevent" class="form-control" type="number" min="0"
+                                                    placeholder="Nombre votant" [(ngModel)]="ObjetsEvents.nbreVotant"
+                                                    name="nbreVotant">&nbsp;&nbsp;
+                                                <label for="floatingInput">Coéff votant</label>
+                                                <input name="coefficientuserevent" class="form-control" min="0"
+                                                    max="100" type="number" placeholder="coefficient votant"
+                                                    [(ngModel)]="ObjetsEvents.coefficientUser"
+                                                    name="coefficientUser">&nbsp;&nbsp;
+
+
+                                            </div>
+
                                         </div>
 
-                                    </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label for="floatingInput">Accès votant</label>
+                                                <select class="form-select" aria-label="Default select example" selected
+                                                    [(ngModel)]="mesTypesAuth.libelle" name="libelleauth">&nbsp;&nbsp;
+                                                    <option>Choisir un type d'authenfication</option>
+                                                    <option *ngFor="let auth of mesTypesAuth">{{auth.libelle}}</option>
 
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <label for="floatingInput">Accès votant</label>
-                                            <select class="form-select" aria-label="Default select example" selected [(ngModel)]="mesTypesAuth.libelle" name="libelleauth" >&nbsp;&nbsp;
-                                                <option  >Choisir un type d'authenfication</option>
-                                                <option *ngFor="let auth of mesTypesAuth"  >{{auth.libelle}}</option>
-                                                
-                                            </select>
+                                                </select>
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="floatingInput">Pays event</label>
+                                                <select class="form-select" aria-label="Default select example" selected
+                                                    [(ngModel)]="mespays.nom" name="nompays">
+                                                    <option>Choisir un pays</option>
+                                                    <option *ngFor="let pays of mespays">{{pays.nom}}</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                        <div class="col-6">
-                                            <label for="floatingInput">Pays event</label>
-                                            <select class="form-select" aria-label="Default select example" selected [(ngModel)]="mespays.nom" name="nompays" >
-                                                <option>Choisir un pays</option>
-                                                <option *ngFor="let pays of mespays"  >{{pays.nom}}</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                        
 
-                                       
+
+
                                         <div class="modal-footer">
-                                            <button type="reset"  class="annuler">Annuler</button>
-                                            <button type="submit" class="save" >Enregistrer</button>
+                                            <button type="reset" class="annuler">Annuler</button>
+                                            <button type="submit" class="save">Enregistrer</button>
                                         </div>
                                     </form>
 
 
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4" >
+                <div class="col-md-4">
                     <h3>Liste des evenement</h3>
                 </div>
+
             </div>
-             <!-- condition dans le cas où aucune liste n'est importée -->
-             <div *ngIf="totalEventLength==0" class="auccunEv">
-                <h4>Accun événement en cours</h4> 
+            <!-- condition dans le cas où aucune liste n'est importée -->
+            <div *ngIf="totalEventLength==0" class="auccunEv">
+                <h4>Accun événement en cours</h4>
             </div>
             <table class="table table-striped text-center">
                 <thead>
                     <tr>
-                    <th scope="col" [width]="10">N°</th>
-                    <th scope="col">Logo</th>
-                    <th scope="col" class="hideColonne hideColonneOder">Nom</th>
-                    <th scope="col">Date début</th>
-                    <th scope="col">Date fin</th>
-                    <th scope="col">Nombre votant</th>
-                    <th scope="col" class="hideColonne hideColonneOder">Barème</th>
-                    <th scope="col">coefficient Votants</th>
-                    <th scope="col">coefficient Jury</th>
-                    <!-- <th scope="col">Resultat</th> -->
-                    <th scope="col" class="hideColonne hideColonneOder">Projet</th>
-                    <th scope="col">Critère</th>
-                    <th scope="col">Actions</th>
+                        <th scope="col" [width]="10">N°</th>
+                        <th scope="col">Logo</th>
+                        <th scope="col" class="hideColonne hideColonneOder">Nom</th>
+                        <th scope="col">Date début</th>
+                        <th scope="col">Date fin</th>
+                        <th scope="col">Nombre votant</th>
+                        <th scope="col" class="hideColonne hideColonneOder">Barème</th>
+                        <th scope="col">coefficient Votants</th>
+                        <th scope="col">coefficient Jury</th>
+                        <!-- <th scope="col">Resultat</th> -->
+                        <th scope="col" class="hideColonne hideColonneOder">Projet</th>
+                        <th scope="col">Critère</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr  *ngFor="let evenement of mesevents  | paginate: { itemsPerPage: 5, currentPage: p }">
+                    <tr *ngFor="let evenement of mesEvents  | paginate: { itemsPerPage: 5, currentPage: p }">
 
                         <td>{{evenement.id}}</td>
                         <td><img src="{{evenement.images}}" alt="" width="50px" height="30px"> </td>
-                        <td class="hideColonne hideColonneOder" > {{evenement.libelle}} </td>
-                        <td>{{evenement.dateDebut | date: "dd MMMM yyyy"}}</td>
-                        <td>{{evenement.dateFin | date: "dd MMMM yyyy"}}</td> 
+                        <td class="hideColonne hideColonneOder"> {{evenement.libelle}} </td>
+                        <td>{{evenement.dateDebut | date: "dd MMMM yyyy hh:mm"}}</td>
+                        <td>{{evenement.dateFin | date: "dd MMMM yyyy hh:mm"}}</td>
                         <td> {{evenement.nbreVotant}} </td>
                         <td class="hideColonne hideColonneOder"> {{evenement.bareme}}</td>
                         <td>{{evenement.coefficientUser}} %</td>
                         <td> {{evenement.coefficientJury}} %</td>
-
-                        <!-- <td> 
-                            <a (click)="goAllResultatsByIdEvents(evenement.id)">
-                                <button class="adpers">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </a>
-                        </td>
-                     -->
-                        <td class="hideColonne hideColonneOder" >
+                        <td class="hideColonne hideColonneOder">
                             <a (click)="goAllProjetByIdEvents(evenement.id)">
                                 <button class="adpers">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </a>
-                        </td> 
+                        </td>
 
                         <td>
                             <a (click)="goAllCritereByIdEvents(evenement.id)">
@@ -167,28 +183,222 @@
                         <td>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button type="button" class="adperM" data-bs-toggle="modal" data-bs-target="#modifier">
-                                        <svg id="icons" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                        </svg> 
-                                    </button>
-                                </div> 
-                                <div class="col-sm-6" >
-                                    <button type="button" class="adperS" data-bs-toggle="modal" data-bs-target="#supprimer" (click)="openModal(evenement.libelle, evenement.id)" >
-                                        <svg id="icons" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                    <div class="col-md-4">
+
+                                        <button type="button" class="adperM" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModalM" (click)="getEventById(evenement.id)">
+                                            <svg id="icons" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                            </svg>
+                                        </button>
+
+
+                                        <div class="modal fade" id="exampleModalM" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier
+                                                            evenement</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body form-floating">
+
+
+                                                        <!-- <form (ngSubmit)= action="">
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <label for="floatingInput">Nom event</label>
+                                                                    <input name="libelleevent" class="form-control"
+                                                                        type="text" placeholder="Libelle"
+                                                                        [(ngModel)]="ObjetsEvents.libelle"
+                                                                        name="libelle">&nbsp;&nbsp;
+                                                                    <label for="floatingInput">Date debut</label>
+                                                                    <input name="datedebutevent" class="form-control"
+                                                                        type="text" placeholder="Date debut"
+                                                                        [(ngModel)]="ObjetsEvents.dateDebut"
+                                                                        name="dateDebut">&nbsp;&nbsp;
+                                                                </div>
+
+                                                                <div class="col-6">
+                                                                    <label for="floatingInput">Image events</label>
+                                                                    <input (change)="fileChang($event)"
+                                                                        class="form-control" name="file" type="file"
+                                                                        placeholder="images"
+                                                                        [(ngModel)]="ObjetsEvents.file"
+                                                                        name="file">&nbsp;&nbsp;
+                                                                    <label for="floatingInput">Date fin</label>
+                                                                    <input name="datefinevent" class="form-control"
+                                                                        type="text" placeholder="Date fin"
+                                                                        [(ngModel)]="ObjetsEvents.dateFin"
+                                                                        name="dateFin">&nbsp;&nbsp;
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <label for="floatingInput">Barème</label>
+                                                                    <input name="baremeevent" class="form-control"
+                                                                        type="number" min="2" placeholder="Barème"
+                                                                        [(ngModel)]="ObjetsEvents.bareme"
+                                                                        name="bareme">&nbsp;&nbsp;
+                                                                    <label for="floatingInput">Coéff jury</label>
+                                                                    <input name="coefficientjuryevent"
+                                                                        class="form-control" min="0" max="100"
+                                                                        type="number" placeholder="coefficient jury"
+                                                                        [(ngModel)]="ObjetsEvents.coefficientJury"
+                                                                        name="coefficientJury">&nbsp;&nbsp;
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <label for="floatingInput">Nbre votant</label>
+                                                                    <input name="nbreVotantevent" class="form-control"
+                                                                        type="number" min="0"
+                                                                        placeholder="Nombre votant"
+                                                                        [(ngModel)]="ObjetsEvents.nbreVotant"
+                                                                        name="nbreVotant">&nbsp;&nbsp;
+                                                                    <label for="floatingInput">Coéff votant</label>
+                                                                    <input name="coefficientuserevent"
+                                                                        class="form-control" min="0" max="100"
+                                                                        type="number" placeholder="coefficient votant"
+                                                                        [(ngModel)]="ObjetsEvents.coefficientUser"
+                                                                        name="coefficientUser">&nbsp;&nbsp;
+
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <label for="floatingInput">Accès votant</label>
+                                                                    <select class="form-select"
+                                                                        aria-label="Default select example" selected
+                                                                        [(ngModel)]="mesTypesAuth.libelle"
+                                                                        name="libelleauth">&nbsp;&nbsp;
+                                                                        <option>Choisir un type d'authenfication
+                                                                        </option>
+                                                                        <option *ngFor="let auth of mesTypesAuth">
+                                                                            {{auth.libelle}}</option>
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <label for="floatingInput">Pays event</label>
+                                                                    <select class="form-select"
+                                                                        aria-label="Default select example" selected
+                                                                        [(ngModel)]="mespays.nom" name="nompays">
+                                                                        <option>Choisir un pays</option>
+                                                                        <option *ngFor="let pays of mespays">
+                                                                            {{pays.nom}}</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+
+
+                                                            <div class="modal-footer">
+                                                                <button type="reset" class="annuler">Annuler</button>
+                                                                <button type="submit" class="save">Enregistrer</button>
+                                                            </div>
+                                                        </form> -->
+
+
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="button" class="adperS" data-bs-toggle="modal"
+                                        data-bs-target="#supprimer"
+                                        (click)="openModal(evenement.libelle, evenement.id)">
+                                        <svg id="icons" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
                                         </svg>
                                     </button>
                                 </div>
-                            </div>  
+                            </div>
                         </td>
                     </tr>
                 </tbody>
-            
+
             </table>
-        <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </div>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
     </div>
 </div>
 
+
+
+<!--   
+<form (ngSubmit)="modifier(event.id)"  action="">
+    <div class="row">
+        <div class="col-6">
+            <label for="floatingInput">Nom event  </label>
+            <input  class="form-control" type="text" placeholder="Libelle" [value]="event.libelle" [(ngModel)]="event.libelle" name="libelle">
+            
+            <label for="floatingInput">Date debut</label> 
+           <input name="datedebutevent" class="form-control" type="text" placeholder="Date debut"  [value]="event.dateDebut" [(ngModel)]="event.dateDebut" name="dateDebut" >&nbsp;&nbsp;
+        </div>
+      
+        <div class="col-6">
+            <label for="floatingInput">Image events</label>
+            <input (change)="fileChang($event)"  class="form-control" name="file" type="file" placeholder="images" [value]="event.file" [(ngModel)]="event.file"name="file"> &nbsp;&nbsp;
+            <label for="floatingInput">Date fin</label>
+            <input name="datefinevent" class="form-control" type="text" placeholder="Date fin" [value]="event.datefin" [(ngModel)]="event.dateFin" name="dateFin">&nbsp;&nbsp;
+        </div>
+      
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label for="floatingInput">Barème</label>
+            <input name="baremeevent" class="form-control" type="number" min="2" placeholder="Barème" [value]="event.bareme" [(ngModel)]="event.bareme" name="bareme">&nbsp;&nbsp;
+            <label for="floatingInput">Coéff jury</label>
+            <input name="coefficientjuryevent" class="form-control" min="0" max="100" type="number" placeholder="coefficient jury" [value]="event.coefficientJury" [(ngModel)]="event.coefficientJury" name="coefficientJury">&nbsp;&nbsp;
+        </div>
+
+        <div class="col-6">
+            <label for="floatingInput">Nbre votant</label>
+            <input name="nbreVotantevent" class="form-control" type="number" min="0" placeholder="Nombre votant" [value]="event.nbreVotant" [(ngModel)]="event.nbreVotant" name="nbreVotant">&nbsp;&nbsp;
+            <label for="floatingInput">Coéff votant</label>
+            <input name="coefficientuserevent" class="form-control" min="0" max="100" type="number" placeholder="coefficient votant" [value]="event.coefficientUser" [(ngModel)]="event.coefficientUser" name="coefficientUser" >&nbsp;&nbsp;    
+        </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+        
+        <label for="floatingInput">Accès votant</label>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="libelleauth" name="libelleauth" >&nbsp;&nbsp;
+            <option  >Choisir un type d'authenfication</option>
+            <option *ngFor="let auth of mesTypesAuth" value="{{event.idauth}}" >{{auth.libelle}}</option>
+        </select>
+    </div>
+    <div class="col-6">
+        <label for="floatingInput">Pays event</label>
+        <select class="form-select" aria-label="Default select example"  [(ngModel)]="nompays" name="nompays" >
+            <option>Choisir un pays</option>
+            <option *ngFor="let pays of mespays" value="{{event.id_pays}}">{{pays.nom}}</option>
+            
+        </select>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="save" >Enregistrer</button>
+
+    <button type="reset"  class="annuler">Annuler</button>
+    
+ </div>
+</form> -->

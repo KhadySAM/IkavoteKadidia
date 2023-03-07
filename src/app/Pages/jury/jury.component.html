@@ -1,4 +1,4 @@
-<div class="searchBar">
+<!-- <div class="searchBar">
     <div class="InputSearch">
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill=" #1746A2" class="bi bi-search"
             viewBox="0 0 16 16">
@@ -7,7 +7,7 @@
         </svg>
         <input type="text" name="motCle" id="motCle" placeholder="Recherche jury">
     </div>
-</div>
+</div> -->
 <div class="container">
     <div class="row" >
         <div class="right" >
@@ -222,9 +222,10 @@
                 <thead >
                     <tr>
                     <th scope="col">N°</th>
+                    <th scope="col">Pays</th>
                     <th scope="col">NOM</th>
                     <th scope="col" class="hideColonne hideColonneOder">Mail</th>
-                    <th scope="col">Action</th>
+                    <!-- <th scope="col">Action</th> -->
                    
             
                     </tr>
@@ -232,10 +233,11 @@
                 <tbody >
                     <tr *ngFor="let utilisteurs of mesjury | paginate: { itemsPerPage: 5, currentPage: p }" >
                     <td> {{utilisteurs.id}} </td>
+                    <td> {{utilisteurs.pays.nom}} </td>
                     <td> {{utilisteurs.username}}</td>
                     <td class="hideColonne hideColonneOder" > {{utilisteurs.email}} </td>
                     <!-- <td> {{utilisteurs.pays}}</td>  -->
-                    <td> 
+                    <!-- <td> 
                         <div class="row">
                             <div class="col-md-6 test">
                                 <button type="button" class="adperM" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -255,7 +257,7 @@
                             </div>
                         </div>
                         
-                    </td>
+                    </td> -->
                 </tr>
             </tbody>
             <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->

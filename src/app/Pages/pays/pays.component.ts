@@ -80,14 +80,14 @@ CreerPays(){
 popAddPays(){
 
   // Vérification que tous les champs sont remplis
-  if (this.ObjetsPays.nom === '' || this.ObjetsPays.initiale === null || this.file === null) {
+  if (this.ObjetsPays.nom === '' || this.ObjetsPays.initiale === '' || this.file === null) {
     Swal.fire({
       icon: 'error',
       title: 'Erreur de saisie',
       text: 'Veuillez remplir tous les champs du formulaire',
       confirmButtonText: 'OK'
     });
-    return;
+   // return;
   }
 
   // Vérification si le pays existe déjà

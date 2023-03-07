@@ -1,5 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, OnInit , Inject,  PLATFORM_ID } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { ResultatModel } from 'src/app/Models/resultat-model';
 import { AuthService } from 'src/app/Services/_services/auth.service'; 
 import { StorageService } from 'src/app/Services/_services/storage.service'; 
@@ -38,6 +39,7 @@ export class DashboardComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: object,
     private storageService: StorageService,
     private authService:AuthService,
+    private route : Router
     ) {}
 
   ngOnInit(): void {
@@ -60,8 +62,7 @@ export class DashboardComponent implements OnInit {
       next: res => {
         console.log(res);
         this.storageService.clean();
-
-        window.location.reload();
+        this.route.navigate(['/login'])
       },
       error: err => {
         console.log(err);

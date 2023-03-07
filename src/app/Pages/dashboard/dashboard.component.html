@@ -17,6 +17,15 @@
                 <div class="menu-bar" >
                     <div class="menu" style="margin-top: 50px;" >
                         <li class="nav-link" *ngIf="showSuperAdmin">
+                            <a
+                             routerLinkActive="active"
+                             routerLink="/dashboard/pays">
+                             <i class="fas fa-globe monclr"></i>
+                            <span class="text nav-text" style="margin-left: 20px;">Pays</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-link" *ngIf="showSuperAdmin">
                             <a 
                             routerLinkActive="active"
                             routerLink="/dashboard/personnels" 
@@ -33,14 +42,7 @@
                             <span class="text nav-text" style="margin-left: 20px; ">Jury</span>
                             </a>
                         </li>
-                        <li class="nav-link" *ngIf="showSuperAdmin">
-                            <a
-                             routerLinkActive="active"
-                             routerLink="/dashboard/pays">
-                             <i class="fas fa-globe monclr"></i>
-                            <span class="text nav-text" style="margin-left: 20px;">Pays</span>
-                            </a>
-                        </li>
+                        
                         
                         <li class="nav-link" *ngIf="showSuperAdmin">
                             <a  
